@@ -49,6 +49,42 @@ class Section(NumberedModel):
         verbose_name = 'sectie'
         ordering = ['position']
 
+class WorkSession(models.Model):
+    title = models.CharField('titel', max_length=255)
+    documentation = RichTextField('documentatie', blank=True)
+    event = models.ForeignKey('Event', verbose_name='evenement', blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Werksessie'
+
+class News(models.Model):
+    date = models.DateField('datum')
+    contents = RichTextField('inhoud', blank=True)
+    link = models.URLField('bron', help_text='Plak hier een optionele hyperlink naar het originele bericht', blank=True)
+
+    def __str__(self):
+        return 'Nieuwsbericht van {}'.format(self.date)
+
+    class Meta:
+        verbose_name = 'Nieuwsbericht'
+        verbose_name_plural = 'Nieuwsberichten'
+
+class Event(models.Model):
+    date = models.DateField('datum')
+    title = models.CharField('titel', max_length=255)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Evenement'
+        verbose_name_plural = 'Evenementen'
+
+
+
 class Config(models.Model):
     TYPES = [
 

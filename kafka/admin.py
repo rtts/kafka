@@ -6,6 +6,18 @@ admin.site.site_title = 'Camping Kafka Beheer'
 admin.site.site_header = 'Camping Kafka Beheer'
 admin.site.index_title = 'Overzicht'
 
+@admin.register(WorkSession)
+class WorkSessionAdmin(admin.ModelAdmin):
+    list_filter = ['event']
+
+@admin.register(News)
+class NewsAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(Event)
+class EventAdmin(admin.ModelAdmin):
+    pass
+
 class InlineSectionAdmin(admin.StackedInline):
     model = Section
     extra = 0
