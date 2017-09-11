@@ -51,12 +51,12 @@ class Section(NumberedModel):
 
 class Config(models.Model):
     TYPES = [
-#        (1, 'Footer tekst'),
+
     ]
 
     parameter = models.PositiveIntegerField(choices=TYPES)
     content = models.TextField('inhoud')
 
     class Meta:
-        verbose_name = 'Parameter'
+        verbose_name = 'Configuratieparameter'
         ordering = ['parameter']
