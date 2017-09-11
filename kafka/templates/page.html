@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block main %}
+  {% for section in sections %}
+    <section class="{{section.type}}">
+      <h1>{{section.title}}</h1>
+      {{section.contents|safe}}
+    </section>
+  {% endfor %}
+{% endblock %}

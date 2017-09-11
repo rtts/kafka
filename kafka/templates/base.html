@@ -1,0 +1,45 @@
+{% load static %}
+{% load sass_tags %}
+
+<!DOCTYPE html>
+<html lang="NL">
+  <head>
+    <title>{% block title %}Camping Kafka{% endblock %}</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% sass_src 'main.scss' %}"/>
+    {% block extrahead %}{% endblock %}
+  </head>
+  <body>
+
+    <header>
+      {% block header %}
+        <img src="{% static 'logo.png' %}" alt="Camping Kafka">
+      {% endblock %}
+    </header>
+
+    <nav>
+      {% block nav %}
+        <ul>
+          {% for p in pages %}
+            <li><a href="{% url 'page' p.slug %}">{{p.title}}</a></li>
+          {% endfor %}
+        </ul>
+        {% endblock %}
+    </nav>
+
+    <main>
+      {% block main %}
+      {% endblock %}
+    </main>
+
+    <footer>
+      {% block footer %}
+        {{footer|safe}}
+      {% endblock %}
+    </footer>
+
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    {% block extrabody %}{% endblock %}
+  </body>
+</html>

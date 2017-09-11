@@ -1,0 +1,44 @@
+$small: 500px;
+
+body {
+  background: #ccc;
+  font-family: Arial, sans-serif;
+  margin: 2em;
+  font-size: 1.25em;
+  line-height: 1.25;
+
+  @media(max-width: $small) {
+    margin: 10px;
+  }
+}
+
+blockquote {
+  font-style: italic;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  img {
+    max-width: 100%;
+  }
+}
+
+main {
+  columns: 2;
+
+  @media(max-width: $small) {
+    columns: 1;
+  }
+}
+
+section.program {
+  text-align: center;
+
+  h1 {
+    text-transform: uppercase;
+    font-weight: normal;
+    font-style: italic;
+  }
+}
