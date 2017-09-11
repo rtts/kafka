@@ -15,7 +15,7 @@ class PageAdmin(admin.ModelAdmin):
     save_on_top = True
     inlines = [InlineSectionAdmin]
 
-@admin.register(Config)
+#@admin.register(Config)
 class ConfigAdmin(admin.ModelAdmin):
     list_display = ['parameter', 'content']
     exclude = ['parameter']
