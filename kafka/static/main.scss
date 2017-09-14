@@ -1,15 +1,27 @@
-$small: 500px;
+$small: 600px;
 
 body {
   background: #ccc;
   font-family: Arial, sans-serif;
   margin: 2em;
-  font-size: 1.25em;
-  line-height: 1.25;
+  line-height: 1.35;
 
   @media(max-width: $small) {
     margin: 10px;
   }
+}
+
+h1 {
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  border: none;
 }
 
 blockquote {
@@ -26,19 +38,29 @@ header {
 }
 
 main {
-  columns: 2;
+  display: flex;
+  margin: -2em;
+  margin-bottom: 0;
+  overflow: hidden;
+
+  > section {
+    margin: 2em;
+    flex: 1 1 0;
+  }
 
   @media(max-width: $small) {
-    columns: 1;
+    display: block;
   }
 }
 
-section.program {
-  text-align: center;
-
-  h1 {
+section.session {
+  h2 {
     text-transform: uppercase;
     font-weight: normal;
     font-style: italic;
   }
+}
+
+footer {
+  color: #888;
 }

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block main %}
+  <section class="left">
+    {{content|safe}}
+  </section>
+
+  <section class="right">
+    <h1>Programma {{event.title}}</h1>
+
+    {% for session in event.sessions.all %}
+      <section class="session">
+        <h2>{{session.title}}</h2>
+        <time>
+          {{session.date|default:''}}
+          {% if session.begin_time and session.end_time %}
+            <br>{{session.begin_time}} - {{session.end_time}}
+          {% endif %}
+        </time>
+        {{session.description|safe}}
+
+        <a class="button" href="{% url 'session' session.slug %}">Bekijk documentatie</a>
+      </section>
+    {% endfor %}
+  </section>
+{% endblock %}

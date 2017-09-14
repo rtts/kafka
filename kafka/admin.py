@@ -8,6 +8,7 @@ admin.site.index_title = 'Overzicht'
 
 @admin.register(WorkSession)
 class WorkSessionAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("title",)}
     list_filter = ['event']
 
 @admin.register(News)
@@ -18,9 +19,27 @@ class NewsAdmin(admin.ModelAdmin):
 class EventAdmin(admin.ModelAdmin):
     pass
 
+@admin.register(Webtext)
+class WebtextAdmin(admin.ModelAdmin):
+    exclude = ['parameter']
+    def has_add_permission(self, *args, **kwargs):
+        return False
+
+    def has_delete_permission(self, *args, **kwargs):
+        return False
+
 class InlineSectionAdmin(admin.StackedInline):
     model = Section
     extra = 0
+
+class InlineDocumentationImageAdmin(admin.StackedInline):
+    model = DocumentationImage
+    extra = 0
+
+@admin.register(Documentation)
+class DocumentationAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("title",)}
+    inlines = [InlineDocumentationImageAdmin]
 
 @admin.register(Page)
 class PageAdmin(admin.ModelAdmin):

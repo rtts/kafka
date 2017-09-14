@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block main %}
+  <section>
+    {% for doc in session.documentations.all %}
+      <h1>{{doc.title}}</h1>
+      {{doc.content|safe}}
+    {% endfor %}
+  </section>
+  <section></section>
+{% endblock %}
