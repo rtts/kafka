@@ -28,10 +28,6 @@ class WebtextAdmin(admin.ModelAdmin):
     def has_delete_permission(self, *args, **kwargs):
         return False
 
-class InlineSectionAdmin(admin.StackedInline):
-    model = Section
-    extra = 0
-
 class InlineDocumentationImageAdmin(admin.StackedInline):
     model = DocumentationImage
     extra = 0
@@ -40,11 +36,6 @@ class InlineDocumentationImageAdmin(admin.StackedInline):
 class DocumentationAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     inlines = [InlineDocumentationImageAdmin]
-
-@admin.register(Page)
-class PageAdmin(admin.ModelAdmin):
-    save_on_top = True
-    inlines = [InlineSectionAdmin]
 
 #@admin.register(Config)
 class ConfigAdmin(admin.ModelAdmin):
