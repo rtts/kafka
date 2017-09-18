@@ -5,6 +5,7 @@ from embed_video.fields import EmbedVideoField
 from numberedmodel.models import NumberedModel
 
 class Emoji(models.Model):
+    visible = models.BooleanField('zichtbaar op de homepage', default=True)
     name = models.CharField('naam', max_length=255)
     image = models.ImageField('afbeelding')
 
