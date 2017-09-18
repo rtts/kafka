@@ -4,6 +4,16 @@ from ckeditor.fields import RichTextField
 from embed_video.fields import EmbedVideoField
 from numberedmodel.models import NumberedModel
 
+class Emoji(models.Model):
+    name = models.CharField('naam', max_length=255)
+    image = models.ImageField('afbeelding')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = 'Emoji'
+
 class Webtext(models.Model):
     TYPES = [
         (1, 'Homepage tekst'),
@@ -58,7 +68,7 @@ class Documentation(models.Model):
 
 class DocumentationImage(models.Model):
     caption = models.CharField('bijschrift', max_length=255)
-    image = models.ImageField()
+    image = models.ImageField('afbeelding')
     doc = models.ForeignKey('Documentation')
 
     def __str__(self):

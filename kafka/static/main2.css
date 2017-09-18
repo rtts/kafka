@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Entrails BB';
+  src: url("EntrailsBB.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal; }
+
 body {
   background: #ccc;
   font-family: Arial, sans-serif;
@@ -8,11 +14,21 @@ body {
       margin: 10px; } }
 
 h1 {
-  letter-spacing: 1px;
-  text-align: center; }
+  letter-spacing: 2px;
+  font-size: 1.5em;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-style: italic; }
+
+h2 {
+  font-size: 1em; }
 
 a {
   color: inherit; }
+
+time {
+  font-style: italic; }
 
 img {
   border: none; }
@@ -23,9 +39,18 @@ blockquote {
   padding: 0; }
 
 header {
-  text-align: center; }
-  header img {
-    max-width: 100%; }
+  padding: 20px 0;
+  text-align: center;
+  font-family: "Entrails BB";
+  font-size: 10em;
+  letter-spacing: 5px;
+  transform: scaleX(0.9);
+  line-height: 1; }
+  header a {
+    text-decoration: none; }
+  @media (max-width: 600px) {
+    header {
+      font-size: 25vw; } }
 
 main {
   display: flex;
@@ -37,14 +62,108 @@ main {
     flex: 1 1 0; }
   @media (max-width: 600px) {
     main {
-      display: block; } }
-
-section.session h2 {
-  text-transform: uppercase;
-  font-weight: normal;
-  font-style: italic; }
+      display: block;
+      margin: 0; }
+      main section {
+        margin: 0; } }
 
 footer {
   color: #888; }
+
+div.horizontal, div.vertical {
+  position: absolute;
+  top: 0;
+  left: 0; }
+  div.horizontal img, div.vertical img {
+    width: 150px; }
+    @media (max-width: 600px) {
+      div.horizontal img, div.vertical img {
+        transform: scale(0.75); } }
+
+div.horizontal {
+  animation: topbottom linear infinite alternate; }
+
+div.vertical {
+  animation: leftright linear infinite alternate; }
+
+div.v1 {
+  animation-delay: -18629ms;
+  animation-duration: 11136ms; }
+
+div.v2 {
+  animation-delay: -18223ms;
+  animation-duration: 14610ms; }
+
+div.v3 {
+  animation-delay: -16403ms;
+  animation-duration: 10978ms; }
+
+div.v4 {
+  animation-delay: -11102ms;
+  animation-duration: 16173ms; }
+
+div.v5 {
+  animation-delay: -14241ms;
+  animation-duration: 18498ms; }
+
+div.v6 {
+  animation-delay: -14337ms;
+  animation-duration: 12621ms; }
+
+div.v7 {
+  animation-delay: -13400ms;
+  animation-duration: 14939ms; }
+
+div.v8 {
+  animation-delay: -11529ms;
+  animation-duration: 15995ms; }
+
+div.v9 {
+  animation-delay: -14199ms;
+  animation-duration: 16088ms; }
+
+div.h1 {
+  animation-delay: -12900ms;
+  animation-duration: 11501ms; }
+
+div.h2 {
+  animation-delay: -13588ms;
+  animation-duration: 19106ms; }
+
+div.h3 {
+  animation-delay: -10371ms;
+  animation-duration: 15664ms; }
+
+div.h4 {
+  animation-delay: -17474ms;
+  animation-duration: 10797ms; }
+
+div.h5 {
+  animation-delay: -18892ms;
+  animation-duration: 18483ms; }
+
+div.h6 {
+  animation-delay: -13369ms;
+  animation-duration: 19675ms; }
+
+div.h7 {
+  animation-delay: -10706ms;
+  animation-duration: 14425ms; }
+
+div.h8 {
+  animation-delay: -11456ms;
+  animation-duration: 13203ms; }
+
+div.h9 {
+  animation-delay: -10261ms;
+  animation-duration: 17330ms; }
+
+@keyframes topbottom {
+  to {
+    transform: translateY(calc(100vh - 200px)); } }
+
+@keyframes leftright {
+  to {
+    transform: translateX(calc(100vw - 150px)); } }
 
 /*# sourceMappingURL=../../../../../../static/main2.css.map */

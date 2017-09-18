@@ -14,7 +14,7 @@
         <time>
           {{session.date|default:''}}
           {% if session.begin_time and session.end_time %}
-            <br>{{session.begin_time}} - {{session.end_time}}
+            <br>{{session.begin_time}} – {{session.end_time}}
           {% endif %}
         </time>
         {{session.description|safe}}
@@ -23,4 +23,14 @@
       </section>
     {% endfor %}
   </section>
+{% endblock %}
+
+{% block extrabody %}
+  {% for e in emoji %}
+    <div class="horizontal h{{forloop.counter}}">
+      <div class="vertical v{{forloop.counter}}">
+        <img src="{{e.image.url}}" alt="{{e.image.name}}">
+      </div>
+    </div>
+  {% endfor %}
 {% endblock %}

@@ -19,6 +19,10 @@ class NewsAdmin(admin.ModelAdmin):
 class EventAdmin(admin.ModelAdmin):
     pass
 
+@admin.register(Emoji)
+class EmojiAdmin(admin.ModelAdmin):
+    pass
+
 @admin.register(Webtext)
 class WebtextAdmin(admin.ModelAdmin):
     exclude = ['parameter']

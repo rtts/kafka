@@ -9,6 +9,7 @@ class Homepage(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update({
+            'emoji': Emoji.objects.all(),
             'content': get_webtext(1),
             'footer': get_webtext(100),
             'event': Event.objects.first(),
