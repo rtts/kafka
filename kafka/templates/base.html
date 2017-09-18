@@ -7,7 +7,7 @@
     <title>{% block title %}Camping Kafka{% endblock %}</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{% sass_src 'main4.scss' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% sass_src 'main5.scss' %}"/>
     {% block extrahead %}{% endblock %}
   </head>
   <body>
@@ -19,13 +19,7 @@
     </header>
 
     <nav>
-      {% block nav %}
-        <ul>
-          {% for p in pages %}
-            <li><a href="{% url 'page' p.slug %}">{{p.title}}</a></li>
-          {% endfor %}
-        </ul>
-        {% endblock %}
+      <a href="https://www.facebook.com/CampingKafka/" target="_blank"><img width="64" height="64" src="{% static 'facebook.png' %}" alt="Facebook"></a>
     </nav>
 
     <main>

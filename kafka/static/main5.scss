@@ -68,6 +68,13 @@ header {
   }
 }
 
+nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0.5;
+}
+
 main {
   display: flex;
   margin: -3em;
@@ -99,7 +106,7 @@ section.session {
 }
 
 footer {
-  color: #888;
+  opacity: .5;
 }
 
 $width: 80px;
