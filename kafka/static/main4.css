@@ -7,7 +7,7 @@
 body {
   background: #ccc;
   font-family: Arial, sans-serif;
-  margin: 2em;
+  margin: 3em;
   line-height: 1.35; }
   @media (max-width: 600px) {
     body {
@@ -54,11 +54,11 @@ header {
 
 main {
   display: flex;
-  margin: -2em;
+  margin: -3em;
   margin-bottom: 0;
   overflow: hidden; }
   main > section {
-    margin: 2em;
+    margin: 3em;
     flex: 1 1 0; }
   @media (max-width: 600px) {
     main {
@@ -67,18 +67,25 @@ main {
       main section {
         margin: 0; } }
 
+section.left p {
+  font-size: 1.25em; }
+
+section.session {
+  margin-bottom: 2em; }
+
 footer {
   color: #888; }
 
 div.horizontal, div.vertical {
   position: fixed;
-  top: 0;
+  top: -5px;
   left: 0; }
   div.horizontal img, div.vertical img {
-    width: 150px; }
+    width: 80px;
+    transform: scale(1.5); }
     @media (max-width: 600px) {
       div.horizontal img, div.vertical img {
-        transform: scale(0.75); } }
+        transform: scale(1); } }
 
 div.horizontal {
   animation: topbottom linear infinite alternate; }
@@ -86,84 +93,88 @@ div.horizontal {
 div.vertical {
   animation: leftright linear infinite alternate; }
 
+@media (max-width: 600px) {
+  div.h4, div.h5, div.h6, div.h7, div.h8, div.h9 {
+    display: none; } }
+
 div.v1 {
-  animation-delay: -11001ms;
-  animation-duration: 10140ms; }
+  animation-delay: -24576ms;
+  animation-duration: 19727ms; }
 
 div.v2 {
-  animation-delay: -14376ms;
-  animation-duration: 15981ms; }
+  animation-delay: -23548ms;
+  animation-duration: 27633ms; }
 
 div.v3 {
-  animation-delay: -11134ms;
-  animation-duration: 16185ms; }
+  animation-delay: -27966ms;
+  animation-duration: 23810ms; }
 
 div.v4 {
-  animation-delay: -10970ms;
-  animation-duration: 13541ms; }
+  animation-delay: -24541ms;
+  animation-duration: 12308ms; }
 
 div.v5 {
-  animation-delay: -11528ms;
-  animation-duration: 19316ms; }
+  animation-delay: -21995ms;
+  animation-duration: 23849ms; }
 
 div.v6 {
-  animation-delay: -15014ms;
-  animation-duration: 12968ms; }
+  animation-delay: -11973ms;
+  animation-duration: 19801ms; }
 
 div.v7 {
-  animation-delay: -13046ms;
-  animation-duration: 13745ms; }
+  animation-delay: -11801ms;
+  animation-duration: 20819ms; }
 
 div.v8 {
-  animation-delay: -14551ms;
-  animation-duration: 12092ms; }
+  animation-delay: -11400ms;
+  animation-duration: 28756ms; }
 
 div.v9 {
-  animation-delay: -13480ms;
-  animation-duration: 14436ms; }
+  animation-delay: -27853ms;
+  animation-duration: 14676ms; }
 
 div.h1 {
-  animation-delay: -17753ms;
-  animation-duration: 18619ms; }
+  animation-delay: -29881ms;
+  animation-duration: 17105ms; }
 
 div.h2 {
-  animation-delay: -12663ms;
-  animation-duration: 14194ms; }
+  animation-delay: -24784ms;
+  animation-duration: 23870ms; }
 
 div.h3 {
-  animation-delay: -17281ms;
-  animation-duration: 15692ms; }
+  animation-delay: -16378ms;
+  animation-duration: 28913ms; }
 
 div.h4 {
-  animation-delay: -13502ms;
-  animation-duration: 11233ms; }
+  animation-delay: -23543ms;
+  animation-duration: 17116ms; }
 
 div.h5 {
-  animation-delay: -13387ms;
-  animation-duration: 16801ms; }
+  animation-delay: -28266ms;
+  animation-duration: 14567ms; }
 
 div.h6 {
-  animation-delay: -13149ms;
-  animation-duration: 10769ms; }
+  animation-delay: -15609ms;
+  animation-duration: 13837ms; }
 
 div.h7 {
-  animation-delay: -16270ms;
-  animation-duration: 10641ms; }
+  animation-delay: -22230ms;
+  animation-duration: 29429ms; }
 
 div.h8 {
-  animation-delay: -14925ms;
-  animation-duration: 14219ms; }
+  animation-delay: -25038ms;
+  animation-duration: 12534ms; }
 
 div.h9 {
-  animation-delay: -15957ms;
-  animation-duration: 17212ms; }
+  animation-delay: -23464ms;
+  animation-duration: 17975ms; }
 
 @keyframes topbottom {
   to {
-    transform: translateY(calc(100vh - 200px)); } }
+    transform: translateY(calc(100vh - 80px)); } }
 
 @keyframes leftright {
   to {
-    transform: translateX(calc(100vw - 150px)); } }
+    transform: translateX(calc(100vw - 80px)); } }
 
-/*# sourceMappingURL=../../../../../../static/main3.css.map */
+/*# sourceMappingURL=../../../../../../static/main4.css.map */

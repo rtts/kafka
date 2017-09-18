@@ -19,7 +19,9 @@
         </time>
         {{session.description|safe}}
 
-        <a class="button" href="{% url 'session' session.slug %}">Bekijk documentatie</a>
+        {% comment %}
+          <a class="button" href="{% url 'session' session.slug %}">Bekijk documentatie</a>
+        {% endcomment %}
       </section>
     {% endfor %}
   </section>

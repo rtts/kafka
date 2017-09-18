@@ -13,7 +13,7 @@ $small: 600px;
 body {
   background: #ccc;
   font-family: Arial, sans-serif;
-  margin: 2em;
+  margin: 3em;
   line-height: 1.35;
 
   @media(max-width: $small) {
@@ -70,12 +70,12 @@ header {
 
 main {
   display: flex;
-  margin: -2em;
+  margin: -3em;
   margin-bottom: 0;
   overflow: hidden;
 
   > section {
-    margin: 2em;
+    margin: 3em;
     flex: 1 1 0;
   }
 
@@ -88,22 +88,33 @@ main {
   }
 }
 
+section.left {
+  p {
+    font-size: 1.25em;
+  }
+}
+
+section.session {
+  margin-bottom: 2em;
+}
+
 footer {
   color: #888;
 }
 
-$width: 150px;
-$height: 200px;
+$width: 80px;
+$height: 80px;
 
 div.horizontal, div.vertical {
   position: fixed;
-  top: 0;
+  top: -5px;
   left: 0;
 
   img {
     width: $width;
+    transform: scale(1.5);
     @media(max-width: $small) {
-      transform: scale(0.75);
+      transform: scale(1);
     }
   }
 }
@@ -116,8 +127,14 @@ div.vertical {
   animation: leftright linear infinite alternate;
 }
 
-$max: 20000;
+$max: 30000;
 $min: 10000;
+
+div.h4, div.h5, div.h6, div.h7, div.h8, div.h9 {
+  @media(max-width: $small) {
+    display: none;
+  }
+}
 
 div.v1 {
   animation-delay: 0 - ($min + random($max - $min)) + ms;
