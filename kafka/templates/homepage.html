@@ -26,11 +26,13 @@
 {% endblock %}
 
 {% block extrabody %}
-  {% for e in emoji %}
-    <div class="horizontal h{{forloop.counter}}">
-      <div class="vertical v{{forloop.counter}}">
-        <img src="{{e.image.url}}" alt="{{e.image.name}}">
+  <div class="screensaver">
+    {% for e in emoji %}
+      <div class="horizontal h{{forloop.counter}}">
+        <div class="vertical v{{forloop.counter}}">
+          <img src="{{e.image.url}}" alt="{{e.image.name}}">
+        </div>
       </div>
-    </div>
-  {% endfor %}
+    {% endfor %}
+  </div>
 {% endblock %}
