@@ -8,7 +8,7 @@ import kafka, os
 SASS_PROCESSOR_ROOT = os.path.join(os.path.dirname(os.path.abspath(kafka.__file__)), 'static')
 
 SECRET_KEY = 'u+b$tbcq@)8242b*++rt$cetp3b301pqqc7mrh@8!ib(4-59)c'
-ALLOWED_HOSTS = ['localhost', 'kafka.created.today']
+ALLOWED_HOSTS = ['localhost', 'kafka.created.today', 'www.campingkafka.nl']
 ROOT_URLCONF = 'kafka.urls'
 WSGI_APPLICATION = 'project.wsgi.application'
 
