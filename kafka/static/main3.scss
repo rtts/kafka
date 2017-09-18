@@ -95,17 +95,8 @@ footer {
 $width: 150px;
 $height: 200px;
 
-div.screensaver {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-}
-
 div.horizontal, div.vertical {
-  //z-index: -1000;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 
