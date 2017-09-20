@@ -34,7 +34,16 @@ INSTALLED_APPS = [
     'sass_processor',
     'jquery',
     'ckeditor',
+    'easy_thumbnails',
 ]
+
+THUMBNAIL_ALIASES = {
+    '': {
+        'small': {'size': (400, 400), 'crop': False},
+        'medium': {'size': (600, 600), 'crop': False},
+        'large': {'size': (800, 800), 'crop': False},
+    },
+}
 
 CKEDITOR_CONFIGS = {
     'default': {
