@@ -1,0 +1,900 @@
+[
+{
+    "model": "game.character",
+    "pk": 1,
+    "fields": {
+        "title": "Alleenstaande ouder",
+        "first_screen": 1,
+        "emoji": 2
+    }
+},
+{
+    "model": "game.character",
+    "pk": 2,
+    "fields": {
+        "title": "Partner overleden",
+        "first_screen": 1,
+        "emoji": 2
+    }
+},
+{
+    "model": "game.character",
+    "pk": 3,
+    "fields": {
+        "title": "ZZP-er",
+        "first_screen": 1,
+        "emoji": 2
+    }
+},
+{
+    "model": "game.character",
+    "pk": 4,
+    "fields": {
+        "title": "Ontslagen",
+        "first_screen": 1,
+        "emoji": 2
+    }
+},
+{
+    "model": "game.character",
+    "pk": 5,
+    "fields": {
+        "title": "Komt uit jeugdzorg",
+        "first_screen": 4,
+        "emoji": 2
+    }
+},
+{
+    "model": "game.character",
+    "pk": 6,
+    "fields": {
+        "title": "Huurschuld",
+        "first_screen": 1,
+        "emoji": 2
+    }
+},
+{
+    "model": "game.character",
+    "pk": 7,
+    "fields": {
+        "title": "Echtscheiding",
+        "first_screen": 1,
+        "emoji": 2
+    }
+},
+{
+    "model": "game.character",
+    "pk": 8,
+    "fields": {
+        "title": "Uit de bak",
+        "first_screen": 4,
+        "emoji": 2
+    }
+},
+{
+    "model": "game.character",
+    "pk": 9,
+    "fields": {
+        "title": "Zorgmijder",
+        "first_screen": 1,
+        "emoji": 2
+    }
+},
+{
+    "model": "game.character",
+    "pk": 10,
+    "fields": {
+        "title": "Schulden",
+        "first_screen": 1,
+        "emoji": 2
+    }
+},
+{
+    "model": "game.character",
+    "pk": 11,
+    "fields": {
+        "title": "Met pensioen",
+        "first_screen": 1,
+        "emoji": 2
+    }
+},
+{
+    "model": "game.character",
+    "pk": 12,
+    "fields": {
+        "title": "Failliessement",
+        "first_screen": 1,
+        "emoji": 2
+    }
+},
+{
+    "model": "game.character",
+    "pk": 13,
+    "fields": {
+        "title": "Mantelzorger",
+        "first_screen": 1,
+        "emoji": 2
+    }
+},
+{
+    "model": "game.character",
+    "pk": 14,
+    "fields": {
+        "title": "Arbeidsongeschikt",
+        "first_screen": 1,
+        "emoji": 2
+    }
+},
+{
+    "model": "game.character",
+    "pk": 15,
+    "fields": {
+        "title": "Arbeidsmigrant",
+        "first_screen": 3,
+        "emoji": 2
+    }
+},
+{
+    "model": "game.screentype",
+    "pk": 1,
+    "fields": {
+        "type": 10,
+        "background_image": ""
+    }
+},
+{
+    "model": "game.screentype",
+    "pk": 2,
+    "fields": {
+        "type": 11,
+        "background_image": ""
+    }
+},
+{
+    "model": "game.screentype",
+    "pk": 3,
+    "fields": {
+        "type": 20,
+        "background_image": ""
+    }
+},
+{
+    "model": "game.screentype",
+    "pk": 4,
+    "fields": {
+        "type": 30,
+        "background_image": ""
+    }
+},
+{
+    "model": "game.screentype",
+    "pk": 5,
+    "fields": {
+        "type": 40,
+        "background_image": ""
+    }
+},
+{
+    "model": "game.screentype",
+    "pk": 6,
+    "fields": {
+        "type": 50,
+        "background_image": ""
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 1,
+    "fields": {
+        "title": "Google daklozenloket",
+        "type": 3
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 2,
+    "fields": {
+        "title": "Loket gesloten",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 3,
+    "fields": {
+        "title": "Belt dierbare",
+        "type": 6
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 4,
+    "fields": {
+        "title": "Keuze treinkaartje",
+        "type": 1
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 5,
+    "fields": {
+        "title": "Campingbeheerder",
+        "type": 4
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 6,
+    "fields": {
+        "title": "Boete zwartrijden",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 7,
+    "fields": {
+        "title": "Camping",
+        "type": 4
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 8,
+    "fields": {
+        "title": "Maandag",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 9,
+    "fields": {
+        "title": "Gesprek uitzendbureau",
+        "type": 6
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 10,
+    "fields": {
+        "title": "Camping",
+        "type": 4
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 11,
+    "fields": {
+        "title": "Liever wonen in natuur dan in de stad",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 12,
+    "fields": {
+        "title": "Keuze: ja/nee",
+        "type": 1
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 13,
+    "fields": {
+        "title": "Campingbeheerder",
+        "type": 4
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 14,
+    "fields": {
+        "title": "Loket",
+        "type": 4
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 15,
+    "fields": {
+        "title": "Gesprek loket",
+        "type": 6
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 17,
+    "fields": {
+        "title": "Willekeurige keuze",
+        "type": 2
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 18,
+    "fields": {
+        "title": "Woning bouw wacht- lijst, of ...",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 19,
+    "fields": {
+        "title": "Woningbouw zwarte lijst",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 20,
+    "fields": {
+        "title": "Had inschrijving maar verviel",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 21,
+    "fields": {
+        "title": "Willekeurige keuze",
+        "type": 2
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 22,
+    "fields": {
+        "title": "Familie / vrienden niet storen",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 23,
+    "fields": {
+        "title": "F / V geen toeslagen",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 24,
+    "fields": {
+        "title": "Familie / vrienden nee want..",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 25,
+    "fields": {
+        "title": "Willekeurige keuze",
+        "type": 2
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 26,
+    "fields": {
+        "title": "Dag / nacht opvang = vol",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 27,
+    "fields": {
+        "title": "Kinderen achterlaten bij jeugdzorg",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 28,
+    "fields": {
+        "title": "Dag / nacht opvang niet voor jou",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 29,
+    "fields": {
+        "title": "Doorverwij- zing naar camping",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 30,
+    "fields": {
+        "title": "Gesprek camping beheerder",
+        "type": 6
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 31,
+    "fields": {
+        "title": "Willekeurige keuze",
+        "type": 2
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 32,
+    "fields": {
+        "title": "Beheerder accepteert",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 33,
+    "fields": {
+        "title": "Beheerder accepteert tijdelijk",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 34,
+    "fields": {
+        "title": "Beheerder weigert",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 35,
+    "fields": {
+        "title": "Camping",
+        "type": 4
+    }
+},
+{
+    "model": "game.route",
+    "pk": 1,
+    "fields": {
+        "name": "",
+        "source": 1,
+        "target": 2,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 2,
+    "fields": {
+        "name": "",
+        "source": 3,
+        "target": 4,
+        "applies_to": [
+            5,
+            8
+        ]
+    }
+},
+{
+    "model": "game.route",
+    "pk": 3,
+    "fields": {
+        "name": "",
+        "source": 6,
+        "target": 5,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 4,
+    "fields": {
+        "name": "Ja",
+        "source": 4,
+        "target": 5,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 5,
+    "fields": {
+        "name": "Nee",
+        "source": 4,
+        "target": 6,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 6,
+    "fields": {
+        "name": "",
+        "source": 5,
+        "target": 7,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 7,
+    "fields": {
+        "name": "",
+        "source": 2,
+        "target": 3,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 10,
+    "fields": {
+        "name": "",
+        "source": 7,
+        "target": 8,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 11,
+    "fields": {
+        "name": "",
+        "source": 8,
+        "target": 9,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 12,
+    "fields": {
+        "name": "",
+        "source": 9,
+        "target": 10,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 13,
+    "fields": {
+        "name": "",
+        "source": 8,
+        "target": 11,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 14,
+    "fields": {
+        "name": "",
+        "source": 11,
+        "target": 12,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 15,
+    "fields": {
+        "name": "Ja",
+        "source": 12,
+        "target": 13,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 16,
+    "fields": {
+        "name": "Nee",
+        "source": 12,
+        "target": 14,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 17,
+    "fields": {
+        "name": "",
+        "source": 14,
+        "target": 15,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 19,
+    "fields": {
+        "name": "",
+        "source": 15,
+        "target": 17,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 20,
+    "fields": {
+        "name": "",
+        "source": 17,
+        "target": 18,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 21,
+    "fields": {
+        "name": "",
+        "source": 17,
+        "target": 19,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 22,
+    "fields": {
+        "name": "",
+        "source": 17,
+        "target": 20,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 23,
+    "fields": {
+        "name": "",
+        "source": 20,
+        "target": 21,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 24,
+    "fields": {
+        "name": "",
+        "source": 18,
+        "target": 21,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 25,
+    "fields": {
+        "name": "",
+        "source": 19,
+        "target": 21,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 26,
+    "fields": {
+        "name": "",
+        "source": 21,
+        "target": 22,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 27,
+    "fields": {
+        "name": "",
+        "source": 21,
+        "target": 23,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 28,
+    "fields": {
+        "name": "",
+        "source": 21,
+        "target": 24,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 29,
+    "fields": {
+        "name": "",
+        "source": 24,
+        "target": 25,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 30,
+    "fields": {
+        "name": "",
+        "source": 22,
+        "target": 25,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 31,
+    "fields": {
+        "name": "",
+        "source": 23,
+        "target": 25,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 32,
+    "fields": {
+        "name": "",
+        "source": 25,
+        "target": 26,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 33,
+    "fields": {
+        "name": "",
+        "source": 25,
+        "target": 27,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 34,
+    "fields": {
+        "name": "",
+        "source": 25,
+        "target": 28,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 35,
+    "fields": {
+        "name": "",
+        "source": 25,
+        "target": 29,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 36,
+    "fields": {
+        "name": "",
+        "source": 28,
+        "target": 13,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 37,
+    "fields": {
+        "name": "",
+        "source": 26,
+        "target": 13,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 38,
+    "fields": {
+        "name": "",
+        "source": 29,
+        "target": 13,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 39,
+    "fields": {
+        "name": "",
+        "source": 27,
+        "target": 13,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 40,
+    "fields": {
+        "name": "",
+        "source": 13,
+        "target": 30,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 41,
+    "fields": {
+        "name": "",
+        "source": 30,
+        "target": 31,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 42,
+    "fields": {
+        "name": "",
+        "source": 31,
+        "target": 32,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 43,
+    "fields": {
+        "name": "",
+        "source": 31,
+        "target": 33,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 44,
+    "fields": {
+        "name": "",
+        "source": 31,
+        "target": 34,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 45,
+    "fields": {
+        "name": "",
+        "source": 32,
+        "target": 35,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 47,
+    "fields": {
+        "name": "",
+        "source": 34,
+        "target": 30,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 48,
+    "fields": {
+        "name": "",
+        "source": 33,
+        "target": 35,
+        "applies_to": []
+    }
+}
+]

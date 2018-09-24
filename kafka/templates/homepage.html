@@ -32,7 +32,7 @@
   {% for e in emoji %}
     <div class="horizontal h{{forloop.counter}}">
       <div class="vertical v{{forloop.counter}}">
-        <img src="{{e.image|thumbnail_url:'small'}}" alt="{{e.image.name}}">
+        <img src="{{e.image|thumbnail_url:'small'}}" alt="{{e.image.name|default:'emoji'}}">
       </div>
     </div>
   {% endfor %}

@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from ckeditor.fields import RichTextField
 from embed_video.fields import EmbedVideoField
 from numberedmodel.models import NumberedModel
@@ -39,7 +39,7 @@ class WorkSession(NumberedModel):
     position = models.PositiveIntegerField('positie', blank=True)
     title = models.CharField('titel', max_length=255)
     slug = models.SlugField(help_text='Deze tekst wordt gebruik in de URL naar deze documentatie', null=True, unique=True)
-    event = models.ForeignKey('Event', verbose_name='evenement', related_name='sessions', blank=True, null=True)
+    event = models.ForeignKey('Event', verbose_name='evenement', related_name='sessions', blank=True, null=True, on_delete=models.CASCADE)
     date = models.DateField('datum', blank=True, null=True)
     begin_time = models.TimeField('begintijd', blank=True, null=True)
     end_time = models.TimeField('eindtijd', blank=True, null=True)
@@ -55,7 +55,7 @@ class WorkSession(NumberedModel):
 class Documentation(models.Model):
     title = models.CharField('titel', max_length=255)
     slug = models.SlugField(help_text='Deze tekst wordt gebruik in de URL naar deze documentatie', unique=True)
-    worksession = models.ForeignKey('WorkSession', related_name='documentations', verbose_name='werksessie', help_text='Kies hier een optionele werksessie waar deze documentatie bij hoort', blank=True, null=True)
+    worksession = models.ForeignKey('WorkSession', related_name='documentations', verbose_name='werksessie', help_text='Kies hier een optionele werksessie waar deze documentatie bij hoort', blank=True, null=True, on_delete=models.CASCADE)
     content = RichTextField('inhoud', blank=True)
     video = EmbedVideoField(help_text="Plak hier een YouTube of Vimeo link", blank=True)
 
@@ -70,7 +70,7 @@ class Documentation(models.Model):
 class DocumentationImage(models.Model):
     caption = models.CharField('bijschrift', max_length=255)
     image = models.ImageField('afbeelding')
-    doc = models.ForeignKey('Documentation')
+    doc = models.ForeignKey('Documentation', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.caption

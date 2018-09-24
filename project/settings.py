@@ -9,7 +9,7 @@ SASS_PROCESSOR_ROOT = os.path.join(os.path.dirname(os.path.abspath(kafka.__file_
 
 SECRET_KEY = 'u+b$tbcq@)8242b*++rt$cetp3b301pqqc7mrh@8!ib(4-59)c'
 ALLOWED_HOSTS = ['localhost', 'kafka.created.today', 'www.campingkafka.nl']
-ROOT_URLCONF = 'kafka.urls'
+ROOT_URLCONF = 'project.urls'
 WSGI_APPLICATION = 'project.wsgi.application'
 
 LANGUAGE_CODE = 'nl'
@@ -25,6 +25,7 @@ MEDIA_ROOT = '/srv/kafka/media'
 
 INSTALLED_APPS = [
     'kafka',
+    'game',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -72,7 +73,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-MIDDLEWARE += ['tidy.middleware.TidyMiddleware']
+#MIDDLEWARE += ['tidy.middleware.TidyMiddleware']
 
 TEMPLATES = [
     {

@@ -1,16 +1,13 @@
-Django==1.11.5
-django-ckeditor==5.3.0
-django-embed-video==1.1.2
-django-jquery==3.1.0
-django-js-asset==0.1.1
-django-sass-processor==0.5.4
-easy-thumbnails==2.4.2
-libsass==0.13.2
-olefile==0.44
-Pillow==4.2.1
-pkg-resources==0.0.0
-psycopg2==2.7.3.1
-pytz==2017.2
-six==1.10.0
+Django
+django-ckeditor
+django-embed-video
+django-jquery
+django-sass-processor
+easy-thumbnails
+libsass
+Pillow
+psycopg2 --no-binary psycopg2
+graphviz
+
 git+https://github.com/JaapJoris/django-numberedmodel.git
 git+https://github.com/JaapJoris/django-tidy.git
