@@ -8,7 +8,6 @@ from django.contrib.admin.views.decorators import staff_member_required
 from .models import *
 from .forms import *
 
-@staff_member_required
 def graph(request, edit=False):
     g = Digraph(format='svg')
     g.attr('node', shape='box')
