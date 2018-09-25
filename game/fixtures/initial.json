@@ -5,7 +5,8 @@
     "fields": {
         "title": "Alleenstaande ouder",
         "first_screen": 1,
-        "emoji": 2
+        "emoji": 2,
+        "color": "lightblue"
     }
 },
 {
@@ -14,7 +15,8 @@
     "fields": {
         "title": "Partner overleden",
         "first_screen": 1,
-        "emoji": 2
+        "emoji": 2,
+        "color": ""
     }
 },
 {
@@ -23,7 +25,8 @@
     "fields": {
         "title": "ZZP-er",
         "first_screen": 1,
-        "emoji": 2
+        "emoji": 2,
+        "color": "pink"
     }
 },
 {
@@ -32,7 +35,8 @@
     "fields": {
         "title": "Ontslagen",
         "first_screen": 1,
-        "emoji": 2
+        "emoji": 2,
+        "color": ""
     }
 },
 {
@@ -41,7 +45,8 @@
     "fields": {
         "title": "Komt uit jeugdzorg",
         "first_screen": 4,
-        "emoji": 2
+        "emoji": 2,
+        "color": "green"
     }
 },
 {
@@ -50,7 +55,8 @@
     "fields": {
         "title": "Huurschuld",
         "first_screen": 1,
-        "emoji": 2
+        "emoji": 2,
+        "color": "gray"
     }
 },
 {
@@ -59,7 +65,8 @@
     "fields": {
         "title": "Echtscheiding",
         "first_screen": 1,
-        "emoji": 2
+        "emoji": 2,
+        "color": ""
     }
 },
 {
@@ -68,7 +75,8 @@
     "fields": {
         "title": "Uit de bak",
         "first_screen": 4,
-        "emoji": 2
+        "emoji": 2,
+        "color": "aquamarine"
     }
 },
 {
@@ -77,7 +85,8 @@
     "fields": {
         "title": "Zorgmijder",
         "first_screen": 1,
-        "emoji": 2
+        "emoji": 2,
+        "color": ""
     }
 },
 {
@@ -86,7 +95,8 @@
     "fields": {
         "title": "Schulden",
         "first_screen": 1,
-        "emoji": 2
+        "emoji": 2,
+        "color": ""
     }
 },
 {
@@ -95,16 +105,18 @@
     "fields": {
         "title": "Met pensioen",
         "first_screen": 1,
-        "emoji": 2
+        "emoji": 2,
+        "color": ""
     }
 },
 {
     "model": "game.character",
     "pk": 12,
     "fields": {
-        "title": "Failliessement",
+        "title": "Faillissement",
         "first_screen": 1,
-        "emoji": 2
+        "emoji": 2,
+        "color": ""
     }
 },
 {
@@ -113,7 +125,8 @@
     "fields": {
         "title": "Mantelzorger",
         "first_screen": 1,
-        "emoji": 2
+        "emoji": 2,
+        "color": ""
     }
 },
 {
@@ -122,7 +135,8 @@
     "fields": {
         "title": "Arbeidsongeschikt",
         "first_screen": 1,
-        "emoji": 2
+        "emoji": 2,
+        "color": "yellow"
     }
 },
 {
@@ -131,7 +145,8 @@
     "fields": {
         "title": "Arbeidsmigrant",
         "first_screen": 3,
-        "emoji": 2
+        "emoji": 2,
+        "color": "blue"
     }
 },
 {
@@ -139,6 +154,7 @@
     "pk": 1,
     "fields": {
         "type": 10,
+        "color": "yellow",
         "background_image": ""
     }
 },
@@ -147,6 +163,7 @@
     "pk": 2,
     "fields": {
         "type": 11,
+        "color": "magenta",
         "background_image": ""
     }
 },
@@ -155,6 +172,7 @@
     "pk": 3,
     "fields": {
         "type": 20,
+        "color": "#41b23b",
         "background_image": ""
     }
 },
@@ -163,6 +181,7 @@
     "pk": 4,
     "fields": {
         "type": 30,
+        "color": "deepskyblue",
         "background_image": ""
     }
 },
@@ -171,6 +190,7 @@
     "pk": 5,
     "fields": {
         "type": 40,
+        "color": "red",
         "background_image": ""
     }
 },
@@ -179,6 +199,7 @@
     "pk": 6,
     "fields": {
         "type": 50,
+        "color": "darkorange",
         "background_image": ""
     }
 },
@@ -402,7 +423,7 @@
     "model": "game.screen",
     "pk": 29,
     "fields": {
-        "title": "Doorverwij- zing naar camping",
+        "title": "Doorverwijzing naar camping",
         "type": 5
     }
 },
@@ -455,6 +476,702 @@
     }
 },
 {
+    "model": "game.screen",
+    "pk": 37,
+    "fields": {
+        "title": "Uitschrijving BRP = 0 inkomen",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 38,
+    "fields": {
+        "title": "Geen baan zonder BRP",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 39,
+    "fields": {
+        "title": "Willekeurige keuze",
+        "type": 2
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 40,
+    "fields": {
+        "title": "Buur",
+        "type": 4
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 41,
+    "fields": {
+        "title": "Buur",
+        "type": 4
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 42,
+    "fields": {
+        "title": "Gesprek: zwartwerk / criminaliteit",
+        "type": 6
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 43,
+    "fields": {
+        "title": "Keuze: Ja / Nee",
+        "type": 1
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 44,
+    "fields": {
+        "title": "Criminele activiteiten op camping",
+        "type": 3
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 45,
+    "fields": {
+        "title": "Negatieve berichtgeving in de media",
+        "type": 3
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 48,
+    "fields": {
+        "title": "Gesprek: BRP en uitkering + evt. risico",
+        "type": 6
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 49,
+    "fields": {
+        "title": "Gesprek: vrijwilligerswerk",
+        "type": 6
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 51,
+    "fields": {
+        "title": "Keuze: ja/nee",
+        "type": 1
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 52,
+    "fields": {
+        "title": "Bedrijf houden = inschrijving BRP",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 53,
+    "fields": {
+        "title": "Loket Burgerzaken",
+        "type": 4
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 54,
+    "fields": {
+        "title": "Willekeurige keuze",
+        "type": 2
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 55,
+    "fields": {
+        "title": "Kiespijn! sociale voorzieningen",
+        "type": 3
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 56,
+    "fields": {
+        "title": "Rijbewijs verloopt",
+        "type": 3
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 57,
+    "fields": {
+        "title": "sociale voorzieningen nvt.. vb.",
+        "type": 3
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 58,
+    "fields": {
+        "title": "Gesprek Burgerzaken",
+        "type": 6
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 59,
+    "fields": {
+        "title": "Willekeurige keuze",
+        "type": 2
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 60,
+    "fields": {
+        "title": "Ingeschreven in BRP",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 61,
+    "fields": {
+        "title": "Inschrijving geweigerd BRP",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 62,
+    "fields": {
+        "title": "Aangehouden door politie: verkeersboete",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 63,
+    "fields": {
+        "title": "Keuze: betalen ja / nee",
+        "type": 1
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 64,
+    "fields": {
+        "title": "Willekeurige keuze",
+        "type": 2
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 65,
+    "fields": {
+        "title": "Dwangmiddel: gevolg stress VB",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 66,
+    "fields": {
+        "title": "Dwangmiddel: gevolg stress VB",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 67,
+    "fields": {
+        "title": "Dwangmiddel: gevolg stress VB",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 68,
+    "fields": {
+        "title": "Dwangmiddel: gevolg stress VB",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 69,
+    "fields": {
+        "title": "Handhavings actie",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 70,
+    "fields": {
+        "title": "Hulpverlening komt langs",
+        "type": 3
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 71,
+    "fields": {
+        "title": "Gesprek hulpverlening: woonruimte of financi\u00ebn?",
+        "type": 6
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 72,
+    "fields": {
+        "title": "Keuze focus: woonruimte / financi\u00ebn",
+        "type": 1
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 73,
+    "fields": {
+        "title": "Loket burgerzaken",
+        "type": 4
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 74,
+    "fields": {
+        "title": "Loket burgerzaken",
+        "type": 4
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 75,
+    "fields": {
+        "title": "Gesprek Burgerzaken staat in BRP",
+        "type": 6
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 76,
+    "fields": {
+        "title": "Gesprek Burgerzaken staat in BRP",
+        "type": 6
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 77,
+    "fields": {
+        "title": "Uitkering aanvragen",
+        "type": 3
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 78,
+    "fields": {
+        "title": "Uitkering aanvragen",
+        "type": 3
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 79,
+    "fields": {
+        "title": "Gsprk Hulpv: begunsterings termijn / alter- native wv.",
+        "type": 6
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 80,
+    "fields": {
+        "title": "Keuze: b. termijn / alternatieve woonvormen",
+        "type": 1
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 81,
+    "fields": {
+        "title": "begunsterings termijn aanvragen",
+        "type": 3
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 82,
+    "fields": {
+        "title": "Inspecteurs gesignaleerd op camping",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 83,
+    "fields": {
+        "title": "Gsprk hulpv: alt. woonvormen: relatie / tiny houses",
+        "type": 6
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 84,
+    "fields": {
+        "title": "Keuze: samenwonen / tiny houses",
+        "type": 1
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 85,
+    "fields": {
+        "title": "Tiny Houses: Bouwt eigen huisje: X bouw besluit",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 86,
+    "fields": {
+        "title": "Samenwonen: voordeur delen = samen schulden",
+        "type": null
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 87,
+    "fields": {
+        "title": "Keuze: Toch wonen / naar gemeente",
+        "type": 1
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 88,
+    "fields": {
+        "title": "Toch wonen",
+        "type": null
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 89,
+    "fields": {
+        "title": "Willekeurige keuze",
+        "type": 2
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 90,
+    "fields": {
+        "title": "Uitzondering op bouwbesluit",
+        "type": null
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 91,
+    "fields": {
+        "title": "Geen uitzondering op bouwbesluit",
+        "type": null
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 92,
+    "fields": {
+        "title": "Willekeurige keuze",
+        "type": 2
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 93,
+    "fields": {
+        "title": "Schuldsanering: wachtlijst",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 94,
+    "fields": {
+        "title": "Schuldsanering: duurt weken",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 95,
+    "fields": {
+        "title": "Deurwaarder",
+        "type": 4
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 96,
+    "fields": {
+        "title": "Gesprek deurwaarder: neemt auto",
+        "type": 6
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 97,
+    "fields": {
+        "title": "Buur",
+        "type": 4
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 98,
+    "fields": {
+        "title": "Willekeurige keuze",
+        "type": 2
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 99,
+    "fields": {
+        "title": "Je raakt arbeidsongeschikt + niet verzekerd",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 100,
+    "fields": {
+        "title": "Buur",
+        "type": 4
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 101,
+    "fields": {
+        "title": "Willekeurige keuze",
+        "type": 2
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 102,
+    "fields": {
+        "title": "Geen inkomen",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 103,
+    "fields": {
+        "title": "Lid van broodfonds stopt na 2 jaar",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 104,
+    "fields": {
+        "title": "Gesprek: BRP bij familie / vrienden",
+        "type": 6
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 105,
+    "fields": {
+        "title": "Keuze: Ja / Nee",
+        "type": 1
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 106,
+    "fields": {
+        "title": "Gedeeld huishouden, fraude = boete",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 107,
+    "fields": {
+        "title": "Gesprek buur: Lid van zwartwerk / broodfonds criminaliteit",
+        "type": 6
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 108,
+    "fields": {
+        "title": "Keuze: Nee / Ja",
+        "type": 1
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 109,
+    "fields": {
+        "title": "Ja?",
+        "type": null
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 110,
+    "fields": {
+        "title": "Weigering vast contract",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 111,
+    "fields": {
+        "title": "Keuze: blijf / ga weg",
+        "type": 1
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 112,
+    "fields": {
+        "title": "Huisvesting vervalt, bagage al op stoep",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 113,
+    "fields": {
+        "title": "Kom na 6 maanden terug. Huisvesting vervalt",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 114,
+    "fields": {
+        "title": "Buur",
+        "type": 4
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 115,
+    "fields": {
+        "title": "Gesprek: Baan bij bol.com",
+        "type": 6
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 116,
+    "fields": {
+        "title": "Camping",
+        "type": 4
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 117,
+    "fields": {
+        "title": "0-uren contract: schulden",
+        "type": null
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 121,
+    "fields": {
+        "title": "Gesprek hulpverlening: thuisland / woonruimte",
+        "type": 6
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 122,
+    "fields": {
+        "title": "Keuze: terug naar thuisland / vervangende woonruimte",
+        "type": 1
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 123,
+    "fields": {
+        "title": "Geen uitkering want u bezit stukje land",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 124,
+    "fields": {
+        "title": "Buur",
+        "type": 4
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 125,
+    "fields": {
+        "title": "Gesprek: salaris combineren",
+        "type": 6
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 126,
+    "fields": {
+        "title": "Woningbouw = digiD, kan je NL / ENG?",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 127,
+    "fields": {
+        "title": "Keuze: ja / nee",
+        "type": 1
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 128,
+    "fields": {
+        "title": "Uitzendbureau finds out = minder uren",
+        "type": 5
+    }
+},
+{
+    "model": "game.screen",
+    "pk": 129,
+    "fields": {
+        "title": "Willekeurige keuze",
+        "type": 2
+    }
+},
+{
     "model": "game.route",
     "pk": 1,
     "fields": {
@@ -462,19 +1179,6 @@
         "source": 1,
         "target": 2,
         "applies_to": []
-    }
-},
-{
-    "model": "game.route",
-    "pk": 2,
-    "fields": {
-        "name": "",
-        "source": 3,
-        "target": 4,
-        "applies_to": [
-            5,
-            8
-        ]
     }
 },
 {
@@ -544,7 +1248,9 @@
         "name": "",
         "source": 8,
         "target": 9,
-        "applies_to": []
+        "applies_to": [
+            15
+        ]
     }
 },
 {
@@ -634,7 +1340,9 @@
         "name": "",
         "source": 17,
         "target": 19,
-        "applies_to": []
+        "applies_to": [
+            6
+        ]
     }
 },
 {
@@ -754,7 +1462,9 @@
         "name": "",
         "source": 25,
         "target": 27,
-        "applies_to": []
+        "applies_to": [
+            1
+        ]
     }
 },
 {
@@ -894,6 +1604,1084 @@
         "name": "",
         "source": 33,
         "target": 35,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 49,
+    "fields": {
+        "name": "",
+        "source": 35,
+        "target": 37,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 50,
+    "fields": {
+        "name": "",
+        "source": 37,
+        "target": 38,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 51,
+    "fields": {
+        "name": "",
+        "source": 38,
+        "target": 39,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 52,
+    "fields": {
+        "name": "",
+        "source": 39,
+        "target": 40,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 53,
+    "fields": {
+        "name": "",
+        "source": 39,
+        "target": 41,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 54,
+    "fields": {
+        "name": "",
+        "source": 40,
+        "target": 42,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 55,
+    "fields": {
+        "name": "",
+        "source": 42,
+        "target": 43,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 56,
+    "fields": {
+        "name": "Ja",
+        "source": 43,
+        "target": 44,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 57,
+    "fields": {
+        "name": "Nee",
+        "source": 43,
+        "target": 45,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 61,
+    "fields": {
+        "name": "",
+        "source": 41,
+        "target": 48,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 62,
+    "fields": {
+        "name": "",
+        "source": 41,
+        "target": 49,
+        "applies_to": [
+            14
+        ]
+    }
+},
+{
+    "model": "game.route",
+    "pk": 65,
+    "fields": {
+        "name": "",
+        "source": 48,
+        "target": 51,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 66,
+    "fields": {
+        "name": "",
+        "source": 49,
+        "target": 51,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 67,
+    "fields": {
+        "name": "",
+        "source": 35,
+        "target": 52,
+        "applies_to": [
+            3
+        ]
+    }
+},
+{
+    "model": "game.route",
+    "pk": 68,
+    "fields": {
+        "name": "",
+        "source": 52,
+        "target": 51,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 69,
+    "fields": {
+        "name": "Ja",
+        "source": 51,
+        "target": 53,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 70,
+    "fields": {
+        "name": "Nee",
+        "source": 51,
+        "target": 54,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 71,
+    "fields": {
+        "name": "",
+        "source": 54,
+        "target": 55,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 72,
+    "fields": {
+        "name": "",
+        "source": 54,
+        "target": 56,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 73,
+    "fields": {
+        "name": "",
+        "source": 54,
+        "target": 57,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 74,
+    "fields": {
+        "name": "",
+        "source": 53,
+        "target": 58,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 75,
+    "fields": {
+        "name": "",
+        "source": 58,
+        "target": 59,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 76,
+    "fields": {
+        "name": "",
+        "source": 59,
+        "target": 60,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 77,
+    "fields": {
+        "name": "",
+        "source": 59,
+        "target": 61,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 78,
+    "fields": {
+        "name": "",
+        "source": 60,
+        "target": 62,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 79,
+    "fields": {
+        "name": "",
+        "source": 61,
+        "target": 62,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 80,
+    "fields": {
+        "name": "",
+        "source": 57,
+        "target": 62,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 81,
+    "fields": {
+        "name": "",
+        "source": 56,
+        "target": 62,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 82,
+    "fields": {
+        "name": "",
+        "source": 55,
+        "target": 62,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 83,
+    "fields": {
+        "name": "",
+        "source": 62,
+        "target": 63,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 84,
+    "fields": {
+        "name": "Nee",
+        "source": 63,
+        "target": 64,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 85,
+    "fields": {
+        "name": "",
+        "source": 64,
+        "target": 65,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 86,
+    "fields": {
+        "name": "",
+        "source": 64,
+        "target": 66,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 87,
+    "fields": {
+        "name": "",
+        "source": 64,
+        "target": 67,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 88,
+    "fields": {
+        "name": "",
+        "source": 64,
+        "target": 68,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 91,
+    "fields": {
+        "name": "",
+        "source": 65,
+        "target": 69,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 92,
+    "fields": {
+        "name": "",
+        "source": 68,
+        "target": 69,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 93,
+    "fields": {
+        "name": "",
+        "source": 67,
+        "target": 69,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 94,
+    "fields": {
+        "name": "",
+        "source": 66,
+        "target": 69,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 95,
+    "fields": {
+        "name": "",
+        "source": 69,
+        "target": 70,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 96,
+    "fields": {
+        "name": "",
+        "source": 70,
+        "target": 71,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 97,
+    "fields": {
+        "name": "",
+        "source": 71,
+        "target": 72,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 98,
+    "fields": {
+        "name": "woonruimte",
+        "source": 72,
+        "target": 73,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 99,
+    "fields": {
+        "name": "financi\u00ebn",
+        "source": 72,
+        "target": 74,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 100,
+    "fields": {
+        "name": "",
+        "source": 73,
+        "target": 75,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 101,
+    "fields": {
+        "name": "",
+        "source": 74,
+        "target": 76,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 102,
+    "fields": {
+        "name": "",
+        "source": 76,
+        "target": 77,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 103,
+    "fields": {
+        "name": "",
+        "source": 75,
+        "target": 78,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 104,
+    "fields": {
+        "name": "",
+        "source": 78,
+        "target": 79,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 105,
+    "fields": {
+        "name": "",
+        "source": 79,
+        "target": 80,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 106,
+    "fields": {
+        "name": "",
+        "source": 80,
+        "target": 81,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 107,
+    "fields": {
+        "name": "",
+        "source": 81,
+        "target": 82,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 108,
+    "fields": {
+        "name": "",
+        "source": 80,
+        "target": 83,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 109,
+    "fields": {
+        "name": "",
+        "source": 83,
+        "target": 84,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 110,
+    "fields": {
+        "name": "Tiny houses",
+        "source": 84,
+        "target": 85,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 111,
+    "fields": {
+        "name": "Samenwonen",
+        "source": 84,
+        "target": 86,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 112,
+    "fields": {
+        "name": "",
+        "source": 85,
+        "target": 87,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 113,
+    "fields": {
+        "name": "",
+        "source": 87,
+        "target": 88,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 114,
+    "fields": {
+        "name": "",
+        "source": 87,
+        "target": 89,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 115,
+    "fields": {
+        "name": "",
+        "source": 89,
+        "target": 90,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 116,
+    "fields": {
+        "name": "",
+        "source": 89,
+        "target": 91,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 117,
+    "fields": {
+        "name": "",
+        "source": 91,
+        "target": 87,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 118,
+    "fields": {
+        "name": "",
+        "source": 77,
+        "target": 92,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 119,
+    "fields": {
+        "name": "",
+        "source": 92,
+        "target": 93,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 120,
+    "fields": {
+        "name": "",
+        "source": 92,
+        "target": 94,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 121,
+    "fields": {
+        "name": "",
+        "source": 94,
+        "target": 95,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 122,
+    "fields": {
+        "name": "",
+        "source": 93,
+        "target": 95,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 123,
+    "fields": {
+        "name": "",
+        "source": 95,
+        "target": 96,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 124,
+    "fields": {
+        "name": "",
+        "source": 96,
+        "target": 97,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 125,
+    "fields": {
+        "name": "",
+        "source": 68,
+        "target": 98,
+        "applies_to": [
+            3
+        ]
+    }
+},
+{
+    "model": "game.route",
+    "pk": 126,
+    "fields": {
+        "name": "",
+        "source": 98,
+        "target": 99,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 127,
+    "fields": {
+        "name": "",
+        "source": 98,
+        "target": 100,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 128,
+    "fields": {
+        "name": "",
+        "source": 99,
+        "target": 101,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 129,
+    "fields": {
+        "name": "",
+        "source": 101,
+        "target": 102,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 130,
+    "fields": {
+        "name": "",
+        "source": 101,
+        "target": 103,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 131,
+    "fields": {
+        "name": "",
+        "source": 102,
+        "target": 70,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 132,
+    "fields": {
+        "name": "",
+        "source": 103,
+        "target": 70,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 133,
+    "fields": {
+        "name": "",
+        "source": 100,
+        "target": 104,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 134,
+    "fields": {
+        "name": "",
+        "source": 104,
+        "target": 105,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 135,
+    "fields": {
+        "name": "Ja",
+        "source": 105,
+        "target": 106,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 136,
+    "fields": {
+        "name": "Nee",
+        "source": 105,
+        "target": 107,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 137,
+    "fields": {
+        "name": "",
+        "source": 107,
+        "target": 108,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 138,
+    "fields": {
+        "name": "Nee",
+        "source": 108,
+        "target": 70,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 139,
+    "fields": {
+        "name": "",
+        "source": 106,
+        "target": 70,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 140,
+    "fields": {
+        "name": "Ja",
+        "source": 108,
+        "target": 109,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 141,
+    "fields": {
+        "name": "",
+        "source": 10,
+        "target": 110,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 142,
+    "fields": {
+        "name": "",
+        "source": 110,
+        "target": 111,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 143,
+    "fields": {
+        "name": "Ga weg",
+        "source": 111,
+        "target": 112,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 144,
+    "fields": {
+        "name": "Blijf",
+        "source": 111,
+        "target": 113,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 145,
+    "fields": {
+        "name": "",
+        "source": 112,
+        "target": 114,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 146,
+    "fields": {
+        "name": "",
+        "source": 114,
+        "target": 115,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 147,
+    "fields": {
+        "name": "",
+        "source": 113,
+        "target": 114,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 148,
+    "fields": {
+        "name": "",
+        "source": 115,
+        "target": 116,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 149,
+    "fields": {
+        "name": "",
+        "source": 116,
+        "target": 117,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 152,
+    "fields": {
+        "name": "",
+        "source": 45,
+        "target": 62,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 155,
+    "fields": {
+        "name": "",
+        "source": 117,
+        "target": 62,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 156,
+    "fields": {
+        "name": "",
+        "source": 70,
+        "target": 121,
+        "applies_to": [
+            15
+        ]
+    }
+},
+{
+    "model": "game.route",
+    "pk": 157,
+    "fields": {
+        "name": "",
+        "source": 121,
+        "target": 122,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 158,
+    "fields": {
+        "name": "Thuisland",
+        "source": 122,
+        "target": 123,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 159,
+    "fields": {
+        "name": "Vervangende woonruimte",
+        "source": 122,
+        "target": 124,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 160,
+    "fields": {
+        "name": "",
+        "source": 124,
+        "target": 125,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 161,
+    "fields": {
+        "name": "",
+        "source": 125,
+        "target": 126,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 162,
+    "fields": {
+        "name": "",
+        "source": 126,
+        "target": 127,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 163,
+    "fields": {
+        "name": "Nee",
+        "source": 127,
+        "target": 128,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 164,
+    "fields": {
+        "name": "",
+        "source": 3,
+        "target": 129,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 165,
+    "fields": {
+        "name": "",
+        "source": 129,
+        "target": 4,
+        "applies_to": []
+    }
+},
+{
+    "model": "game.route",
+    "pk": 166,
+    "fields": {
+        "name": "",
+        "source": 129,
+        "target": 5,
         "applies_to": []
     }
 }

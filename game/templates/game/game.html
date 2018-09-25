@@ -1,11 +1,21 @@
 {% extends 'game/base.html' %}
 
 {% block content %}
-  <h1>{{screen.title}}</h1>
+  <h1 style="background-color: {{screen.type.color}}">{{screen.title}}</h1>
 
   <form method="post">
     {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Verder">
+
+    <div class="screen">
+      {% if screen.type.type == 10 %}
+        {% for route in routes %}
+          <label for="id_{{value}}"><input type="radio" name="route" value="{{route.pk}}" id="id_{{value}}">
+            {{route.name}}
+          </label><br>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <input type="submit" value="Verder" class="fancy">
   </form>
 {% endblock %}

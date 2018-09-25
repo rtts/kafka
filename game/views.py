@@ -1,3 +1,4 @@
+import random
 from graphviz import Digraph, Graph, nohtml
 from django.http import HttpResponse
 from django.urls import reverse
@@ -12,33 +13,24 @@ def graph(request, edit=False):
     g = Digraph(format='svg')
     g.attr('node', shape='box')
     g.attr('graph', fontsize='20')
+    g.attr('node', fontname='sans-serif')
+    g.attr('edge', fontname='sans-serif')
     if edit:
         g.attr('graph', rankdir='BT')
 
     with g.subgraph(name='cluster0') as c:
         for character in Character.objects.all():
-            url = '/admin/game/character/{}/change/'.format(character.id)
-            c.attr('node', url=url)
-            c.node('C' + str(character.pk), character.title, href=url)
+            c.node('C' + str(character.pk), character.title, color=character.color)
 
     for screen in Screen.objects.all():
         try:
-            if screen.type.type == 10:
-                color = 'yellow'
-            if screen.type.type == 11:
-                color = 'magenta'
-            if screen.type.type == 20:
-                color = 'green'
-            if screen.type.type == 30:
-                color = 'blue'
-            if screen.type.type == 40:
-                color = 'red'
-            if screen.type.type == 50:
-                color = 'orange'
+            color = screen.type.color
+            style = 'filled'
         except:
-            color = 'white'
+            color = 'black'
+            style = ''
 
-        g.node(str(screen.id), screen.title, color=color, style='filled')
+        g.node(str(screen.id), screen.title, color=color, style=style)
 
         if edit:
             url = reverse('admin:game_screen_change', args=[screen.id])
@@ -50,10 +42,23 @@ def graph(request, edit=False):
             g.edge(str(screen.id), 'add{}'.format(screen.id), arrowhead='none')
 
     for character in Character.objects.all():
-        g.edge('C' + str(character.pk), str(character.first_screen.id))
+        g.edge('C' + str(character.pk), str(character.first_screen.id), color=character.color)
 
     for route in Route.objects.all():
-        g.edge(str(route.source.id), str(route.target.id), label=route.name)
+        color = 'black'
+        label = route.name
+        first_loop = True
+
+        for character in route.applies_to.all():
+            if first_loop:
+                first_loop = False
+                label = 'Alleen van toepassing op:\n' + character.title
+                color = character.color
+            else:
+                label += ', ' + character.title
+                color += ':' + character.color
+
+        g.edge(str(route.source.id), str(route.target.id), label=label, color=color, fontcolor=color)
 
     return HttpResponse(g.pipe().decode('utf-8'))
 
@@ -74,33 +79,59 @@ class ChooseCharacterView(FormView):
     form_class = ChooseCharacterForm
 
     def form_valid(self, form):
-        self.request.session['screen_id'] = form.cleaned_data['character'].first_screen.id
+        character = form.cleaned_data['character']
+        self.request.session['character_id'] = character.id
+        self.request.session['screen_id'] = character.first_screen.id
         return redirect('game')
 
 class GameView(FormView):
     template_name = 'game/game.html'
 
     def dispatch(self, request):
+        character_id = request.session.get('character_id')
         screen_id = request.session.get('screen_id')
         try:
+            self.character = Character.objects.get(id=character_id)
             self.screen = Screen.objects.get(id=screen_id)
-        except Screen.DoesNotExist:
+        except (Character.DoesNotExist, Screen.DoesNotExist):
             return redirect('choose_character')
         return super().dispatch(request)
 
     def get_form(self):
         routes = self.screen.routes.all()
-        return ChooseRouteForm(routes=routes)
+        return ChooseRouteForm(routes=routes, **self.get_form_kwargs())
 
     def form_valid(self, form):
         chosen_route = form.cleaned_data['route']
-        self.request.session['screen_id'] = chosen_route.target.id
+        routes = self.get_routes()
+        try:
+            if chosen_route in routes:
+                self.request.session['screen_id'] = chosen_route.target.id
+            elif self.screen.type.type != 10:
+                route = random.choice(routes)
+                self.request.session['screen_id'] = route.target.id
+        except:
+            raise
         return redirect('game')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         screen = self.screen
+        routes = self.get_routes()
+
         context.update({
             'screen': screen,
+            'routes': routes,
         })
         return context
+
+    def get_routes(self):
+        routes = []
+        for route in self.screen.routes.all():
+            applies_to = list(route.applies_to.all())
+            if applies_to:
+                if self.character in applies_to:
+                    routes.append(route)
+            else:
+                routes.append(route)
+        return routes

@@ -5,7 +5,15 @@
 
   <form method="post">
     {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Verder">
+
+    <div class="screen">
+      {% for value, label in form.fields.character.choices %}
+        <label for="id_{{value}}"><input type="radio" name="character" value="{{value}}" id="id_{{value}}">
+          {{label}}
+        </label><br>
+      {% endfor %}
+    </div>
+
+    <input type="submit" value="Verder" class="fancy">
   </form>
 {% endblock %}

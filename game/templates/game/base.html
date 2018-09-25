@@ -13,10 +13,38 @@
   </head>
   <body>
 
-    {% block content %}
-    {% endblock %}
+    <main>
+      <section>
+        {% block content %}
+        {% endblock %}
+      </section>
+    </main>
 
     <script src="{% static 'js/jquery.js' %}"></script>
+    <script>
+      function set_size() {
+          var w = window.innerWidth;
+          var h = window.innerHeight;
+
+          aspect = 16 / 10
+
+          x = w;
+          y = aspect * w;
+
+          if (y > h) {
+              x = (h/y) * w;
+              y = h;
+          }
+
+          $('main').width(x);
+          $('main').height(y);
+      }
+
+      $(function() {
+          $(window).on('resize', set_size);
+          set_size();
+      });
+    </script>
     {% block extrabody %}{% endblock %}
   </body>
 </html>

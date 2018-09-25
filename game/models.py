@@ -7,6 +7,7 @@ class Character(models.Model):
     title = models.CharField('titel', max_length=255)
     first_screen = models.ForeignKey('Screen', on_delete=models.PROTECT, verbose_name='eerste scherm')
     emoji = models.ForeignKey(Emoji, on_delete=models.PROTECT, verbose_name='emoji')
+    color = models.CharField('kleur', max_length=16, blank=True)
 
     def __str__(self):
         return self.title
@@ -26,6 +27,7 @@ class ScreenType(models.Model):
         (50, 'Gesprek (oranje)'),
     ]
     type = models.PositiveIntegerField('soort', choices=TYPES, unique=True)
+    color = models.CharField('kleur', max_length=16, blank=True)
     background_image = models.ImageField('achtergrondafbeelding', blank=True)
 
     def __str__(self):
@@ -39,7 +41,6 @@ class ScreenType(models.Model):
 class Screen(models.Model):
     title = models.CharField('titel', max_length=255)
     type = models.ForeignKey(ScreenType, on_delete=models.CASCADE, related_name='+', verbose_name='type', blank=True, null=True)
-    routes = models.ManyToManyField('self', symmetrical=False, through='Route', through_fields=('source', 'target'), verbose_name='routes')
 
     def __str__(self):
         return self.title
@@ -51,12 +52,12 @@ class Screen(models.Model):
 
 class Route(models.Model):
     name = models.CharField('naam', max_length=255, blank=True)
-    source = models.ForeignKey(Screen, on_delete=models.CASCADE, related_name='+', verbose_name='van')
+    source = models.ForeignKey(Screen, on_delete=models.CASCADE, related_name='routes', verbose_name='van')
     target = models.ForeignKey(Screen, on_delete=models.CASCADE, related_name='+', verbose_name='naar')
     applies_to = models.ManyToManyField(Character, blank=True, related_name='+', verbose_name='van toepassing op')
 
     def __str__(self):
-        return 'van {} naar {}'.format(self.source, self.target)
+        return self.name
 
     class Meta:
         verbose_name = 'route'
