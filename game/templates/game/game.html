@@ -9,7 +9,7 @@
     <div class="screen">
       {% if screen.type.type == 10 %}
         {% for route in routes %}
-          <label for="id_{{value}}"><input type="radio" name="route" value="{{route.pk}}" id="id_{{value}}">
+          <label for="id_{{route.pk}}"><input type="radio" name="route" value="{{route.pk}}" id="id_{{route.pk}}">
             {{route.name}}
           </label><br>
         {% endfor %}
