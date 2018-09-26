@@ -110,7 +110,7 @@ class GameView(FormView):
                 route = random.choice(routes)
                 self.request.session['screen_id'] = route.target.id
         except:
-            raise
+            pass
         return redirect('game')
 
     def get_context_data(self, **kwargs):
