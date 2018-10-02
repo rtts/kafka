@@ -13,11 +13,25 @@ main {
   transform: translate(-50%, -50%);
 }
 
+img.background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
 section {
   overflow: hidden;
   width: 100%;
   height: 100%;
   position: relative;
+
+  > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }
 
 h1 {
