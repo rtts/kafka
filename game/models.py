@@ -38,9 +38,22 @@ class ScreenType(models.Model):
         verbose_name_plural = 'schermtypes'
         ordering = ['type']
 
+class Location(models.Model):
+    title = models.CharField('titel', max_length=255)
+    background_image = models.ImageField('achtergrondafbeelding', blank=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'locatie'
+        verbose_name_plural = 'locaties'
+        ordering = ['title']
+
 class Screen(models.Model):
     title = models.CharField('titel', max_length=255)
     type = models.ForeignKey(ScreenType, on_delete=models.CASCADE, related_name='+', verbose_name='type', blank=True, null=True)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE, related_name='+', verbose_name='locatie', blank=True, null=True)
 
     def __str__(self):
         return self.title

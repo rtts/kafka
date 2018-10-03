@@ -20,6 +20,10 @@ class FunkySaveMixin(object):
 class ScreenTypeAdmin(admin.ModelAdmin):
     pass
 
+@admin.register(Location)
+class LocationAdmin(admin.ModelAdmin):
+    pass
+
 @admin.register(Character)
 class CharacterAdmin(admin.ModelAdmin):
     pass
