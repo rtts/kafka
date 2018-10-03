@@ -5,8 +5,13 @@ from django.urls import reverse
 from django.shortcuts import redirect, get_object_or_404
 from django.views.generic import FormView, TemplateView
 from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth.mixins import UserPassesTestMixin
 from .models import *
 from .forms import *
+
+class StaffRequiredMixin(UserPassesTestMixin):
+    def test_func(self):
+        return self.request.user.is_staff
 
 def graph(request, edit=False):
     g = Digraph(format='svg')
@@ -29,7 +34,8 @@ def graph(request, edit=False):
             color = 'black'
             style = ''
 
-        g.node(str(screen.id), screen.title, color=color, style=style)
+        title = '{}. {}'.format(screen.pk, screen.title)
+        g.node(str(screen.id), title, color=color, style=style)
 
         if edit:
             url = reverse('admin:game_screen_change', args=[screen.id])
@@ -37,8 +43,12 @@ def graph(request, edit=False):
             g.edge(str(screen.id), 'edit{}'.format(screen.id), arrowhead='none')
 
             url = reverse('add_screen', args=[screen.id])
-            g.node('add{}'.format(screen.id), 'toevoegen', fontsize='10', href=url, width='0', height='0')
+            g.node('add{}'.format(screen.id), '+ route nieuw scherm', fontsize='10', href=url, width='0', height='0')
             g.edge(str(screen.id), 'add{}'.format(screen.id), arrowhead='none')
+
+            url = reverse('add_existing_screen', args=[screen.id])
+            g.node('add2{}'.format(screen.id), '+ route naar bestaand scherm', fontsize='10', href=url, width='0', height='0')
+            g.edge(str(screen.id), 'add2{}'.format(screen.id), arrowhead='none')
 
     for character in Character.objects.all():
         g.edge('C' + str(character.pk), str(character.first_screen.id), color=character.color)
@@ -72,6 +82,19 @@ def add_screen(request, source_id, target_id=None):
     route = Route(source=source, target=target)
     route.save()
     return redirect('admin:game_screen_change', target.id)
+
+class ExistingScreenView(FormView, StaffRequiredMixin):
+    form_class = ChooseScreenForm
+    template_name = 'game/choose_screen.html'
+
+    def form_valid(self, form):
+        screen_nr = form.cleaned_data['screen_nr']
+        source_id = self.kwargs['source_id']
+        source = get_object_or_404(Screen, id=source_id)
+        target = get_object_or_404(Screen, id=screen_nr)
+        route = Route(source=source, target=target)
+        route.save()
+        return redirect('graph')
 
 class ChooseCharacterView(FormView):
     template_name = 'game/choose_character.html'

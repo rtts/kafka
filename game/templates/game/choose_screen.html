@@ -1,0 +1,13 @@
+{% block content %}
+
+  <div>
+    <form method="post">
+      {% csrf_token %}
+
+      <div class="screen">
+        {{form.as_p}}
+      </div>
+      <input type="submit" value="Opslaan" class="fancy">
+    </form>
+  </div>
+{% endblock %}

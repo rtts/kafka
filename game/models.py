@@ -57,7 +57,7 @@ class Screen(models.Model):
     background_image = models.ImageField('achtergrondafbeelding', blank=True)
 
     def __str__(self):
-        return self.title
+        return '{}. {}'.format(self.id, self.title)
 
     class Meta:
         verbose_name = 'scherm'

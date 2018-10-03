@@ -7,5 +7,6 @@ urlpatterns = [
     path('graph/', graph),
     path('graph/edit/', graph, name='graph', kwargs={'edit': True}),
     path('graph/add/<int:source_id>/', add_screen, name='add_screen'),
+    path('graph/add_existing_screen/<int:source_id>/', ExistingScreenView.as_view(), name='add_existing_screen'),
     path('graph/add/<int:source_id>/<int:target_id>/', add_screen, name='add_screen'),
 ]
