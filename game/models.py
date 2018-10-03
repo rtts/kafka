@@ -80,6 +80,7 @@ class Route(models.Model):
 
 class Message(models.Model):
     screen = models.ForeignKey(Screen, on_delete=models.CASCADE, related_name='messages', verbose_name='scherm')
+    received = models.BooleanField('ontvangen bericht', default=False)
     content = RichTextField(blank=True)
 
     def __str__(self):
