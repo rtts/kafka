@@ -35,19 +35,12 @@ def graph(request, edit=False):
             style = ''
 
         title = '{}. {}'.format(screen.pk, screen.title)
-        g.node(str(screen.id), title, color=color, style=style)
+        url = reverse('admin:game_screen_change', args=[screen.id])
+        g.node(str(screen.id), title, color=color, style=style, href=url)
 
-        if edit:
-            url = reverse('admin:game_screen_change', args=[screen.id])
-            g.node('edit{}'.format(screen.id), 'bewerken', fontsize='10', href=url, width='0', height='0')
-            g.edge(str(screen.id), 'edit{}'.format(screen.id), arrowhead='none')
-
-            url = reverse('add_screen', args=[screen.id])
-            g.node('add{}'.format(screen.id), '+ route nieuw scherm', fontsize='10', href=url, width='0', height='0')
-            g.edge(str(screen.id), 'add{}'.format(screen.id), arrowhead='none')
-
+        if False:
             url = reverse('add_existing_screen', args=[screen.id])
-            g.node('add2{}'.format(screen.id), '+ route naar bestaand scherm', fontsize='10', href=url, width='0', height='0')
+            g.node('add2{}'.format(screen.id), '+', href=url, width='0', height='0')
             g.edge(str(screen.id), 'add2{}'.format(screen.id), arrowhead='none')
 
     for character in Character.objects.all():
@@ -67,7 +60,8 @@ def graph(request, edit=False):
                 label += ', ' + character.title
                 color += ':' + character.color
 
-        g.edge(str(route.source.id), str(route.target.id), label=label, color=color, fontcolor=color)
+        url = reverse('add_existing_screen', args=[route.target.id])
+        g.edge(str(route.source.id), str(route.target.id), label=label, color=color, fontcolor=color, href=url)
 
     return HttpResponse(g.pipe().decode('utf-8'))
 
@@ -88,13 +82,20 @@ class ExistingScreenView(FormView, StaffRequiredMixin):
     template_name = 'game/choose_screen.html'
 
     def form_valid(self, form):
-        screen_nr = form.cleaned_data['screen_nr']
+        screen_nr = form.cleaned_data.get('screen_nr')
         source_id = self.kwargs['source_id']
         source = get_object_or_404(Screen, id=source_id)
-        target = get_object_or_404(Screen, id=screen_nr)
-        route = Route(source=source, target=target)
-        route.save()
-        return redirect('graph')
+        if screen_nr:
+            target = get_object_or_404(Screen, id=screen_nr)
+            route = Route(source=source, target=target)
+            route.save()
+            return redirect('graph')
+        else:
+            target = Screen()
+            target.save()
+            route = Route(source=source, target=target)
+            route.save()
+            return redirect('admin:game_screen_change', target.id)
 
 class ChooseCharacterView(FormView):
     template_name = 'game/choose_character.html'

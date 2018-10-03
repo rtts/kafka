@@ -15,4 +15,4 @@ class ChooseRouteForm(forms.Form):
             self.fields['route'].initial = routes.first().id
 
 class ChooseScreenForm(forms.Form):
-    screen_nr = forms.IntegerField(label='naar scherm nummer')
+    screen_nr = forms.IntegerField(label='naar scherm nummer', required=False)
