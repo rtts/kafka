@@ -130,7 +130,14 @@ class GameView(FormView):
         try:
             if chosen_route in routes:
                 self.request.session['screen_id'] = chosen_route.target.id
+                route = chosen_route
             elif self.screen.type.type != 10:
+                route = random.choice(routes)
+                self.request.session['screen_id'] = route.target.id
+
+            if route.target.type.type == 11:
+                self.screen = route.target
+                routes = self.get_routes()
                 route = random.choice(routes)
                 self.request.session['screen_id'] = route.target.id
         except:
