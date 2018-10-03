@@ -62,7 +62,7 @@ class Screen(models.Model):
     class Meta:
         verbose_name = 'scherm'
         verbose_name_plural = 'schermen'
-        ordering = ['title']
+        ordering = ['id']
 
 class Route(models.Model):
     name = models.CharField('naam', max_length=255, blank=True)
