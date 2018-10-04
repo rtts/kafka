@@ -1,22 +1,18 @@
 {% extends 'game/base.html' %}
 
 {% block content %}
-  {% if screen.type.background_image %}
-    <img class="background" src="{{screen.type.background_image.url}}">
-  {% endif %}
-
   <div class="gradient"></div>
 
-  <form method="post">
+  <form method="post" style="background-color: {{background_color}}; background-image: url({{background_image}})">
     {% csrf_token %}
     <div class="header">
-      <h1>{{screen.title}}</h1>
+      <h1 style="background-color: {{foreground_color}}">{{screen.title}}</h1>
     </div>
 
     <div class="screen">
       {% if screen.type.type == 10 %}
         {% for route in routes %}
-          <button type="submit" name="route" value="{{route.pk}}">{{route.name}}</button><br>
+          <button style="background-color: {{foreground_color}}" type="submit" name="route" value="{{route.pk}}">{{route.name}}</button><br>
         {% endfor %}
       {% endif %}
 

@@ -8,7 +8,7 @@
     <title>{% block title %}{% endblock %}</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{% sass_src 'game/main3.scss' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% sass_src 'game/main4.scss' %}"/>
     {% block extrahead %}{% endblock %}
   </head>
   <body>
@@ -21,31 +21,33 @@
     </main>
 
     <script src="{% static 'js/jquery.js' %}"></script>
-    <script>
-      function set_size() {
-          var w = window.innerWidth;
-          var h = window.innerHeight;
+    {% comment %}
+      <script>
+        function set_size() {
+            var w = window.innerWidth;
+            var h = window.innerHeight;
 
-          aspect = 16 / 10
+            aspect = 16 / 10
 
-          x = w;
-          y = aspect * w;
+            x = w;
+            y = aspect * w;
 
-          if (y > h) {
-              x = (h/y) * w;
-              y = h;
-          }
+            if (y > h) {
+                x = (h/y) * w;
+                y = h;
+            }
 
-          $('main').width(x);
-          $('main').height(y);
-          $('main').show();
-      }
+            $('main').width(x);
+            $('main').height(y);
+            $('main').show();
+        }
 
-      $(function() {
-          $(window).on('resize', set_size);
-          set_size();
-      });
-    </script>
+        $(function() {
+            $(window).on('resize', set_size);
+            set_size();
+        });
+      </script>
+    {% endcomment %}
     {% block extrabody %}{% endblock %}
   </body>
 </html>

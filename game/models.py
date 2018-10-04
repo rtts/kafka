@@ -2,7 +2,20 @@ from django.db import models
 from django.utils.safestring import mark_safe
 from numberedmodel.models import NumberedModel
 from ckeditor.fields import RichTextField
+from colorfield.fields import ColorField
 from kafka.models import Emoji
+
+class Color(models.Model):
+    name = models.CharField('naam', max_length=32)
+    color = ColorField('kleurcode')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'kleur'
+        verbose_name_plural = 'kleuren'
+        ordering = ['name']
 
 class Character(models.Model):
     title = models.CharField('titel', max_length=255)
@@ -28,8 +41,9 @@ class ScreenType(models.Model):
         (50, 'Gesprek (oranje)'),
     ]
     type = models.PositiveIntegerField('soort', choices=TYPES, unique=True)
-    color = models.CharField('kleur', max_length=16, blank=True)
-    background_image = models.ImageField('achtergrondafbeelding', blank=True)
+    color = models.CharField('kleurcode (in de graaf)', max_length=16, blank=True)
+    foreground_color = models.ForeignKey(Color, verbose_name='voorgrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
+    background_color = models.ForeignKey(Color, verbose_name='achtergrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
 
     def __str__(self):
         return self.get_type_display()
@@ -41,7 +55,9 @@ class ScreenType(models.Model):
 
 class Location(models.Model):
     title = models.CharField('titel', max_length=255)
-    background_image = models.ImageField('achtergrondafbeelding', blank=True)
+    image = models.ImageField('afbeelding', blank=True, help_text='upload hier een PNG afbeelding met transparante achtergrond')
+    foreground_color = models.ForeignKey(Color, verbose_name='voorgrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
+    background_color = models.ForeignKey(Color, verbose_name='achtergrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
 
     def __str__(self):
         return self.title
@@ -55,7 +71,9 @@ class Screen(models.Model):
     title = models.CharField('titel', max_length=255)
     type = models.ForeignKey(ScreenType, on_delete=models.CASCADE, related_name='+', verbose_name='type', blank=True, null=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, related_name='+', verbose_name='locatie', blank=True, null=True)
-    background_image = models.ImageField('achtergrondafbeelding', blank=True)
+    image = models.ImageField('afbeelding', help_text='deze afbeelding wordt alléén getoond op actieschermen', blank=True)
+    foreground_color = models.ForeignKey(Color, verbose_name='voorgrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
+    background_color = models.ForeignKey(Color, verbose_name='achtergrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
 
     def __str__(self):
         return '{}. {}'.format(self.id, self.title)

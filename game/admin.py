@@ -16,6 +16,10 @@ class FunkySaveMixin(object):
         else:
             return super().response_change(request, obj)
 
+@admin.register(Color)
+class ColorAdmin(admin.ModelAdmin):
+    pass
+
 @admin.register(ScreenType)
 class ScreenTypeAdmin(admin.ModelAdmin):
     pass

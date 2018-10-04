@@ -13,39 +13,42 @@ class StaffRequiredMixin(UserPassesTestMixin):
     def test_func(self):
         return self.request.user.is_staff
 
-def graph(request, edit=False):
+def graph(request):
     g = Digraph(format='svg')
     g.attr('node', shape='box')
     g.attr('graph', fontsize='20')
     g.attr('node', fontname='sans-serif')
     g.attr('edge', fontname='sans-serif')
-    if edit:
-        g.attr('graph', rankdir='BT')
 
     with g.subgraph(name='cluster0') as c:
         for character in Character.objects.all():
-            if edit:
-                url = reverse('admin:game_character_change', args=[character.id])
-                c.node('C' + str(character.pk), character.title, color=character.color, href=url)
-            else:
-                c.node('C' + str(character.pk), character.title, color=character.color)
+            url = reverse('admin:game_character_change', args=[character.id])
+            c.node('C' + str(character.pk), character.title, color=character.color, href=url)
 
     for screen in Screen.objects.all():
         try:
             color = screen.type.color
-            style = 'filled'
         except:
-            color = 'black'
-            style = ''
+            color = 'white'
 
-        title = '{}. {}'.format(screen.pk, screen.title)
-        url = reverse('admin:game_screen_change', args=[screen.id])
-        g.node(str(screen.id), title, color=color, style=style, href=url)
+        view_url = reverse('screen', args=[screen.id])
+        edit_url = reverse('admin:game_screen_change', args=[screen.id])
+        add_url = reverse('add_route', args=[screen.id])
+        title = '''<
 
-        if False:
-            url = reverse('add_existing_screen', args=[screen.id])
-            g.node('add2{}'.format(screen.id), '+', href=url, width='0', height='0')
-            g.edge(str(screen.id), 'add2{}'.format(screen.id), arrowhead='none')
+<table bgcolor="{}" border="1" cellspacing="10" color="black">
+  <tr>
+    <td colspan="3" align="left" border="0"><b>{}. {}</b></td>
+  </tr>
+  <tr>
+    <td href="{}"><font point-size="10">bekijk scherm</font></td>
+    <td href="{}"><font point-size="10">bewerk scherm</font></td>
+    <td href="{}"><font point-size="10">+ nieuwe route</font></td>
+  </tr>
+</table>
+
+        >'''.format(color, screen.id, screen.title, view_url, edit_url, add_url)
+        g.node(str(screen.id), title, shape='plaintext', width='0', height='0')
 
     for character in Character.objects.all():
         g.edge('C' + str(character.pk), str(character.first_screen.id), color=character.color)
@@ -64,26 +67,14 @@ def graph(request, edit=False):
                 label += ', ' + character.title
                 color += ':' + character.color
 
-        url = reverse('add_existing_screen', args=[route.target.id])
+        url = reverse('add_route', args=[route.target.id])
         g.edge(str(route.source.id), str(route.target.id), label=label, color=color, fontcolor=color, href=url)
 
     return HttpResponse(g.pipe().decode('utf-8'))
 
-@staff_member_required
-def add_screen(request, source_id, target_id=None):
-    source = get_object_or_404(Screen, id=source_id)
-    if target_id:
-        target = get_object_or_404(Screen, id=target_id)
-    else:
-        target = Screen()
-        target.save()
-    route = Route(source=source, target=target)
-    route.save()
-    return redirect('admin:game_screen_change', target.id)
-
-class ExistingScreenView(FormView, StaffRequiredMixin):
+class AddRouteView(FormView, StaffRequiredMixin):
     form_class = ChooseScreenForm
-    template_name = 'game/choose_screen.html'
+    template_name = 'game/add_route.html'
 
     def form_valid(self, form):
         screen_nr = form.cleaned_data.get('screen_nr')
@@ -114,7 +105,7 @@ class ChooseCharacterView(FormView):
 class GameView(FormView):
     template_name = 'game/game.html'
 
-    def dispatch(self, request):
+    def dispatch(self, request, *args, **kwargs):
         character_id = request.session.get('character_id')
         screen_id = request.session.get('screen_id')
         try:
@@ -122,7 +113,7 @@ class GameView(FormView):
             self.screen = Screen.objects.get(id=screen_id)
         except (Character.DoesNotExist, Screen.DoesNotExist):
             return redirect('choose_character')
-        return super().dispatch(request)
+        return super().dispatch(request, *args, **kwargs)
 
     def get(self, request):
         if self.screen.type.type == 11:
@@ -156,9 +147,37 @@ class GameView(FormView):
         screen = self.screen
         routes = self.get_routes()
 
+        if screen.background_color:
+            background_color = screen.background_color.color
+        elif screen.location and screen.location.background_color:
+            background_color = screen.location.background_color.color
+        elif screen.type and screen.type.background_color:
+            background_color = screen.type.background_color.color
+        else:
+            background_color = 'white'
+
+        if screen.foreground_color:
+            foreground_color = screen.foreground_color.color
+        elif screen.location and screen.location.foreground_color:
+            foreground_color = screen.location.foreground_color.color
+        elif screen.type and screen.type.foreground_color:
+            foreground_color = screen.type.foreground_color.color
+        else:
+            foreground_color = 'white'
+
+        if screen.image:
+            background_image = screen.image.url
+        elif screen.location and screen.location.image:
+            background_image = screen.location.image.url
+        else:
+            background_image = 'none'
+
         context.update({
             'screen': screen,
             'routes': routes,
+            'background_color': background_color,
+            'foreground_color': foreground_color,
+            'background_image': background_image,
         })
         return context
 
@@ -172,3 +191,8 @@ class GameView(FormView):
             else:
                 routes.append(route)
         return routes
+
+class GameScreenView(GameView):
+    def get(self, request, screen_id):
+        request.session['screen_id'] = screen_id
+        return redirect('game')

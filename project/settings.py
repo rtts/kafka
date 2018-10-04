@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'jquery',
     'ckeditor',
     'easy_thumbnails',
+    'colorfield',
 ]
 
 THUMBNAIL_ALIASES = {
