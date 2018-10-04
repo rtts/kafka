@@ -37,8 +37,7 @@ section {
   height: 100%;
   max-width: 700px;
   margin: auto;
-  position: relative;
-  transform: rotate(0); }
+  position: relative; }
   section div.gradient {
     content: '';
     display: block;
@@ -47,6 +46,7 @@ section {
     background: red;
     bottom: 0;
     width: 100%;
+    max-width: 700px;
     z-index: 1;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, white 90%); }
   section form {
@@ -121,11 +121,17 @@ button {
   font-family: Agipo, sans-serif;
   text-transform: uppercase; }
 
-input[type=submit] {
-  position: fixed;
+div.next {
   z-index: 1;
-  right: 20px;
-  bottom: 10px;
+  position: fixed;
+  padding: 15px;
+  box-sizing: border-box;
+  bottom: 0;
+  width: 100%;
+  max-width: 700px;
+  text-align: right; }
+
+input[type=submit] {
   font-size: 1.5em;
   font-family: Agipo, sans-serif;
   font-weight: bold; }
