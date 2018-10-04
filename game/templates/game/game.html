@@ -5,23 +5,31 @@
     <img class="background" src="{{screen.type.background_image.url}}">
   {% endif %}
 
-  <div>
-    <h1 style="background-color: {{screen.type.color}}">{{screen.title}}</h1>
+  <form method="post">
+    {% csrf_token %}
+    <div class="header">
+      <h1>{{screen.title}}</h1>
+    </div>
 
-    <form method="post">
-      {% csrf_token %}
+    <div class="screen">
+      {% if screen.type.type == 10 %}
+        {% for route in routes %}
+          <label for="id_{{route.pk}}"><input type="radio" name="route" value="{{route.pk}}" id="id_{{route.pk}}">
+            {{route.name}}
+          </label><br>
+        {% endfor %}
+      {% endif %}
 
-      <div class="screen">
-        {% if screen.type.type == 10 %}
-          {% for route in routes %}
-            <label for="id_{{route.pk}}"><input type="radio" name="route" value="{{route.pk}}" id="id_{{route.pk}}">
-              {{route.name}}
-            </label><br>
-          {% endfor %}
-        {% endif %}
-      </div>
-      <input type="submit" value="Verder" class="fancy">
-    </form>
-  </div>
+      {% if screen.type.type == 50 %}
+        {% for message in screen.messages.all %}
+          <div class="message {% if message.received %}received{% endif %}">
+            {{message|safe}}
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <input type="submit" value="Verder" class="fancy">
+  </form>
 
 {% endblock %}

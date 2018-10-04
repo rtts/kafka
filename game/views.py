@@ -24,7 +24,11 @@ def graph(request, edit=False):
 
     with g.subgraph(name='cluster0') as c:
         for character in Character.objects.all():
-            c.node('C' + str(character.pk), character.title, color=character.color)
+            if edit:
+                url = reverse('admin:game_character_change', args=[character.id])
+                c.node('C' + str(character.pk), character.title, color=character.color, href=url)
+            else:
+                c.node('C' + str(character.pk), character.title, color=character.color)
 
     for screen in Screen.objects.all():
         try:
@@ -120,6 +124,17 @@ class GameView(FormView):
             return redirect('choose_character')
         return super().dispatch(request)
 
+    def get(self, request):
+        if self.screen.type.type == 11:
+            try:
+                routes = self.get_routes()
+                route = random.choice(routes)
+                self.request.session['screen_id'] = route.target.id
+                return redirect('game')
+            except:
+                pass
+        return super().get(request)
+
     def get_form(self):
         routes = self.screen.routes.all()
         return ChooseRouteForm(routes=routes, **self.get_form_kwargs())
@@ -130,16 +145,8 @@ class GameView(FormView):
         try:
             if chosen_route in routes:
                 self.request.session['screen_id'] = chosen_route.target.id
-                route = chosen_route
             elif self.screen.type.type != 10:
-                route = random.choice(routes)
-                self.request.session['screen_id'] = route.target.id
-
-            if route.target.type.type == 11:
-                self.screen = route.target
-                routes = self.get_routes()
-                route = random.choice(routes)
-                self.request.session['screen_id'] = route.target.id
+                self.request.session['screen_id'] = random.choice(routes).target.id
         except:
             pass
         return redirect('game')

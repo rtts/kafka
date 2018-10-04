@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.safestring import mark_safe
+from numberedmodel.models import NumberedModel
 from ckeditor.fields import RichTextField
 from kafka.models import Emoji
 
@@ -78,7 +79,8 @@ class Route(models.Model):
         verbose_name_plural = 'routes'
         ordering = ['id']
 
-class Message(models.Model):
+class Message(NumberedModel):
+    position = models.PositiveIntegerField('positie', blank=True, null=True)
     screen = models.ForeignKey(Screen, on_delete=models.CASCADE, related_name='messages', verbose_name='scherm')
     received = models.BooleanField('ontvangen bericht', default=False)
     content = RichTextField(blank=True)
@@ -86,9 +88,12 @@ class Message(models.Model):
     def __str__(self):
         return mark_safe(self.content)
 
+    def number_with_respect_to(self):
+        return self.screen.messages.all()
+
     class Meta:
         verbose_name = 'bericht'
         verbose_name_plural = 'berichten'
-        ordering = ['id']
+        ordering = ['position']
 
 # Todo: twee identieke subbomen (op een scherm na) op basis van wel/niet brp keuze
