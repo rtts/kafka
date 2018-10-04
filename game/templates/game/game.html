@@ -5,6 +5,8 @@
     <img class="background" src="{{screen.type.background_image.url}}">
   {% endif %}
 
+  <div class="gradient"></div>
+
   <form method="post">
     {% csrf_token %}
     <div class="header">
@@ -32,4 +34,23 @@
     <input type="submit" value="Verder" class="fancy">
   </form>
 
+{% endblock %}
+
+{% block extrabody %}
+  <script>
+    function show_gradient() {
+        section = document.getElementById('scroll');
+        if (section.scrollHeight > section.offsetHeight) {
+            $('div.gradient').show();
+        } else {
+            $('div.gradient').hide();
+        }
+    }
+
+    $(function() {
+        $(window).on('resize', show_gradient);
+        show_gradient();
+    });
+
+  </script>
 {% endblock %}
