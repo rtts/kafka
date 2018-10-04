@@ -69,7 +69,7 @@ class Location(models.Model):
 
 class Screen(models.Model):
     title = models.CharField('titel', max_length=255)
-    type = models.ForeignKey(ScreenType, on_delete=models.CASCADE, related_name='+', verbose_name='type', blank=True, null=True)
+    type = models.ForeignKey(ScreenType, on_delete=models.CASCADE, related_name='+', verbose_name='type')
     location = models.ForeignKey(Location, on_delete=models.CASCADE, related_name='+', verbose_name='locatie', blank=True, null=True)
     image = models.ImageField('afbeelding', help_text='deze afbeelding wordt alléén getoond op actieschermen', blank=True)
     foreground_color = models.ForeignKey(Color, verbose_name='voorgrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
