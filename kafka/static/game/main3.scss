@@ -1,3 +1,7 @@
+$yellow: #ffda00;
+$red: #ff3442;
+$radius: 6px;
+
 @font-face {
   font-family: 'Entrails BB';
   src: url('../EntrailsBB.otf') format('opentype'),
@@ -8,9 +12,17 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Agipo';
+  src: url('agipo_regular_italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 body, html {
   background: black;
-  font-family: Arial, sans-serif;
+  font-family: Agipo, sans-serif;
   font-size: 20px;
   margin: 0;
   padding: 0;
@@ -33,6 +45,27 @@ img.background {
 
 section.type50 {
   background: #d4eafa;
+}
+section.type10 {
+  background: #ccc;
+  form div.header h1 {
+    font-family: Agipo, sans-serif;
+    background: none;
+    box-shadow: none;
+  }
+}
+section.type40 {
+  background: #ccc;
+  form div.header h1 {
+    font-family: Agipo, sans-serif;
+    background: $red;
+    padding: 10px 10px;
+    text-shadow: -1px -1px 0 #8f5ed2;
+    font-size: 55px;
+    font-family: Agipo, sans-serif;
+    text-transform: uppercase;
+    overflow-wrap: break-word;
+  }
 }
 
 section {
@@ -62,7 +95,7 @@ section {
         font-weight: normal;
         background: white;
         margin: 25px;
-        border-radius: 10px;
+        border-radius: $radius;
         box-shadow: 3px 3px 12px rgba(0,0,0,0.25);
         letter-spacing: 1px;
         padding: 15px;
@@ -76,8 +109,8 @@ section {
         margin-left: 30%;
         box-sizing: border-box;
  	position: relative;
-	background: #ffda00;
-	border-radius: 10px;
+	background: $yellow;
+	border-radius: $radius;
         width: 70%;
         padding: 1px 20px;
         margin-bottom: 25px;
@@ -91,7 +124,7 @@ section {
 	  width: 0;
 	  height: 0;
 	  border: 30px solid transparent;
-	  border-left-color: #ffda00;
+	  border-left-color: $yellow;
 	  border-right: 0;
 	  border-bottom: 0;
 	  margin-top: -15px;
@@ -115,12 +148,30 @@ section {
   }
 }
 
+button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  background: $yellow;
+  border: none;
+  border-radius: $radius;
+  padding: 40px 10px;
+  text-shadow: -1px -1px 0 white;
+  box-shadow: 3px 3px 12px rgba(0,0,0,0.25);
+  font-size: 25px;
+  font-family: Agipo, sans-serif;
+  text-transform: uppercase;
+}
+
 input[type=submit] {
   position: fixed;
   z-index: 1;
   right: 20px;
   bottom: 10px;
   font-size: 1.5em;
+  font-family: Agipo, sans-serif;
+  font-weight: bold;
 }
 
 .fancy {
@@ -135,16 +186,12 @@ input[type=submit] {
 	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23',GradientType=0);
 	background-color:#ffec64;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
+	border-radius: $radius;
 	border:1px solid #ffaa22;
 	display:inline-block;
 	cursor:pointer;
 	color:#333333;
-	font-family:Arial;
 	font-size:15px;
-	font-weight:bold;
 	padding:6px 24px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #ffee66;

@@ -16,9 +16,7 @@
     <div class="screen">
       {% if screen.type.type == 10 %}
         {% for route in routes %}
-          <label for="id_{{route.pk}}"><input type="radio" name="route" value="{{route.pk}}" id="id_{{route.pk}}">
-            {{route.name}}
-          </label><br>
+          <button type="submit" name="route" value="{{route.pk}}">{{route.name}}</button><br>
         {% endfor %}
       {% endif %}
 
@@ -31,7 +29,9 @@
       {% endif %}
     </div>
 
-    <input type="submit" value="Verder" class="fancy">
+    {% if not screen.type.type == 10 %}
+      <input type="submit" value="Verder" class="fancy">
+    {% endif %}
   </form>
 
 {% endblock %}
