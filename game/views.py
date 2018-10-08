@@ -86,7 +86,8 @@ class AddRouteView(FormView, StaffRequiredMixin):
             route.save()
             return redirect('graph')
         else:
-            target = Screen()
+            type = ScreenType.objects.get(type=40)
+            target = Screen(type=type)
             target.save()
             route = Route(source=source, target=target)
             route.save()
