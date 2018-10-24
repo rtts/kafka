@@ -14,6 +14,7 @@ class StaffRequiredMixin(UserPassesTestMixin):
     def test_func(self):
         return self.request.user.is_staff
 
+@staff_member_required
 def graph(request):
     g = Digraph(format='svg')
     g.attr('node', shape='box')
