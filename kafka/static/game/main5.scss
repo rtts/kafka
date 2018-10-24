@@ -40,7 +40,8 @@ div.header {
     font-weight: normal;
     background: white;
     margin: 0;
-    margin-top: 20px;
+    margin-top: 30px;
+    margin-bottom: 10px;
     border-radius: $radius;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -170,6 +171,7 @@ div.menu {
   font-size: 1.15em;
   line-height: 1;
   text-align: center;
+  margin-top: 45px;
 
   a {
     text-shadow: -1px -1px 0 white;
