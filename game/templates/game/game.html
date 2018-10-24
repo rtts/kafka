@@ -1,6 +1,14 @@
 {% extends 'game/base.html' %}
 {% load static %}
 
+{% block extrahead %}
+  <style>
+    form {
+        transition: 1s;
+    }
+  </style>
+{% endblock %}
+
 {% block content %}
   {% if user.is_staff %}
     <a class="edit" href="{% url 'admin:game_screen_change' screen.pk %}">bewerk dit scherm</a>
@@ -59,10 +67,14 @@
     import TinyGesture from "{% static 'TinyGesture.js' %}";
 
     document.addEventListener('DOMContentLoaded', () => {
+        document.body.style.background = '{{background_color}}';
         const form = document.getElementById('form');
         const gesture = new TinyGesture(form);
         gesture.on('swipeleft', () => {
-            form.submit();
+            form.style.transform = 'translateX(-30%)';
+            form.style.opacity = '0';
+            setTimeout(() => form.submit(), 1000);
+            //form.submit();
         });
     });
   </script>
