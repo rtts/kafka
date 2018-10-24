@@ -1,0 +1,281 @@
+@font-face {
+  font-family: 'Entrails BB';
+  src: url("../EntrailsBB.otf") format("opentype"), url("../entrailsbb-webfont.woff2") format("woff2"), url("../entrailsbb-webfont.woff") format("woff"), url("../entrailsbb-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Agipo';
+  src: url("agipo_regular_italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal; }
+
+body, html {
+  background: black;
+  font-family: Agipo, sans-serif;
+  font-size: 20px;
+  margin: 0;
+  padding: 0; }
+
+main {
+  height: 100vh; }
+
+div.title_screen {
+  height: 100%;
+  background-color: #ffda00;
+  text-align: center; }
+  div.title_screen h1 {
+    margin: 0;
+    padding: 20px;
+    font-family: 'Entrails BB';
+    font-size: 2.5em;
+    line-height: 1.1;
+    font-size: 30px;
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    word-wrap: break-word; }
+  div.title_screen p {
+    margin: 0.25em; }
+
+section {
+  height: 100%;
+  max-width: 700px;
+  margin: auto;
+  position: relative; }
+  section a.edit {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    color: red;
+    text-decoration: none;
+    font-size: 12px; }
+  section form {
+    height: 100%;
+    overflow-x: auto; }
+    section form div.screen {
+      min-height: 100%;
+      overflow: hidden;
+      box-sizing: border-box;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-color: white; }
+      section form div.screen div.title {
+        padding: 15px; }
+        section form div.screen div.title h1 {
+          margin: 0;
+          padding: 10px;
+          font-family: 'Entrails BB';
+          font-weight: normal;
+          font-size: 30px;
+          text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+          box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.25);
+          text-align: center;
+          font-weight: normal;
+          border-radius: 6px;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          word-wrap: break-word;
+          line-height: 1.1; }
+      section form div.screen div.messages {
+        padding: 25px; }
+      section form div.screen div.message {
+        margin-left: 15%;
+        box-sizing: border-box;
+        position: relative;
+        border-radius: 6px;
+        width: 85%;
+        padding: 1px 20px;
+        margin-bottom: 25px;
+        box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.25);
+        background: #ffda00; }
+        section form div.screen div.message:after {
+          content: '';
+          position: absolute;
+          right: -20px;
+          bottom: 0;
+          width: 0;
+          height: 0;
+          margin-top: -15px;
+          margin-left: -30px;
+          border: 30px solid transparent;
+          border-right: 0;
+          border-bottom: 0;
+          border-left-color: #ffda00; }
+      section form div.screen div.message.received {
+        background: white;
+        margin-left: 0; }
+        section form div.screen div.message.received:after {
+          right: auto;
+          left: 10px;
+          border: 30px solid transparent;
+          border-right-color: white;
+          border-left: 0;
+          border-bottom: 0; }
+
+button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  background: white;
+  border: none;
+  border-radius: 6px;
+  padding: 40px 10px;
+  text-shadow: -1px -1px 0 white;
+  box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.25);
+  font-size: 25px;
+  font-family: Agipo, sans-serif;
+  text-transform: uppercase; }
+
+div.next {
+  z-index: 1;
+  position: fixed;
+  padding: 15px;
+  box-sizing: border-box;
+  bottom: 0;
+  width: 100%;
+  max-width: 700px;
+  text-align: right; }
+
+div.menu {
+  font-size: 1.15em;
+  line-height: 1;
+  text-align: center;
+  margin-top: 45px; }
+  div.menu a {
+    text-shadow: -1px -1px 0 white;
+    color: black;
+    display: block;
+    margin: 1em;
+    background: #d4d4d3;
+    text-decoration: none;
+    padding: 12px 24px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    text-transform: uppercase; }
+
+.fancy {
+  font-family: Agipo, sans-serif;
+  font-weight: bold;
+  font-size: 1.5em;
+  box-shadow: 0px 1px 0px 0px #fff6af;
+  background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+  background-color: #ffec64;
+  border-radius: 6px;
+  border: 1px solid #ffaa22;
+  display: inline-block;
+  cursor: pointer;
+  color: #333333;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #ffee66; }
+
+.fancy:hover {
+  background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+  background-color: #ffab23; }
+
+footer {
+  margin: 25px;
+  font-size: 0.7em;
+  opacity: 0.5; }
+
+/* Flying Emoji */
+div.horizontal, div.vertical {
+  position: fixed;
+  top: -5px;
+  left: 0; }
+  div.horizontal img, div.vertical img {
+    width: 80px; }
+
+div.horizontal {
+  animation: topbottom linear infinite alternate; }
+
+div.vertical {
+  animation: leftright linear infinite alternate; }
+
+div.v1 {
+  animation-delay: -25077ms;
+  animation-duration: 18401ms; }
+
+div.v2 {
+  animation-delay: -16883ms;
+  animation-duration: 10828ms; }
+
+div.v3 {
+  animation-delay: -14711ms;
+  animation-duration: 25793ms; }
+
+div.v4 {
+  animation-delay: -26221ms;
+  animation-duration: 13935ms; }
+
+div.v5 {
+  animation-delay: -21210ms;
+  animation-duration: 27225ms; }
+
+div.v6 {
+  animation-delay: -11911ms;
+  animation-duration: 15748ms; }
+
+div.v7 {
+  animation-delay: -26473ms;
+  animation-duration: 21679ms; }
+
+div.v8 {
+  animation-delay: -26227ms;
+  animation-duration: 14726ms; }
+
+div.v9 {
+  animation-delay: -20023ms;
+  animation-duration: 21561ms; }
+
+div.h1 {
+  animation-delay: -21573ms;
+  animation-duration: 14482ms; }
+
+div.h2 {
+  animation-delay: -21179ms;
+  animation-duration: 13457ms; }
+
+div.h3 {
+  animation-delay: -25583ms;
+  animation-duration: 24631ms; }
+
+div.h4 {
+  animation-delay: -27978ms;
+  animation-duration: 21520ms; }
+
+div.h5 {
+  animation-delay: -25650ms;
+  animation-duration: 14762ms; }
+
+div.h6 {
+  animation-delay: -28415ms;
+  animation-duration: 18305ms; }
+
+div.h7 {
+  animation-delay: -12443ms;
+  animation-duration: 19091ms; }
+
+div.h8 {
+  animation-delay: -24056ms;
+  animation-duration: 27304ms; }
+
+div.h9 {
+  animation-delay: -17694ms;
+  animation-duration: 27223ms; }
+
+@keyframes topbottom {
+  to {
+    transform: translateY(calc(100vh - 80px)); } }
+
+@keyframes leftright {
+  to {
+    transform: translateX(calc(100vw - 80px)); } }
+
+/*# sourceMappingURL=main6.css.map */
