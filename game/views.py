@@ -199,6 +199,11 @@ class GameView(FormView):
         else:
             foreground_color = 'white'
 
+        if screen.text_color:
+            text_color = screen.text_color.color
+        else:
+            text_color = 'black'
+
         if screen.image:
             background_image = screen.image.url
         elif screen.location and screen.location.image:
@@ -211,6 +216,7 @@ class GameView(FormView):
             'routes': routes,
             'background_color': background_color,
             'foreground_color': foreground_color,
+            'text_color': text_color,
             'background_image': background_image,
         })
         return context

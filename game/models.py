@@ -76,6 +76,7 @@ class Screen(models.Model):
     image = models.ImageField('afbeelding', help_text='deze afbeelding wordt alléén getoond op actieschermen', blank=True)
     foreground_color = models.ForeignKey(Color, verbose_name='voorgrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
     background_color = models.ForeignKey(Color, verbose_name='achtergrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
+    text_color = models.ForeignKey(Color, verbose_name='tekstkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
 
     def __str__(self):
         return '{}. {}'.format(self.id, self.title)

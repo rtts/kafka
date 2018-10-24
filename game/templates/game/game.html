@@ -24,7 +24,7 @@
     {% elif screen.type.type == 30 %}
     <div class="screen" style="background-color: {{background_color}}; background-image: url({{background_image}})">
       <div class="title">
-        <h1 style="background-color: {{foreground_color}}">
+        <h1 style="background-color: {{foreground_color}}; color: {{text_color}}">
           {{screen.title}}
         </h1>
       </div>
@@ -37,7 +37,7 @@
     {% elif screen.type.type == 50 %}
       <div class="screen type{{screen.type.type}}" style="background-color: {{background_color}}">
         <div class="title">
-          <h1 style="background-color: {{foreground_color}}">
+          <h1 style="background-color: {{foreground_color}}; color: {{text_color}}">
             {{screen.title}}
           </h1>
         </div>
