@@ -19,6 +19,7 @@ class Color(models.Model):
 
 class Character(models.Model):
     title = models.CharField('titel', max_length=255)
+    active = models.BooleanField('actief', default=True)
     first_screen = models.ForeignKey('Screen', on_delete=models.PROTECT, verbose_name='eerste scherm')
     image = models.ImageField('afbeelding', blank=True, help_text='upload hier een PNG afbeelding met transparante achtergrond')
     color = models.CharField('kleur', max_length=16, blank=True)
