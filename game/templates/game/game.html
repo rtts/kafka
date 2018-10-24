@@ -1,23 +1,44 @@
 {% extends 'game/base.html' %}
 
 {% block content %}
-  <form method="post" style="background-color: {{background_color}}; background-image: url({{background_image}})">
+  {% if user.is_staff %}
+    <a class="edit" href="{% url 'admin:game_screen_change' screen.pk %}">bewerk dit scherm</a>
+  {% endif %}
+
+  <form method="post">
     {% csrf_token %}
-    <div class="screen">
-      {% if screen.type.type == 10 %}
+    {% if screen.type.type == 30 %}
+      <div class="screen type{{screen.type.type}}" style="background-color: {{background_color}}; background-image: url({{background_image}})">
+        <div class="title">
+          <h1 style="background-color: {{foreground_color}}">
+            {{screen.title}}
+          </h1>
+        </div>
+      </div>
+
+    {% elif screen.type.type == 50 %}
+      <div class="screen type{{screen.type.type}}" style="background-color: {{background_color}}">
+        <div class="title">
+          <h1 style="background-color: {{foreground_color}}">
+            {{screen.title}}
+          </h1>
+        </div>
+        <div class="messages">
+          {% for message in screen.messages.all %}
+            <div class="message {% if message.received %}received{% endif %}">
+            {{message|safe}}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    {% elif screen.type.type == 10 %}
+      <div class="screen">
         {% for route in routes %}
           <button style="background-color: {{foreground_color}}" type="submit" name="route" value="{{route.pk}}">{{route.name}}</button><br>
         {% endfor %}
-      {% endif %}
-
-      {% if screen.type.type == 50 %}
-        {% for message in screen.messages.all %}
-          <div class="message {% if message.received %}received{% endif %}">
-            {{message|safe}}
-          </div>
-        {% endfor %}
-      {% endif %}
-    </div>
+      </div>
+    {% endif %}
 
     {% if not screen.type.type == 10 %}
       <div class="next">

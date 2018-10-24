@@ -32,38 +32,27 @@ main {
   height: 100vh;
 }
 
-div.header {
-  overflow: hidden;
+div.title_screen {
+  height: 100%;
+  background-color: $yellow;
+  text-align: center;
   h1 {
+    margin: 0;
+    padding: 20px;
+    font-family: 'Entrails BB';
+    font-size: 2.5em;
+    line-height: 1.1;
     font-size: 30px;
     text-align: center;
     font-weight: normal;
-    background: white;
-    margin: 0;
-    margin-top: 30px;
     margin-bottom: 10px;
     border-radius: $radius;
     letter-spacing: 1px;
     text-transform: uppercase;
     word-wrap: break-word;
   }
-}
-
-section.type10 {
-  form div.header h1 {
-    background: none !important;
-    box-shadow: none;
-    text-transform: none;
-  }
-}
-section {
-  form {
-    padding-bottom: 100px;
-  }
-  form div.header h1 {
-    font-family: 'Entrails BB';
-    font-weight: normal;
-    //background: white !important;
+  p {
+    margin: 0.25em;
   }
 }
 
@@ -73,40 +62,63 @@ section {
   margin: auto;
   position: relative;
 
-  div.gradient {
-    content: '';
-    display: block;
-    position: fixed;
-    height: 250px;
-    background: red;
-    bottom: 0;
-    width: 100%;
-    max-width: 700px;
-    z-index: 1;
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, white 90%);
+  a.edit {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    color: red;
+    text-decoration: none;
+    font-size: 12px;
   }
 
   form {
-    min-height: 100%;
-    box-sizing: border-box;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: white;
+    height: 100%;
+    overflow-x: auto;
 
     div.screen {
-      margin: 25px;
+      min-height: 100%;
+      overflow: hidden;
+      box-sizing: border-box;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-color: white;
+
+      div.title {
+        padding: 15px;
+
+        h1 {
+          margin: 0;
+          padding: 10px;
+          font-family: 'Entrails BB';
+          font-weight: normal;
+          font-size: 30px;
+          text-shadow: 2px 2px 5px rgba(0,0,0,0.25);
+          box-shadow: 3px 3px 12px rgba(0,0,0,0.25);
+          text-align: center;
+          font-weight: normal;
+          border-radius: $radius;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          word-wrap: break-word;
+          line-height: 1.1;
+        }
+      }
+
+      div.messages {
+        padding: 25px;
+      }
 
       div.message {
         margin-left: 15%;
         box-sizing: border-box;
  	position: relative;
-	background: $yellow;
 	border-radius: $radius;
         width: 85%;
         padding: 1px 20px;
         margin-bottom: 25px;
         box-shadow: 3px 3px 12px rgba(0,0,0,0.25);
+        background: $yellow;
 
         &:after {
 	  content: '';
@@ -115,12 +127,12 @@ section {
           bottom: 0;
 	  width: 0;
 	  height: 0;
-	  border: 30px solid transparent;
-	  border-left-color: $yellow;
-	  border-right: 0;
-	  border-bottom: 0;
 	  margin-top: -15px;
 	  margin-left: -30px;
+	  border: 30px solid transparent;
+	  border-right: 0;
+	  border-bottom: 0;
+          border-left-color: $yellow;
         }
       }
       div.message.received {

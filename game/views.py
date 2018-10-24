@@ -226,7 +226,8 @@ class GameView(FormView):
                 routes.append(route)
         return routes
 
-class GameScreenView(GameView):
+class GameScreenView(TemplateView):
     def get(self, request, screen_id):
         request.session['screen_id'] = screen_id
+        request.session['character_id'] = Character.objects.first().id
         return redirect('game')
