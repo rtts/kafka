@@ -17,6 +17,10 @@
         {% endfor %}
     </div>
 
+    {% elif screen.type.type == 20 %}
+    <div class="screen" style="background-color: {{background_color}}; background-image: url({{background_image}})">
+    </div>
+
     {% elif screen.type.type == 30 %}
     <div class="screen" style="background-color: {{background_color}}; background-image: url({{background_image}})">
       <div class="title">
