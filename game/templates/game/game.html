@@ -71,7 +71,7 @@
         const form = document.getElementById('form');
         const gesture = new TinyGesture(form);
         gesture.on('swipeleft', () => {
-            form.style.transform = 'translateX(-30%)';
+            form.style.transform = 'translateX(-100%)';
             form.style.opacity = '0';
             setTimeout(() => form.submit(), 1000);
             //form.submit();
