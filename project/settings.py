@@ -9,7 +9,7 @@ SASS_PROCESSOR_ROOT = os.path.join(os.path.dirname(os.path.abspath(kafka.__file_
 
 ADMINS = [('JJ Vens', 'jj@rtts.eu')]
 SECRET_KEY = 'u+b$tbcq@)8242b*++rt$cetp3b301pqqc7mrh@8!ib(4-59)c'
-ALLOWED_HOSTS = ['localhost', 'kafka.created.today', 'www.campingkafka.nl']
+ALLOWED_HOSTS = ['*']
 ROOT_URLCONF = 'project.urls'
 WSGI_APPLICATION = 'project.wsgi.application'
 
