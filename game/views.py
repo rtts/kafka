@@ -184,8 +184,6 @@ class GameView(FormView):
 
         if screen.background_color:
             background_color = screen.background_color.color
-        elif screen.location and screen.location.background_color:
-            background_color = screen.location.background_color.color
         elif screen.type and screen.type.background_color:
             background_color = screen.type.background_color.color
         else:
@@ -193,8 +191,6 @@ class GameView(FormView):
 
         if screen.foreground_color:
             foreground_color = screen.foreground_color.color
-        elif screen.location and screen.location.foreground_color:
-            foreground_color = screen.location.foreground_color.color
         elif screen.type and screen.type.foreground_color:
             foreground_color = screen.type.foreground_color.color
         else:
@@ -207,8 +203,6 @@ class GameView(FormView):
 
         if screen.image:
             background_image = screen.image.url
-        elif screen.location and screen.location.image:
-            background_image = screen.location.image.url
         else:
             background_image = 'none'
 

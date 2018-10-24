@@ -1,13 +1,14 @@
 {% extends 'game/base.html' %}
+{% load static %}
 
 {% block content %}
   {% if user.is_staff %}
     <a class="edit" href="{% url 'admin:game_screen_change' screen.pk %}">bewerk dit scherm</a>
   {% endif %}
 
-  <form method="post">
+  <form method="post" id="form">
     {% csrf_token %}
-    {% if screen.type.type == 10 %}
+    {% if screen.type.type == 10 %} <!-- Keuze -->
       <div class="screen choice">
         <p>
           {{screen.title}}
@@ -17,11 +18,11 @@
         {% endfor %}
     </div>
 
-    {% elif screen.type.type == 20 %}
+    {% elif screen.type.type == 20 %} <!-- Actie -->
     <div class="screen" style="background-color: {{background_color}}; background-image: url({{background_image}})">
     </div>
 
-    {% elif screen.type.type == 30 %}
+    {% elif screen.type.type == 30 %} <!-- Locatie -->
     <div class="screen" style="background-color: {{background_color}}; background-image: url({{background_image}})">
       <div class="title">
         <h1 style="background-color: {{foreground_color}}; color: {{text_color}}">
@@ -30,11 +31,11 @@
       </div>
     </div>
 
-    {% elif screen.type.type == 40 %}
+    {% elif screen.type.type == 40 %} <!-- Mededeling -->
     <div class="screen" style="background-color: {{background_color}}; background-image: url({{background_image}})">
     </div>
 
-    {% elif screen.type.type == 50 %}
+    {% elif screen.type.type == 50 %} <!-- Gesprek -->
       <div class="screen type{{screen.type.type}}" style="background-color: {{background_color}}">
         <div class="title">
           <h1 style="background-color: {{foreground_color}}; color: {{text_color}}">
@@ -50,31 +51,19 @@
         </div>
       </div>
     {% endif %}
-
-    {% if not screen.type.type == 10 %}
-      <div class="next">
-        <input type="submit" value="Verder" class="fancy">
-      </div>
-    {% endif %}
   </form>
-
 {% endblock %}
 
 {% block extrabody %}
-  <script>
-    function show_gradient() {
-        section = document.getElementById('scroll');
-        if (section.scrollHeight > section.offsetHeight) {
-            $('div.gradient').show();
-        } else {
-            $('div.gradient').hide();
-        }
-    }
+  <script type="module">
+    import TinyGesture from "{% static 'TinyGesture.js' %}";
 
-    $(function() {
-        $(window).on('resize', show_gradient);
-        show_gradient();
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('form');
+        const gesture = new TinyGesture(form);
+        gesture.on('swipeleft', () => {
+            form.submit();
+        });
     });
-
   </script>
 {% endblock %}

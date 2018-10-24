@@ -55,25 +55,10 @@ class ScreenType(models.Model):
         verbose_name_plural = 'schermtypes'
         ordering = ['type']
 
-class Location(models.Model):
-    title = models.CharField('titel', max_length=255)
-    image = models.ImageField('afbeelding', blank=True, help_text='upload hier een PNG afbeelding met transparante achtergrond')
-    foreground_color = models.ForeignKey(Color, verbose_name='voorgrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
-    background_color = models.ForeignKey(Color, verbose_name='achtergrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        verbose_name = 'locatie'
-        verbose_name_plural = 'locaties'
-        ordering = ['title']
-
 class Screen(models.Model):
     title = models.CharField('titel', max_length=255)
     type = models.ForeignKey(ScreenType, on_delete=models.CASCADE, related_name='+', verbose_name='type')
-    location = models.ForeignKey(Location, on_delete=models.CASCADE, related_name='+', verbose_name='locatie', blank=True, null=True)
-    image = models.ImageField('afbeelding', help_text='deze afbeelding wordt alléén getoond op actieschermen', blank=True)
+    image = models.ImageField('afbeelding', blank=True)
     foreground_color = models.ForeignKey(Color, verbose_name='voorgrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
     background_color = models.ForeignKey(Color, verbose_name='achtergrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
     text_color = models.ForeignKey(Color, verbose_name='tekstkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
