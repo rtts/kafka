@@ -1,8 +1,6 @@
 {% extends 'game/base.html' %}
 
 {% block content %}
-  <div class="gradient"></div>
-
   <form method="post" style="background-color: {{background_color}}; background-image: url({{background_image}})">
     {% csrf_token %}
     <div class="header">
