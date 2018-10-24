@@ -42,10 +42,7 @@ div.header {
     margin: 0;
     margin-top: 20px;
     border-radius: $radius;
-    box-shadow: 3px 3px 12px rgba(0,0,0,0.25);
-    //text-shadow: -1px -1px 0 white;
     letter-spacing: 1px;
-    //padding: 15px 0;
     text-transform: uppercase;
     word-wrap: break-word;
   }
@@ -170,17 +167,17 @@ div.next {
 }
 
 div.menu {
-  font-size: 2em;
+  font-size: 1.5em;
   text-align: center;
 
   a {
+    color: black;
     display: block;
     margin: 1em;
     background: #ccc;
-    color:#333333;
     text-decoration:none;
     padding:12px 24px;
-    box-shadow: 3px 3px 12px rgba(0,0,0,0.25);
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.25);
     border-radius: $radius;
     text-transform: uppercase;
   }
