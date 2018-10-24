@@ -1,0 +1,45 @@
+{% extends 'game/base.html' %}
+{% load static %}
+
+{% block extrahead %}
+  <style>
+    div.character_intro_outer {
+        box-sizing: border-box;
+        min-height: 100%;
+        background: #ccc;
+        overflow: hidden;
+        padding: 1em;
+    }
+    div.character_intro_inner {
+        box-sizing: border-box;
+        min-height: 100%;
+        padding: 1em;
+        border-radius: 3px;
+        text-align: center;
+        background: #ffda00;
+        box-shadow: 3px 3px 12px rgba(0,0,0,0.25);
+    }
+    img {
+        width: 100%;;
+    }
+    a.fancy {
+        float: right;
+        margin: 1em 0;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <div class="character_intro_outer">
+    <div class="character_intro_inner">
+      {% if character.image %}
+        <img src="{{character.image.url}}" alt="{{character.title}}">
+      {% else %}
+        <img src="{% static 'placeholder.png' %}">
+      {% endif %}
+      {{character.intro|safe}}
+    </div>
+    <a href="{% url 'game' %}" class="fancy">Verder</a>
+  </div>
+
+{% endblock %}

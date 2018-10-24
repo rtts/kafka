@@ -6,6 +6,7 @@ from django.shortcuts import redirect, get_object_or_404
 from django.views.generic import FormView, TemplateView
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.mixins import UserPassesTestMixin
+from kafka.utils import get_webtext
 from .models import *
 from .forms import *
 
@@ -93,6 +94,20 @@ class AddRouteView(FormView, StaffRequiredMixin):
             route.save()
             return redirect('admin:game_screen_change', target.id)
 
+class TitleScreenView(TemplateView):
+    template_name = 'game/title_screen.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        screen_id = self.request.session.get('screen_id')
+        context.update({
+            'emoji': Emoji.objects.filter(visible=True),
+            'content': get_webtext(50),
+            'continue': screen_id,
+            'footer': get_webtext(100),
+        })
+        return context
+
 class ChooseCharacterView(FormView):
     template_name = 'game/choose_character.html'
     form_class = ChooseCharacterForm
@@ -101,7 +116,25 @@ class ChooseCharacterView(FormView):
         character = form.cleaned_data['character']
         self.request.session['character_id'] = character.id
         self.request.session['screen_id'] = character.first_screen.id
-        return redirect('game')
+        return redirect('character')
+
+class CharacterView(TemplateView):
+    template_name = 'game/character.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        character_id = request.session.get('character_id')
+        try:
+            self.character = Character.objects.get(id=character_id)
+        except (Character.DoesNotExist, Screen.DoesNotExist):
+            return redirect('choose_character')
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update({
+            'character': self.character,
+        })
+        return context
 
 class GameView(FormView):
     template_name = 'game/game.html'
@@ -113,7 +146,7 @@ class GameView(FormView):
             self.character = Character.objects.get(id=character_id)
             self.screen = Screen.objects.get(id=screen_id)
         except (Character.DoesNotExist, Screen.DoesNotExist):
-            return redirect('choose_character')
+            return redirect('title_screen')
         return super().dispatch(request, *args, **kwargs)
 
     def get(self, request):

@@ -18,6 +18,7 @@ class Emoji(models.Model):
 class Webtext(models.Model):
     TYPES = [
         (1, 'Homepage tekst'),
+        (50, 'Game intro tekst'),
         (100, 'Footer tekst'),
     ]
     parameter = models.PositiveIntegerField(choices=TYPES)
