@@ -3,10 +3,6 @@
 {% block content %}
   <form method="post" style="background-color: {{background_color}}; background-image: url({{background_image}})">
     {% csrf_token %}
-    <div class="header">
-      <h1 style="background-color: {{foreground_color}}">{{screen.title}}</h1>
-    </div>
-
     <div class="screen">
       {% if screen.type.type == 10 %}
         {% for route in routes %}
