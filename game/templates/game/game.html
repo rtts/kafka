@@ -7,14 +7,28 @@
 
   <form method="post">
     {% csrf_token %}
-    {% if screen.type.type == 30 %}
-      <div class="screen type{{screen.type.type}}" style="background-color: {{background_color}}; background-image: url({{background_image}})">
-        <div class="title">
-          <h1 style="background-color: {{foreground_color}}">
-            {{screen.title}}
-          </h1>
-        </div>
+    {% if screen.type.type == 10 %}
+      <div class="screen choice">
+        <p>
+          {{screen.title}}
+        </p>
+        {% for route in routes %}
+          <button style="background-color: {{foreground_color}}" type="submit" name="route" value="{{route.pk}}">{{route.name}}</button><br>
+        {% endfor %}
+    </div>
+
+    {% elif screen.type.type == 30 %}
+    <div class="screen" style="background-color: {{background_color}}; background-image: url({{background_image}})">
+      <div class="title">
+        <h1 style="background-color: {{foreground_color}}">
+          {{screen.title}}
+        </h1>
       </div>
+    </div>
+
+    {% elif screen.type.type == 40 %}
+    <div class="screen" style="background-color: {{background_color}}; background-image: url({{background_image}})">
+    </div>
 
     {% elif screen.type.type == 50 %}
       <div class="screen type{{screen.type.type}}" style="background-color: {{background_color}}">
@@ -30,13 +44,6 @@
             </div>
           {% endfor %}
         </div>
-      </div>
-
-    {% elif screen.type.type == 10 %}
-      <div class="screen">
-        {% for route in routes %}
-          <button style="background-color: {{foreground_color}}" type="submit" name="route" value="{{route.pk}}">{{route.name}}</button><br>
-        {% endfor %}
       </div>
     {% endif %}
 
