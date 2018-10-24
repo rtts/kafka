@@ -183,9 +183,9 @@ export default class TinyGesture {
 }
 
 TinyGesture.defaults = {
-  threshold: (type, self) => Math.max(25, Math.floor(0.15 * (type === 'x' ? window.innerWidth || document.body.clientWidth : window.innerHeight || document.body.clientHeight))),
-  velocityThreshold: 10,
-  disregardVelocityThreshold: (type, self) => Math.floor(0.5 * (type === 'x' ? self.element.clientWidth : self.element.clientHeight)),
+  threshold: (type, self) => 10, // Math.max(25, Math.floor(0.15 * (type === 'x' ? window.innerWidth || document.body.clientWidth : window.innerHeight || document.body.clientHeight))),
+  velocityThreshold: 1, //10,
+  disregardVelocityThreshold: (type, self) => 10, // Math.floor(0.5 * (type === 'x' ? self.element.clientWidth : self.element.clientHeight)),
   pressThreshold: 8,
   diagonalSwipes: false,
   diagonalLimit: Math.tan(45 * 1.5 / 180 * Math.PI),
