@@ -41,6 +41,11 @@
 
     {% elif screen.type.type == 40 %} <!-- Mededeling -->
     <div class="screen" style="background-color: {{background_color}}; background-image: url({{background_image}})">
+      {% if background_image == 'none' %}
+        <div class="alert">
+          {{screen.title}}
+        </div>
+      {% endif %}
     </div>
 
     {% elif screen.type.type == 50 %} <!-- Gesprek -->
