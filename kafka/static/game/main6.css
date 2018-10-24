@@ -24,7 +24,7 @@ div.title_screen {
   height: 100%;
   background-color: #ffda00;
   text-align: center;
-  padding: 10px; }
+  padding: 10px 30px; }
   div.title_screen h1 {
     margin: 0;
     padding: 20px;
@@ -199,76 +199,76 @@ div.vertical {
   animation: leftright linear infinite alternate; }
 
 div.v1 {
-  animation-delay: -14411ms;
-  animation-duration: 14726ms; }
+  animation-delay: -22134ms;
+  animation-duration: 21851ms; }
 
 div.v2 {
-  animation-delay: -20450ms;
-  animation-duration: 24160ms; }
+  animation-delay: -10484ms;
+  animation-duration: 28484ms; }
 
 div.v3 {
-  animation-delay: -27963ms;
-  animation-duration: 18205ms; }
+  animation-delay: -21064ms;
+  animation-duration: 22915ms; }
 
 div.v4 {
-  animation-delay: -15003ms;
-  animation-duration: 26118ms; }
+  animation-delay: -10130ms;
+  animation-duration: 24489ms; }
 
 div.v5 {
-  animation-delay: -15500ms;
-  animation-duration: 12679ms; }
+  animation-delay: -25279ms;
+  animation-duration: 17547ms; }
 
 div.v6 {
-  animation-delay: -18833ms;
-  animation-duration: 18641ms; }
+  animation-delay: -20577ms;
+  animation-duration: 25237ms; }
 
 div.v7 {
-  animation-delay: -23706ms;
-  animation-duration: 25439ms; }
+  animation-delay: -16097ms;
+  animation-duration: 21374ms; }
 
 div.v8 {
-  animation-delay: -27264ms;
-  animation-duration: 25821ms; }
+  animation-delay: -19183ms;
+  animation-duration: 14618ms; }
 
 div.v9 {
-  animation-delay: -16148ms;
-  animation-duration: 13359ms; }
+  animation-delay: -11841ms;
+  animation-duration: 25522ms; }
 
 div.h1 {
-  animation-delay: -24528ms;
-  animation-duration: 23719ms; }
+  animation-delay: -22799ms;
+  animation-duration: 24616ms; }
 
 div.h2 {
-  animation-delay: -29881ms;
-  animation-duration: 14540ms; }
+  animation-delay: -25246ms;
+  animation-duration: 13194ms; }
 
 div.h3 {
-  animation-delay: -16879ms;
-  animation-duration: 17346ms; }
+  animation-delay: -10980ms;
+  animation-duration: 15246ms; }
 
 div.h4 {
-  animation-delay: -26624ms;
-  animation-duration: 17966ms; }
+  animation-delay: -29119ms;
+  animation-duration: 30000ms; }
 
 div.h5 {
-  animation-delay: -28661ms;
-  animation-duration: 20899ms; }
+  animation-delay: -20766ms;
+  animation-duration: 21339ms; }
 
 div.h6 {
-  animation-delay: -17117ms;
-  animation-duration: 28257ms; }
+  animation-delay: -21547ms;
+  animation-duration: 24239ms; }
 
 div.h7 {
-  animation-delay: -10344ms;
-  animation-duration: 10465ms; }
+  animation-delay: -29133ms;
+  animation-duration: 16490ms; }
 
 div.h8 {
-  animation-delay: -20196ms;
-  animation-duration: 19972ms; }
+  animation-delay: -18960ms;
+  animation-duration: 11310ms; }
 
 div.h9 {
-  animation-delay: -16637ms;
-  animation-duration: 13830ms; }
+  animation-delay: -12802ms;
+  animation-duration: 20863ms; }
 
 @keyframes topbottom {
   to {
