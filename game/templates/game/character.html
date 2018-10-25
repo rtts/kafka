@@ -7,8 +7,7 @@
   <form>
     {% if character.image %}<div class="screen" style="background-image: url({{character.image.url}})">{% else %}<div class="screen" background-image: url({% static 'placeholder.png' %})">{% endif %}
       <div class="next">
-        <button class="fancy" type="submit">Verder</button>
-        <button class="dont" type="submit"><img src="{% static 'pijl.png' %}" alt="Verder"></button>
+        <a class="fancy" href="{% url 'game' %}">Verder</a>
       </div>
     </div>
   </form>
