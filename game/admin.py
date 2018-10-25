@@ -26,7 +26,7 @@ class ScreenTypeAdmin(admin.ModelAdmin):
 
 @admin.register(Character)
 class CharacterAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['__str__', 'active']
 
 class InlineRouteAdmin(admin.StackedInline):
     model = Route
