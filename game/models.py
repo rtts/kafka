@@ -63,6 +63,7 @@ class Screen(models.Model):
     foreground_color = models.ForeignKey(Color, verbose_name='voorgrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
     background_color = models.ForeignKey(Color, verbose_name='achtergrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
     text_color = models.ForeignKey(Color, verbose_name='tekstkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
+    button_color = models.ForeignKey(Color, verbose_name='buttonkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
 
     def __str__(self):
         return '{}. {}'.format(self.id, self.title)

@@ -8,13 +8,10 @@
         min-height: 100%;
         background: #d4d4d3;
         overflow: hidden;
+        position: relative;
     }
     img.character {
         width: 100%;;
-    }
-    a.fancy {
-        float: right;
-        margin: 1em 0;
     }
   </style>
 {% endblock %}
@@ -27,11 +24,9 @@
         <img class="character" src="{% static 'placeholder.png' %}">
       {% endif %}
       {{character.intro|safe}}
-      <center>
-        <a href="{% url 'game' %}">
-          <img src="{% static 'pijl.png' %}" width="70" alt="verder">
-        </a>
-      </center>
+      <div class="next">
+        <a class="fancy" href="{% url 'game' %}">Verder</a>
+      </div>
   </div>
 
 {% endblock %}

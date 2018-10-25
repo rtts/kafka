@@ -22,12 +22,16 @@
           {{screen.title}}
         </p>
         {% for route in routes %}
-          <button style="background-color: {{foreground_color}}" type="submit" name="route" value="{{route.pk}}">{{route.name}}</button>
+          <button class="fancy" style="background-color: {{foreground_color}}" type="submit" name="route" value="{{route.pk}}">{{route.name}}</button>
         {% endfor %}
     </div>
 
     {% elif screen.type.type == 20 %} <!-- Actie -->
     <div class="screen" style="background-color: {{background_color}}; background-image: url({{background_image}})">
+      <div class="next">
+        <button class="fancy" type="submit">Verder</button>
+        <button class="dont" type="submit"><img src="{% static 'pijl.png' %}" alt="Verder"></button>
+      </div>
     </div>
 
     {% elif screen.type.type == 30 %} <!-- Locatie -->
@@ -36,6 +40,10 @@
         <h1 style="background-color: {{foreground_color}}; color: {{text_color}}">
           {{screen.title}}
         </h1>
+      </div>
+      <div class="next">
+        <button class="fancy" type="submit">Verder</button>
+        <button class="dont" type="submit"><img src="{% static 'pijl.png' %}" alt="Verder"></button>
       </div>
     </div>
 
@@ -46,6 +54,10 @@
           {{screen.title}}
         </div>
       {% endif %}
+      <div class="next">
+        <button class="fancy" type="submit" style="background-color: {{screen.button_color|default:'#d4d4d3'}}">Verder</button>
+        <button class="dont" type="submit"><img src="{% static 'pijl.png' %}" alt="Verder"></button>
+      </div>
     </div>
 
     {% elif screen.type.type == 50 %} <!-- Gesprek -->
@@ -62,25 +74,31 @@
             </div>
           {% endfor %}
         </div>
+        <div class="next">
+          <button class="fancy" type="submit">Verder</button>
+          <button class="dont" type="submit"><img src="{% static 'pijl.png' %}" alt="Verder"></button>
+        </div>
       </div>
     {% endif %}
+
   </form>
 {% endblock %}
 
 {% block extrabody %}
   <script type="module">
-    import TinyGesture from "{% static 'TinyGesture.js' %}";
+    //import TinyGesture from "{% static 'TinyGesture.js' %}";
 
     document.addEventListener('DOMContentLoaded', () => {
         document.body.style.background = '{{background_color}}';
+        /*
         const form = document.getElementById('form');
         const gesture = new TinyGesture(form);
         gesture.on('swipeleft', () => {
             form.style.transform = 'translateX(-100%)';
             form.style.opacity = '0';
             setTimeout(() => form.submit(), 1000);
-            //form.submit();
         });
+         */
     });
   </script>
 {% endblock %}

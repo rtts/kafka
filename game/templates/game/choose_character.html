@@ -11,13 +11,10 @@
           Kies je karakter
         </h1>
       </div>
-      <p>
-        Kies het karakter waar jij graag mee zou willen spelen
-      </p>
       <div class="characters">
         {% for character in form.fields.character.queryset.all %}
           {% if character.active %}
-            <button type="submit" name="character" value="{{character.pk}}">
+            <button class="fancy" type="submit" name="character" value="{{character.pk}}">
               {% if character.emoji %}
                 <img src="{{character.emoji.url}}" alt="{{character.title}}">
               {% else %}
