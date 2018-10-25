@@ -42,7 +42,7 @@
         </h1>
       </div>
       <div class="next">
-        <button class="fancy" type="submit" style="background-color: {{screen.button_color|default:'#d4d4d3'}}">Verder</button>
+        <button class="fancy" type="submit" style="background-color: {{screen.button_color.color|default:'#d4d4d3'}}">Verder</button>
         <button class="dont" type="submit"><img src="{% static 'pijl.png' %}" alt="Verder"></button>
       </div>
     </div>
@@ -55,7 +55,7 @@
         </div>
       {% endif %}
       <div class="next">
-        <button class="fancy" type="submit" style="background-color: {{screen.button_color|default:'#d4d4d3'}}">Verder</button>
+        <button class="fancy" type="submit" style="background-color: {{screen.button_color.color|default:'#d4d4d3'}}">Verder</button>
         <button class="dont" type="submit"><img src="{% static 'pijl.png' %}" alt="Verder"></button>
       </div>
     </div>
@@ -75,7 +75,7 @@
           {% endfor %}
         </div>
         <div class="next">
-          <button class="fancy" type="submit" style="background-color: {{screen.button_color|default:'#d4d4d3'}}">Verder</button>
+          <button class="fancy" type="submit" style="background-color: {{screen.button_color.color|default:'#d4d4d3'}}">Verder</button>
           <button class="dont" type="submit"><img src="{% static 'pijl.png' %}" alt="Verder"></button>
         </div>
       </div>
