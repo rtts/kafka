@@ -1,34 +1,15 @@
 {% extends 'game/base.html' %}
 {% load static %}
 
-{% block extrahead %}
-  <style>
-    div.character {
-        box-sizing: border-box;
-        min-height: 100%;
-        background: #d4d4d3;
-        overflow: hidden;
-        position: relative;
-    }
-    img.character {
-        width: 100%;;
-    }
-  </style>
-{% endblock %}
-
 {% block body_class %}grey{% endblock %}
 
 {% block content %}
-  <div class="character">
-      {% if character.image %}
-        <img class="character" src="{{character.image.url}}" alt="{{character.title}}">
-      {% else %}
-        <img class="character" src="{% static 'placeholder.png' %}">
-      {% endif %}
-      {{character.intro|safe}}
+  <form>
+    {% if character.image %}<div class="screen" style="background-image: url({{character.image.url}})">{% else %}<div class="screen" background-image: url({% static 'placeholder.png' %})">{% endif %}
       <div class="next">
-        <a class="fancy" href="{% url 'game' %}">Verder</a>
+        <button class="fancy" type="submit">Verder</button>
+        <button class="dont" type="submit"><img src="{% static 'pijl.png' %}" alt="Verder"></button>
       </div>
-  </div>
-
+    </div>
+  </form>
 {% endblock %}
