@@ -8,10 +8,10 @@
     <title>{% block title %}{% endblock %}</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{% sass_src 'game/main9.scss' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% sass_src 'game/main10.scss' %}"/>
     {% block extrahead %}{% endblock %}
   </head>
-  <body>
+  <body class="{% block body_class %}{% endblock %}">
 
     <main>
       <section class="type{{screen.type.type}}" id="scroll">

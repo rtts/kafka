@@ -1,6 +1,8 @@
 {% extends 'game/base.html' %}
 {% load static %}
 
+{% block body_class %}grey{% endblock %}
+
 {% block content %}
   <form method="post">
     {% csrf_token %}
