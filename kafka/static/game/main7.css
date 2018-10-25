@@ -56,23 +56,16 @@ section {
   section form {
     height: 100%;
     overflow-x: auto; }
-    section form div.screen.choice {
-      background-color: #d4d4d3;
-      text-align: center;
-      padding: 10px 30px; }
-      section form div.screen.choice p {
-        line-height: 1;
-        margin-top: 1.4em;
-        margin-bottom: 1.9em;
-        font-size: 26px; }
     section form div.screen {
+      padding: 10px;
+      text-align: center;
       min-height: 100%;
       overflow: hidden;
       box-sizing: border-box;
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
-      background-color: white; }
+      background-color: #d4d4d3; }
       section form div.screen div.title {
         padding: 15px; }
         section form div.screen div.title h1 {
@@ -89,7 +82,13 @@ section {
           letter-spacing: 1px;
           text-transform: uppercase;
           word-wrap: break-word;
-          line-height: 1.1; }
+          line-height: 1.1;
+          background: #ffda00; }
+      section form div.screen p {
+        line-height: 1;
+        margin-top: 1.4em;
+        margin-bottom: 1.9em;
+        font-size: 26px; }
       section form div.screen div.alert {
         background-color: #ff3d47;
         font-size: 3em;
@@ -104,15 +103,18 @@ section {
       section form div.screen div.messages {
         padding: 25px; }
       section form div.screen div.message {
+        text-align: left;
         margin-left: 15%;
         box-sizing: border-box;
         position: relative;
         border-radius: 6px;
         width: 85%;
-        padding: 1px 20px;
-        margin-bottom: 25px;
+        padding: 20px;
+        margin-bottom: 20px;
         box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.25);
         background: #ffda00; }
+        section form div.screen div.message p {
+          margin: 0; }
         section form div.screen div.message:after {
           content: '';
           position: absolute;
@@ -136,11 +138,16 @@ section {
           border-right-color: white;
           border-left: 0;
           border-bottom: 0; }
+      section form div.screen div.characters img {
+        width: 100%; }
+      section form div.screen div.characters button {
+        box-shadow: none; }
 
 button {
   display: block;
   text-align: center;
   cursor: pointer;
+  background: #d4d4d3;
   width: 100%;
   box-sizing: border-box;
   border: none;
@@ -228,76 +235,76 @@ div.vertical {
   animation: leftright linear infinite alternate; }
 
 div.v1 {
-  animation-delay: -13345ms;
-  animation-duration: 21173ms; }
+  animation-delay: -22426ms;
+  animation-duration: 24133ms; }
 
 div.v2 {
-  animation-delay: -10198ms;
-  animation-duration: 27627ms; }
+  animation-delay: -29020ms;
+  animation-duration: 21064ms; }
 
 div.v3 {
-  animation-delay: -21284ms;
-  animation-duration: 15413ms; }
+  animation-delay: -16419ms;
+  animation-duration: 16591ms; }
 
 div.v4 {
-  animation-delay: -20836ms;
-  animation-duration: 11956ms; }
+  animation-delay: -21746ms;
+  animation-duration: 21627ms; }
 
 div.v5 {
-  animation-delay: -25363ms;
-  animation-duration: 18593ms; }
+  animation-delay: -16783ms;
+  animation-duration: 17635ms; }
 
 div.v6 {
-  animation-delay: -28324ms;
-  animation-duration: 16877ms; }
+  animation-delay: -16428ms;
+  animation-duration: 17748ms; }
 
 div.v7 {
-  animation-delay: -24866ms;
-  animation-duration: 28313ms; }
+  animation-delay: -23777ms;
+  animation-duration: 20062ms; }
 
 div.v8 {
-  animation-delay: -26103ms;
-  animation-duration: 20030ms; }
+  animation-delay: -13774ms;
+  animation-duration: 25958ms; }
 
 div.v9 {
-  animation-delay: -25381ms;
-  animation-duration: 23105ms; }
+  animation-delay: -29505ms;
+  animation-duration: 16774ms; }
 
 div.h1 {
-  animation-delay: -20290ms;
-  animation-duration: 11398ms; }
+  animation-delay: -10338ms;
+  animation-duration: 12879ms; }
 
 div.h2 {
-  animation-delay: -14880ms;
-  animation-duration: 12752ms; }
+  animation-delay: -20132ms;
+  animation-duration: 21642ms; }
 
 div.h3 {
-  animation-delay: -21999ms;
-  animation-duration: 13940ms; }
+  animation-delay: -23508ms;
+  animation-duration: 17623ms; }
 
 div.h4 {
-  animation-delay: -18081ms;
-  animation-duration: 28667ms; }
+  animation-delay: -14634ms;
+  animation-duration: 29760ms; }
 
 div.h5 {
-  animation-delay: -19144ms;
-  animation-duration: 14884ms; }
+  animation-delay: -22263ms;
+  animation-duration: 28344ms; }
 
 div.h6 {
-  animation-delay: -23697ms;
-  animation-duration: 27058ms; }
+  animation-delay: -19017ms;
+  animation-duration: 13242ms; }
 
 div.h7 {
-  animation-delay: -16244ms;
-  animation-duration: 23989ms; }
+  animation-delay: -25816ms;
+  animation-duration: 23702ms; }
 
 div.h8 {
-  animation-delay: -20496ms;
-  animation-duration: 25106ms; }
+  animation-delay: -25231ms;
+  animation-duration: 12552ms; }
 
 div.h9 {
-  animation-delay: -11717ms;
-  animation-duration: 23927ms; }
+  animation-delay: -22888ms;
+  animation-duration: 10256ms; }
 
 @keyframes topbottom {
   to {

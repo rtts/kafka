@@ -9,7 +9,7 @@
         background: #d4d4d3;
         overflow: hidden;
     }
-    img {
+    img.character {
         width: 100%;;
     }
     a.fancy {
@@ -22,12 +22,16 @@
 {% block content %}
   <div class="character">
       {% if character.image %}
-        <img src="{{character.image.url}}" alt="{{character.title}}">
+        <img class="character" src="{{character.image.url}}" alt="{{character.title}}">
       {% else %}
-        <img src="{% static 'placeholder.png' %}">
+        <img class="character" src="{% static 'placeholder.png' %}">
       {% endif %}
       {{character.intro|safe}}
-    <a href="{% url 'game' %}" class="fancy">Verder</a>
+      <center>
+        <a href="{% url 'game' %}">
+          <img src="{% static 'pijl.png' %}" width="70" alt="verder">
+        </a>
+      </center>
   </div>
 
 {% endblock %}

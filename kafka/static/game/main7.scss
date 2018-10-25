@@ -1,5 +1,6 @@
 $yellow: #ffda00;
 $red: #ff3442;
+$grey: #d4d4d3;
 $radius: 6px;
 
 @font-face {
@@ -76,27 +77,16 @@ section {
     height: 100%;
     overflow-x: auto;
 
-    div.screen.choice {
-      background-color: #d4d4d3;
-      text-align: center;
-      padding: 10px 30px;
-
-      p {
-        line-height: 1;
-        margin-top: 1.4em;
-        margin-bottom: 1.9em;
-        font-size: 26px;
-      }
-    }
-
     div.screen {
+      padding: 10px;
+      text-align: center;
       min-height: 100%;
       overflow: hidden;
       box-sizing: border-box;
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
-      background-color: white;
+      background-color: $grey;
 
       div.title {
         padding: 15px;
@@ -116,7 +106,15 @@ section {
           text-transform: uppercase;
           word-wrap: break-word;
           line-height: 1.1;
+          background: $yellow;
         }
+      }
+
+      p {
+        line-height: 1;
+        margin-top: 1.4em;
+        margin-bottom: 1.9em;
+        font-size: 26px;
       }
 
       div.alert {
@@ -137,15 +135,20 @@ section {
       }
 
       div.message {
+        text-align: left;
         margin-left: 15%;
         box-sizing: border-box;
  	position: relative;
 	border-radius: $radius;
         width: 85%;
-        padding: 1px 20px;
-        margin-bottom: 25px;
+        padding: 20px;
+        margin-bottom: 20px;
         box-shadow: 3px 3px 12px rgba(0,0,0,0.25);
         background: $yellow;
+
+        p {
+          margin: 0;
+        }
 
         &:after {
 	  content: '';
@@ -175,6 +178,15 @@ section {
 	  border-bottom: 0;
         }
       }
+
+      div.characters {
+        img {
+          width: 100%;
+        }
+        button {
+          box-shadow: none;
+        }
+      }
     }
   }
 }
@@ -183,6 +195,7 @@ button {
   display: block;
   text-align: center;
   cursor: pointer;
+  background: $grey;
 
   width: 100%;
   box-sizing: border-box;

@@ -1,23 +1,32 @@
 {% extends 'game/base.html' %}
+{% load static %}
 
 {% block content %}
   <form method="post">
     {% csrf_token %}
 
-    <div class="header">
-      <h1>Kies een karakter</h1>
-    </div>
-
-    <div class="screen">
-      {% for value, label in form.fields.character.choices %}
-        <label for="id_{{value}}"><input type="radio" name="character" value="{{value}}" id="id_{{value}}">
-          {{label}}
-        </label><br>
-      {% endfor %}
-    </div>
-
-    <div class="next">
-      <input type="submit" value="Verder" class="fancy">
+    <div class="screen" style="background-color: $d4d4d3">
+      <div class="title">
+        <h1>
+          Kies je karakter
+        </h1>
+      </div>
+      <p>
+        Kies het karakter waar jij graag mee zou willen spelen
+      </p>
+      <div class="characters">
+        {% for character in form.fields.character.queryset.all %}
+          {% if character.active %}
+            <button type="submit" name="character" value="{{character.pk}}">
+              {% if character.emoji %}
+                <img src="{{character.emoji.url}}" alt="{{character.title}}">
+              {% else %}
+                <img src="{% static 'placeholder.png' %}" alt="{{character.title}}">
+              {% endif %}
+            </button>
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
   </form>
 {% endblock %}
