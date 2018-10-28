@@ -9,7 +9,5 @@ import game.urls
 urlpatterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + [
     path('admin/', admin.site.urls),
     path('', include(kafka.urls)),
-    #path('game/', include(game.urls)),
-    path('ddw/', include(game.urls)),
-    path('DDW/', include(game.urls)),
+    path('game/', include(game.urls)),
 ]
