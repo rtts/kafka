@@ -24,41 +24,43 @@
         {% for route in routes %}
           <button class="fancy" style="background-color: {{foreground_color}}" type="submit" name="route" value="{{route.pk}}">{{route.name}}</button>
         {% endfor %}
-    </div>
+      </div>
 
     {% elif screen.type.type == 20 %} <!-- Actie -->
-    <div class="screen" style="background-color: {{background_color}}; background-image: url({{background_image}})">
-      <div class="next">
-        <button class="fancy" type="submit" style="background-color: {{screen.button_color|default:'#d4d4d3'}}">Verder</button>
-        <button class="dont" type="submit"><img src="{% static 'pijl.png' %}" alt="Verder"></button>
+      <div class="screen" style="background-color: {{background_color}}; background-image: url({{background_image}})">
+        {% if background_image == 'none' %}
+          <div class="alert" style="background-color: {{foreground_color}}; color: {{text_color}}">
+            {{screen.title}}
+          </div>
+        {% endif %}
+        <div class="next">
+          <button class="fancy" type="submit" style="background-color: {{screen.button_color.color|default:'#d4d4d3'}}">Verder</button>
+        </div>
       </div>
-    </div>
 
     {% elif screen.type.type == 30 %} <!-- Locatie -->
-    <div class="screen" style="background-color: {{background_color}}; background-image: url({{background_image}})">
-      <div class="title">
-        <h1 style="background-color: {{foreground_color}}; color: {{text_color}}">
-          {{screen.title}}
-        </h1>
+      <div class="screen" style="background-color: {{background_color}}; background-image: url({{background_image}})">
+        <div class="title">
+          <h1 style="background-color: {{foreground_color}}; color: {{text_color}}">
+            {{screen.title}}
+          </h1>
+        </div>
+        <div class="next">
+          <button class="fancy" type="submit" style="background-color: {{screen.button_color.color|default:'#d4d4d3'}}">Verder</button>
+        </div>
       </div>
-      <div class="next">
-        <button class="fancy" type="submit" style="background-color: {{screen.button_color.color|default:'#d4d4d3'}}">Verder</button>
-        <button class="dont" type="submit"><img src="{% static 'pijl.png' %}" alt="Verder"></button>
-      </div>
-    </div>
 
     {% elif screen.type.type == 40 %} <!-- Mededeling -->
-    <div class="screen" style="background-color: {{background_color}}; background-image: url({{background_image}})">
-      {% if background_image == 'none' %}
-        <div class="alert">
-          {{screen.title}}
+      <div class="screen" style="background-color: {{background_color}}; background-image: url({{background_image}})">
+        {% if background_image == 'none' %}
+          <div class="alert" style="background-color: {{foreground_color}}; color: {{text_color}}">
+            {{screen.title}}
+          </div>
+        {% endif %}
+        <div class="next">
+          <button class="fancy" type="submit" style="background-color: {{screen.button_color.color|default:'#d4d4d3'}}">Verder</button>
         </div>
-      {% endif %}
-      <div class="next">
-        <button class="fancy" type="submit" style="background-color: {{screen.button_color.color|default:'#d4d4d3'}}">Verder</button>
-        <button class="dont" type="submit"><img src="{% static 'pijl.png' %}" alt="Verder"></button>
       </div>
-    </div>
 
     {% elif screen.type.type == 50 %} <!-- Gesprek -->
       <div class="screen type{{screen.type.type}}" style="background-color: {{background_color}}">
@@ -70,13 +72,12 @@
         <div class="messages">
           {% for message in screen.messages.all %}
             <div class="message {% if message.received %}received{% endif %}">
-            {{message|safe}}
+              {{message|safe}}
             </div>
           {% endfor %}
         </div>
         <div class="next">
           <button class="fancy" type="submit" style="background-color: {{screen.button_color.color|default:'#d4d4d3'}}">Verder</button>
-          <button class="dont" type="submit"><img src="{% static 'pijl.png' %}" alt="Verder"></button>
         </div>
       </div>
     {% endif %}
