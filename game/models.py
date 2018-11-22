@@ -17,7 +17,8 @@ class Color(models.Model):
         verbose_name_plural = 'kleuren'
         ordering = ['name']
 
-class Character(models.Model):
+class Character(NumberedModel):
+    position = models.PositiveIntegerField('positie op het karakterkeuzescherm', blank=True)
     title = models.CharField('titel', max_length=255)
     active = models.BooleanField('actief', default=True)
     first_screen = models.ForeignKey('Screen', on_delete=models.PROTECT, verbose_name='eerste scherm')
@@ -32,7 +33,7 @@ class Character(models.Model):
     class Meta:
         verbose_name = 'karakter'
         verbose_name_plural = 'karakters'
-        ordering = ['title']
+        ordering = ['position']
 
 class ScreenType(models.Model):
     TYPES = [
@@ -60,10 +61,11 @@ class Screen(models.Model):
     title = models.CharField('titel', max_length=255)
     type = models.ForeignKey(ScreenType, on_delete=models.CASCADE, related_name='+', verbose_name='type')
     image = models.ImageField('afbeelding', blank=True)
+    button_text = models.CharField('tekst op de "Verder"-knop', max_length=255, blank=True)
     foreground_color = models.ForeignKey(Color, verbose_name='voorgrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
     background_color = models.ForeignKey(Color, verbose_name='achtergrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
     text_color = models.ForeignKey(Color, verbose_name='tekstkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
-    button_color = models.ForeignKey(Color, verbose_name='buttonkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
+    button_color = models.ForeignKey(Color, verbose_name='buttonkleur', help_text='wordt nu niet gebruikt', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
 
     def __str__(self):
         return '{}. {}'.format(self.id, self.title)
