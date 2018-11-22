@@ -26,7 +26,8 @@ class ScreenTypeAdmin(admin.ModelAdmin):
 
 @admin.register(Character)
 class CharacterAdmin(admin.ModelAdmin):
-    list_display = ['__str__', 'active']
+    list_display = ['position', 'title', 'active']
+    list_display_links = ['title']
 
 class InlineRouteAdmin(admin.StackedInline):
     model = Route
