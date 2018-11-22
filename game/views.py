@@ -117,7 +117,7 @@ class ChooseCharacterView(FormView):
         character = form.cleaned_data['character']
         self.request.session['character_id'] = character.id
         self.request.session['screen_id'] = character.first_screen.id
-        return redirect('character')
+        return redirect('game')
 
 class CharacterView(TemplateView):
     template_name = 'game/character.html'
