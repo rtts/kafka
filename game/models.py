@@ -80,6 +80,8 @@ class Route(models.Model):
     source = models.ForeignKey(Screen, on_delete=models.CASCADE, related_name='routes', verbose_name='van')
     target = models.ForeignKey(Screen, on_delete=models.CASCADE, related_name='+', verbose_name='naar')
     applies_to = models.ManyToManyField(Character, blank=True, related_name='+', verbose_name='van toepassing op')
+    only_enabled_if = models.ForeignKey('self', on_delete=models.PROTECT, related_name='+', verbose_name='Als de speler deze keuze ooit heeft gemaakt', blank=True, null=True)
+    disabled = models.BooleanField('niet mogelijk om aan te klikken', default=False)
 
     def __str__(self):
         return self.name

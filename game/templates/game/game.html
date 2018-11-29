@@ -10,20 +10,31 @@
     {% csrf_token %}
     {% if screen.type.type == 10 %} <!-- Keuze -->
       <div class="screen choice">
-        <p>
-          {{screen.title}}
-        </p>
-        {% for route in routes %}
-          <button type="submit" style="background-color: {{screen.button_color.color|default:'#d4d4d3'}}">{{screen.button_text|default:'Verder'}}</button>
-        {% endfor %}
+        {% if background_image == 'none' %}
+          <div class="choices">
+            <p>
+              {{screen.title}}
+            </p>
+          </div>
+        {% else %}
+          <img src="{{background_image}}">
+        {% endif %}
+
+        <div class="choices">
+          {% for route in routes %}
+            <button class="fancy {% if route.disabled %}disabled{% endif %}" type="submit" value="{{route.id}}" name="route" style="background-color: {{foreground_color}}" {% if route.disabled %} onclick="return false"{% endif %}>{{route.name}}</button>
+          {% endfor %}
+        </div>
       </div>
 
     {% elif screen.type.type == 20 %} <!-- Actie -->
-      <div class="screen" style="background-color: {{background_color}}; background-image: url({{background_image}})">
+      <div class="screen" style="background-color: {{background_color}}">
         {% if background_image == 'none' %}
           <div class="alert" style="background-color: {{foreground_color}}; color: {{text_color}}">
             {{screen.title}}
           </div>
+        {% else %}
+          <img src="{{background_image}}">
         {% endif %}
         <div class="next">
           <button type="submit" style="background-color: {{screen.button_color.color|default:'#d4d4d3'}}">{{screen.button_text|default:'Verder'}}</button>
@@ -31,23 +42,27 @@
       </div>
 
     {% elif screen.type.type == 30 %} <!-- Locatie -->
-      <div class="screen" style="background-color: {{background_color}}; background-image: url({{background_image}})">
-        <div class="title">
-          <h1 style="background-color: {{foreground_color}}; color: {{text_color}}">
+      <div class="screen" style="background-color: {{background_color}}">
+        {% if background_image == 'none' %}
+          <div class="alert" style="background-color: {{foreground_color}}; color: {{text_color}}">
             {{screen.title}}
-          </h1>
-        </div>
+          </div>
+        {% else %}
+          <img src="{{background_image}}">
+        {% endif %}
         <div class="next">
           <button type="submit" style="background-color: {{screen.button_color.color|default:'#d4d4d3'}}">{{screen.button_text|default:'Verder'}}</button>
         </div>
       </div>
 
     {% elif screen.type.type == 40 %} <!-- Mededeling -->
-      <div class="screen" style="background-color: {{background_color}}; background-image: url({{background_image}})">
+      <div class="screen" style="background-color: {{background_color}}">
         {% if background_image == 'none' %}
           <div class="alert" style="background-color: {{foreground_color}}; color: {{text_color}}">
             {{screen.title}}
           </div>
+        {% else %}
+          <img src="{{background_image}}">
         {% endif %}
         <div class="next">
           <button type="submit" style="background-color: {{screen.button_color.color|default:'#d4d4d3'}}">{{screen.button_text|default:'Verder'}}</button>
@@ -56,11 +71,15 @@
 
     {% elif screen.type.type == 50 %} <!-- Gesprek -->
       <div class="screen type{{screen.type.type}}" style="background-color: {{background_color}}">
-        <div class="title">
-          <h1 style="background-color: {{foreground_color}}; color: {{text_color}}">
-            {{screen.title}}
-          </h1>
-        </div>
+        {% if background_image == 'none' %}
+          <div class="title" style="background-color: {{foreground_color}}; color: {{text_color}}">
+            <h1>
+              {{screen.title}}
+            </h1>
+          </div>
+        {% else %}
+          <img src="{{background_image}}">
+        {% endif %}
         <div class="messages">
           {% for message in screen.messages.all %}
             <div class="message {% if message.received %}received{% endif %}">

@@ -36,6 +36,10 @@ class InlineRouteAdmin(admin.StackedInline):
     formfield_overrides = {
         models.ManyToManyField: {'widget': CheckboxSelectMultiple},
     }
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "only_enabled_if":
+            kwargs["queryset"] = Route.objects.exclude(name='')
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 class InlineMessageAdmin(admin.StackedInline):
     model = Message
@@ -45,4 +49,4 @@ class InlineMessageAdmin(admin.StackedInline):
 class ScreenAdmin(FunkySaveMixin, admin.ModelAdmin):
     save_on_top = True
     inlines = [InlineMessageAdmin, InlineRouteAdmin]
-
+    list_filter = ['type']

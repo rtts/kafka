@@ -7,8 +7,11 @@
   <head>
     <title>{% block title %}{% endblock %}</title>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
     <link rel="stylesheet" type="text/css" href="{% sass_src 'game/main12.scss' %}"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     {% block extrahead %}{% endblock %}
   </head>
   <body class="{% block body_class %}{% endblock %}">
@@ -21,33 +24,41 @@
     </main>
 
     <script src="{% static 'js/jquery.js' %}"></script>
-    {% comment %}
+    <script>
+      window.addEventListener("load",function() {
+          setTimeout(function(){
+              // Hide the address bar!
+              window.scrollTo(0, 1);
+          }, 0);
+      });
+    </script>
+      {% comment %}
       <script>
-        function set_size() {
-            var w = window.innerWidth;
-            var h = window.innerHeight;
+      function set_size() {
+      var w = window.innerWidth;
+      var h = window.innerHeight;
 
-            aspect = 16 / 10
+      aspect = 16 / 10
 
-            x = w;
-            y = aspect * w;
+      x = w;
+      y = aspect * w;
 
-            if (y > h) {
-                x = (h/y) * w;
-                y = h;
-            }
+      if (y > h) {
+      x = (h/y) * w;
+      y = h;
+      }
 
-            $('main').width(x);
-            $('main').height(y);
-            $('main').show();
-        }
+      $('main').width(x);
+      $('main').height(y);
+      $('main').show();
+      }
 
-        $(function() {
-            $(window).on('resize', set_size);
-            set_size();
-        });
+      $(function() {
+      $(window).on('resize', set_size);
+      set_size();
+      });
       </script>
-    {% endcomment %}
+      {% endcomment %}
     {% block extrabody %}{% endblock %}
   </body>
 </html>
