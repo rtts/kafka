@@ -69,8 +69,14 @@ def graph(request):
                 label += ', ' + character.title
                 color += ':' + character.color
 
+        penwidth = '2'
+        if route.only_enabled_if:
+            label = 'Alleen voor spelers die de keuze hebben gemaakt voor: "{}"'.format(route.only_enabled_if.name)
+            penwidth = '5'
+            color = 'red'
+
         url = reverse('add_route', args=[route.target.id])
-        g.edge(str(route.source.id), str(route.target.id), label=label, color=color, fontcolor=color, href=url)
+        g.edge(str(route.source.id), str(route.target.id), label=label, color=color, fontcolor=color, href=url, penwidth=penwidth)
 
     return HttpResponse(g.pipe().decode('utf-8'))
 
@@ -117,6 +123,7 @@ class ChooseCharacterView(FormView):
         character = form.cleaned_data['character']
         self.request.session['character_id'] = character.id
         self.request.session['screen_id'] = character.first_screen.id
+        self.request.session['made_choices'] = []
         return redirect('game')
 
 class CharacterView(TemplateView):
@@ -171,6 +178,7 @@ class GameView(FormView):
         try:
             if chosen_route in routes:
                 self.request.session['screen_id'] = chosen_route.target.id
+                self.request.session['made_choices'] += [chosen_route.id]
             elif self.screen.type.type != 10:
                 self.request.session['screen_id'] = random.choice(routes).target.id
         except:
@@ -223,12 +231,16 @@ class GameView(FormView):
             if applies_to:
                 if self.character in applies_to:
                     routes.append(route)
+            elif route.only_enabled_if:
+                if route.only_enabled_if.id in self.request.session['made_choices']:
+                    routes.append(route)
             else:
                 routes.append(route)
         return routes
 
 class GameScreenView(TemplateView):
     def get(self, request, screen_id):
+        request.session['chosen_routes'] = []
         request.session['screen_id'] = screen_id
         request.session['character_id'] = Character.objects.first().id
         return redirect('game')
