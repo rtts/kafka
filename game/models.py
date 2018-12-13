@@ -78,6 +78,7 @@ class Screen(models.Model):
 
 class Route(models.Model):
     name = models.CharField('naam', max_length=255, blank=True)
+    image = models.ImageField('afbeelding', blank=True)
     source = models.ForeignKey(Screen, on_delete=models.CASCADE, related_name='routes', verbose_name='van')
     target = models.ForeignKey(Screen, on_delete=models.CASCADE, related_name='+', verbose_name='naar')
     applies_to = models.ManyToManyField(Character, blank=True, related_name='+', verbose_name='van toepassing op')
