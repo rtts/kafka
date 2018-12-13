@@ -37,6 +37,7 @@ class Character(NumberedModel):
 
 class ScreenType(models.Model):
     TYPES = [
+        (5, 'Introscherm'),
         (10, 'Keuze (geel)'),
         (11, 'Willekeurige keuze'),
         (20, 'Actie (groen)'),

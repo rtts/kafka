@@ -10,9 +10,9 @@
     <div class="menu">
       {% if continue %}
         <a href="{% url 'game' %}">Doorgaan</a>
-        <a href="{% url 'choose_character' %}">Opnieuw beginnen</a>
+        <a href="{% url 'intro' %}">Opnieuw beginnen</a>
       {% else %}
-        <a href="{% url 'choose_character' %}">Start</a>
+        <a href="{% url 'intro' %}">Start</a>
       {% endif %}
     </div>
   </div>

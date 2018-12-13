@@ -1,0 +1,32 @@
+{% extends 'game/base.html' %}
+{% load static %}
+
+{% block content %}
+  {% if user.is_staff %}
+    <a class="edit" href="{% url 'admin:game_screen_change' screen.pk %}">bewerk dit scherm</a>
+  {% endif %}
+
+  <form action="{% url 'choose_character' %}" id="form">
+    {% csrf_token %}
+    <div class="screen" style="background-color: {{background_color}}">
+      {% if background_image == 'none' %}
+        <div class="alert" style="background-color: {{foreground_color}}; color: {{text_color}}">
+          {{screen.title}}
+        </div>
+      {% else %}
+        <img src="{{background_image}}">
+      {% endif %}
+      <div class="next">
+        <button type="submit" style="background-color: {{screen.button_color.color|default:'#d4d4d3'}}">{{screen.button_text|default:'Verder'}}</button>
+      </div>
+    </div>
+  </form>
+{% endblock %}
+
+{% block extrabody %}
+  <script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+        document.body.style.background = '{{background_color}}';
+    });
+  </script>
+{% endblock %}

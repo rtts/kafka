@@ -27,7 +27,7 @@ def graph(request):
             url = reverse('admin:game_character_change', args=[character.id])
             c.node('C' + str(character.pk), character.title, color=character.color, href=url)
 
-    for screen in Screen.objects.all():
+    for screen in Screen.objects.exclude(type__type=5):
         try:
             color = screen.type.color
         except:
@@ -126,6 +126,47 @@ class ChooseCharacterView(FormView):
         self.request.session['made_choices'] = []
         return redirect('game')
 
+class IntroView(TemplateView):
+    template_name = 'game/intro.html'
+
+    def get_context_data(self, **kwargs):
+        screen = Screen.objects.filter(type__type=5).first()
+
+        if screen.background_color:
+            background_color = screen.background_color.color
+        elif screen.type and screen.type.background_color:
+            background_color = screen.type.background_color.color
+        else:
+            background_color = 'white'
+
+        if screen.foreground_color:
+            foreground_color = screen.foreground_color.color
+        elif screen.type and screen.type.foreground_color:
+            foreground_color = screen.type.foreground_color.color
+        else:
+            foreground_color = 'white'
+
+        if screen.text_color:
+            text_color = screen.text_color.color
+        else:
+            text_color = 'black'
+
+        if screen.image:
+            background_image = screen.image.url
+        else:
+            background_image = 'none'
+
+        context = super().get_context_data(**kwargs)
+        context.update({
+            'screen': screen,
+            'background_color': background_color,
+            'foreground_color': foreground_color,
+            'text_color': text_color,
+            'background_image': background_image,
+        })
+        return context
+
+# Not used anymore?
 class CharacterView(TemplateView):
     template_name = 'game/character.html'
 
