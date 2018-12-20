@@ -22,7 +22,11 @@
 
         <div class="choices">
           {% for route in routes %}
-            <button class="fancy {% if route.disabled %}disabled{% endif %}" type="submit" value="{{route.id}}" name="route" style="background-color: {{foreground_color}}" {% if route.disabled %} onclick="return false"{% endif %}>{{route.name}}</button>
+            {% if route.image %}
+              <button class="image {% if route.disabled %}disabled{% endif %}" type="submit" value="{{route.id}}" name="route"{% if route.disabled %} onclick="return false"{% endif %}><img src="{{route.image.url}}" alt="{{route.name}}"></button>
+            {% else %}
+              <button class="fancy {% if route.disabled %}disabled{% endif %}" type="submit" value="{{route.id}}" name="route" style="background-color: {{foreground_color}}" {% if route.disabled %} onclick="return false"{% endif %}>{{route.name}}</button>
+            {% endif %}
           {% endfor %}
         </div>
       </div>

@@ -22,15 +22,12 @@ def graph(request):
     g.attr('node', fontname='sans-serif')
     g.attr('edge', fontname='sans-serif')
 
-    with g.subgraph(name='cluster0') as c:
-        for character in Character.objects.all():
-            url = reverse('admin:game_character_change', args=[character.id])
-            c.node('C' + str(character.pk), character.title, color=character.color, href=url)
-
-    for screen in Screen.objects.exclude(type__type=5):
+    for screen in Screen.objects.all():
         try:
             color = screen.type.color
         except:
+            pass
+        if not color:
             color = 'white'
 
         view_url = reverse('screen', args=[screen.id])
@@ -52,23 +49,9 @@ def graph(request):
         >'''.format(color, screen.id, screen.title, view_url, edit_url, add_url)
         g.node(str(screen.id), title, shape='plaintext', width='0', height='0')
 
-    for character in Character.objects.all():
-        g.edge('C' + str(character.pk), str(character.first_screen.id), color=character.color)
-
     for route in Route.objects.all():
         color = 'black'
         label = route.name
-        first_loop = True
-
-        for character in route.applies_to.all():
-            if first_loop:
-                first_loop = False
-                label = 'Alleen van toepassing op:\n' + character.title
-                color = character.color
-            else:
-                label += ', ' + character.title
-                color += ':' + character.color
-
         penwidth = '2'
         if route.only_enabled_if:
             label = 'Alleen voor spelers die de keuze hebben gemaakt voor: "{}"'.format(route.only_enabled_if.name)
@@ -115,87 +98,15 @@ class TitleScreenView(TemplateView):
         })
         return context
 
-class ChooseCharacterView(FormView):
-    template_name = 'game/choose_character.html'
-    form_class = ChooseCharacterForm
-
-    def form_valid(self, form):
-        character = form.cleaned_data['character']
-        self.request.session['character_id'] = character.id
-        self.request.session['screen_id'] = character.first_screen.id
-        self.request.session['made_choices'] = []
-        return redirect('game')
-
-class IntroView(TemplateView):
-    template_name = 'game/intro.html'
-
-    def get_context_data(self, **kwargs):
-        screen = Screen.objects.filter(type__type=5).first()
-
-        if screen.background_color:
-            background_color = screen.background_color.color
-        elif screen.type and screen.type.background_color:
-            background_color = screen.type.background_color.color
-        else:
-            background_color = 'white'
-
-        if screen.foreground_color:
-            foreground_color = screen.foreground_color.color
-        elif screen.type and screen.type.foreground_color:
-            foreground_color = screen.type.foreground_color.color
-        else:
-            foreground_color = 'white'
-
-        if screen.text_color:
-            text_color = screen.text_color.color
-        else:
-            text_color = 'black'
-
-        if screen.image:
-            background_image = screen.image.url
-        else:
-            background_image = 'none'
-
-        context = super().get_context_data(**kwargs)
-        context.update({
-            'screen': screen,
-            'background_color': background_color,
-            'foreground_color': foreground_color,
-            'text_color': text_color,
-            'background_image': background_image,
-        })
-        return context
-
-# Not used anymore?
-class CharacterView(TemplateView):
-    template_name = 'game/character.html'
-
-    def dispatch(self, request, *args, **kwargs):
-        character_id = request.session.get('character_id')
-        try:
-            self.character = Character.objects.get(id=character_id)
-        except (Character.DoesNotExist, Screen.DoesNotExist):
-            return redirect('choose_character')
-        return super().dispatch(request, *args, **kwargs)
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context.update({
-            'character': self.character,
-        })
-        return context
-
 class GameView(FormView):
     template_name = 'game/game.html'
 
     def dispatch(self, request, *args, **kwargs):
-        character_id = request.session.get('character_id')
         screen_id = request.session.get('screen_id')
         try:
-            self.character = Character.objects.get(id=character_id)
             self.screen = Screen.objects.get(id=screen_id)
-        except (Character.DoesNotExist, Screen.DoesNotExist):
-            return redirect('title_screen')
+        except Screen.DoesNotExist:
+            self.screen = Screen.objects.filter(type__type=5).first()
         return super().dispatch(request, *args, **kwargs)
 
     def get(self, request):
@@ -268,11 +179,7 @@ class GameView(FormView):
     def get_routes(self):
         routes = []
         for route in self.screen.routes.all():
-            applies_to = list(route.applies_to.all())
-            if applies_to:
-                if self.character in applies_to:
-                    routes.append(route)
-            elif route.only_enabled_if:
+            if route.only_enabled_if:
                 if route.only_enabled_if.id in self.request.session['made_choices']:
                     routes.append(route)
             else:
@@ -283,5 +190,9 @@ class GameScreenView(TemplateView):
     def get(self, request, screen_id):
         request.session['chosen_routes'] = []
         request.session['screen_id'] = screen_id
-        request.session['character_id'] = Character.objects.first().id
+        return redirect('game')
+
+class ResetView(TemplateView):
+    def get(self, request):
+        del request.session['screen_id']
         return redirect('game')

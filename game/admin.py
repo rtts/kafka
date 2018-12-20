@@ -24,11 +24,6 @@ class ColorAdmin(admin.ModelAdmin):
 class ScreenTypeAdmin(admin.ModelAdmin):
     pass
 
-@admin.register(Character)
-class CharacterAdmin(admin.ModelAdmin):
-    list_display = ['position', 'title', 'active']
-    list_display_links = ['title']
-
 class InlineRouteAdmin(admin.StackedInline):
     model = Route
     extra = 0

@@ -17,24 +17,6 @@ class Color(models.Model):
         verbose_name_plural = 'kleuren'
         ordering = ['name']
 
-class Character(NumberedModel):
-    position = models.PositiveIntegerField('positie op het karakterkeuzescherm', blank=True)
-    title = models.CharField('titel', max_length=255)
-    active = models.BooleanField('actief', default=True)
-    first_screen = models.ForeignKey('Screen', on_delete=models.PROTECT, verbose_name='eerste scherm')
-    emoji = models.ImageField('afbeelding', blank=True, help_text='Dit is het pictogram van dit karakter op het keuzescherm')
-    image = models.ImageField('afbeelding', blank=True, help_text='Dit is de afbeelding die wordt getoond nadat de speler het karakter heeft gekozen')
-    color = models.CharField('kleur', max_length=16, blank=True)
-    intro = RichTextField('introductietekst', blank=True)
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        verbose_name = 'karakter'
-        verbose_name_plural = 'karakters'
-        ordering = ['position']
-
 class ScreenType(models.Model):
     TYPES = [
         (5, 'Introscherm'),
@@ -81,7 +63,6 @@ class Route(models.Model):
     image = models.ImageField('afbeelding', blank=True)
     source = models.ForeignKey(Screen, on_delete=models.CASCADE, related_name='routes', verbose_name='van')
     target = models.ForeignKey(Screen, on_delete=models.CASCADE, related_name='+', verbose_name='naar')
-    applies_to = models.ManyToManyField(Character, blank=True, related_name='+', verbose_name='van toepassing op')
     only_enabled_if = models.ForeignKey('self', on_delete=models.PROTECT, related_name='+', verbose_name='Als de speler deze keuze ooit heeft gemaakt', blank=True, null=True)
     disabled = models.BooleanField('niet mogelijk om aan te klikken', default=False)
 
@@ -109,5 +90,3 @@ class Message(NumberedModel):
         verbose_name = 'bericht'
         verbose_name_plural = 'berichten'
         ordering = ['position']
-
-# Todo: twee identieke subbomen (op een scherm na) op basis van wel/niet brp keuze

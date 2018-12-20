@@ -242,6 +242,11 @@ button {
   outline: none;
 }
 
+button.image {
+  width: 50%;
+  float: left;
+}
+
 button.fancy, a.fancy {
   display: block;
   text-align: center;

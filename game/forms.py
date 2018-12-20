@@ -2,9 +2,6 @@ from django import forms
 from django.forms.widgets import RadioSelect
 from .models import *
 
-class ChooseCharacterForm(forms.Form):
-    character = forms.ModelChoiceField(queryset=Character.objects.all(), label='Karakter', widget=RadioSelect, empty_label=None)
-
 class ChooseRouteForm(forms.Form):
     route = forms.ModelChoiceField(queryset=None, widget=RadioSelect, empty_label=None, required=False)
 
