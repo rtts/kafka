@@ -1,5 +1,6 @@
 {% extends 'game/base.html' %}
 {% load static %}
+{% load embed_video_tags %}
 
 {% block content %}
   {% if user.is_staff %}
@@ -54,7 +55,7 @@
         </div>
       </div>
 
-    {% else %} <!-- Intro, Actie, Locatie, Mededeling -->
+    {% else %} <!-- Intro, Actie, Locatie, Mededeling, Video -->
       <div class="screen" style="background-color: {{background_color}}">
         {% if background_image == 'none' %}
           <div class="alert" style="background-color: {{foreground_color}}; color: {{text_color}}">
@@ -63,6 +64,15 @@
         {% else %}
           <img src="{{background_image}}">
         {% endif %}
+
+        {% if screen.video %}
+          <div class="video">
+            <div class="iframe">
+              {% video screen.video '800x600' %}
+            </div>
+          </div>
+        {% endif %}
+
         <div class="next">
           <button type="submit" style="background-color: {{screen.button_color.color|default:'#d4d4d3'}}">{{screen.button_text|default:'Verder'}}</button>
         </div>

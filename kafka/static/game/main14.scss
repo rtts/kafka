@@ -1,5 +1,6 @@
 $yellow: #ffda00;
 $red: #ff3442;
+$grey: #d4d4d3;
 $radius: 6px;
 
 @font-face {
@@ -21,29 +22,31 @@ $radius: 6px;
 
 
 body, html {
-  background: black;
+  background: $yellow;
   font-family: Agipo, sans-serif;
   font-size: 20px;
   margin: 0;
   padding: 0;
 }
+body.grey {
+  background: $grey;
+}
 
 main {
-  height: 100vh;
 }
 
 div.title_screen {
-  height: 100%;
+  height: 100vh;
   background-color: $yellow;
   text-align: center;
-  padding: 25px;
+  padding: 10px 30px;
+
   h1 {
-    margin: 0;
-    padding: 20px;
+    margin: 0 -30px;
+    padding: 20px 0;
     font-family: 'Entrails BB';
-    font-size: 3.15em;
+    font-size: 2.5em;
     line-height: 1.1;
-    font-size: 30px;
     text-align: center;
     font-weight: normal;
     margin-bottom: 10px;
@@ -58,10 +61,10 @@ div.title_screen {
 }
 
 section {
-  height: 100%;
   max-width: 700px;
   margin: auto;
   position: relative;
+  min-height: 100vh;
 
   a.edit {
     position: absolute;
@@ -70,23 +73,48 @@ section {
     color: red;
     text-decoration: none;
     font-size: 12px;
+    z-index: 1000;
   }
 
   form {
-    height: 100%;
-    overflow-x: auto;
-
     div.screen {
-      min-height: 100%;
+      min-height: 100vh;
+      text-align: center;
+      position: relative;
       overflow: hidden;
       box-sizing: border-box;
-      background-position: center;
-      background-size: contain;
+      background-position: top;
+      background-size: cover;
       background-repeat: no-repeat;
-      background-color: white;
+      background-color: $grey;
 
+      div.video {
+        padding-bottom: 1em;
+        div.iframe {
+          width: 100%;
+          padding-bottom: 56%;
+          position: relative;
+
+          iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+          }
+        }
+      }
+
+
+      div.choices {
+        padding: 0 25px;
+      }
+      img {
+        display: block;
+        width: 100%;
+      }
       div.title {
-        padding: 15px;
+        padding: 25px;
 
         h1 {
           margin: 0;
@@ -103,23 +131,52 @@ section {
           text-transform: uppercase;
           word-wrap: break-word;
           line-height: 1.1;
+          background: $yellow;
         }
+      }
+
+      p {
+        line-height: 1.2;
+        margin-top: 1.4em;
+        margin-bottom: 1.9em;
+        font-size: 26px;
+      }
+
+      div.alert {
+        font-size: 3em;
+        line-height: 0.9;
+        letter-spacing: -2px;
+        margin: 30px;
+        padding: 30px 0;
+        text-align: center;
+        box-shadow: 3px 3px 12px rgba(0,0,0,0.25);
+        text-shadow: -2px -2px 0 #9b67e6;
+        border-radius: $radius;
       }
 
       div.messages {
         padding: 25px;
+        padding-bottom: 0;
       }
 
       div.message {
+        text-align: left;
         margin-left: 15%;
         box-sizing: border-box;
  	position: relative;
 	border-radius: $radius;
         width: 85%;
-        padding: 1px 20px;
-        margin-bottom: 25px;
+        padding: 15px;
+        margin-bottom: 20px;
         box-shadow: 3px 3px 12px rgba(0,0,0,0.25);
         background: $yellow;
+
+        p {
+          font-size: 17px;
+          margin: 0;
+          hyphens: manual;
+          hyphens: auto;
+        }
 
         &:after {
 	  content: '';
@@ -149,39 +206,96 @@ section {
 	  border-bottom: 0;
         }
       }
+
+      div.characters {
+        img {
+          width: 100%;
+        }
+        button {
+          float: left;
+          width: 50%;
+          box-shadow: none;
+        }
+      }
     }
   }
 }
 
-button {
-  display: block;
+div.next {
+  //position: absolute;
+  //left: 0;
+  //bottom: 0;
   width: 100%;
-  text-align: center;
-  cursor: pointer;
-  background: white;
-  border: none;
-  border-radius: $radius;
-  padding: 40px 10px;
-  text-shadow: -1px -1px 0 white;
-  box-shadow: 3px 3px 12px rgba(0,0,0,0.25);
-  font-size: 25px;
-  font-family: Agipo, sans-serif;
-  text-transform: uppercase;
+  text-align: right;
+
+  a, button {
+    background: rgba(255,255,255,0.3) !important;
+    display: inline-block;
+    padding: 8px 16px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: auto;
+    cursor: pointer;
+    border: none;
+    border-radius: $radius;
+    font-size: 17px;
+    font-family: Agipo, sans-serif;
+    color: black;
+    text-decoration: none;
+  }
 }
 
-div.next {
-  z-index: 1;
-  position: fixed;
-  padding: 15px;
-  box-sizing: border-box;
-  bottom: 0;
+
+button.disabled {
+  opacity: 0.25;
+  cursor: default !important;
+}
+button {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+  background: none;
+  cursor: pointer;
+  outline: none;
+}
+
+button.image {
+  width: 50%;
+  float: left;
+}
+
+button.fancy, a.fancy {
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  //background: $grey;
+
   width: 100%;
-  max-width: 700px;
-  text-align: right;
+  box-sizing: border-box;
+  border: none;
+  border-radius: $radius;
+  text-shadow: -1px -1px 0 white;
+  box-shadow: 3px 3px 12px rgba(0,0,0,0.25);
+  font-size: 24px;
+  font-family: Agipo, sans-serif;
+  text-transform: uppercase;
+
+    text-shadow: -1px -1px 0 white;
+    color: black;
+    display: block;
+    margin: .6em 0;
+    text-decoration: none;
+    padding: 32px 48px;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.25);
+    border-radius: $radius;
+    text-transform: uppercase;
+    line-height: 1;
+
 }
 
 div.menu {
-  font-size: 1.15em;
+  font-size: 20px;
   line-height: 1;
   text-align: center;
   margin-top: 45px;
@@ -190,10 +304,10 @@ div.menu {
     text-shadow: -1px -1px 0 white;
     color: black;
     display: block;
-    margin: 1em;
+    margin: 1em 0;
     background: #d4d4d3;
     text-decoration:none;
-    padding: 12px 24px;
+    padding: 18px 24px;
     box-shadow: 3px 3px 3px rgba(0,0,0,0.25);
     border-radius: $radius;
     text-transform: uppercase;
@@ -201,27 +315,6 @@ div.menu {
 }
 
 input[type=submit] {
-}
-
-.fancy {
-  font-family: Agipo, sans-serif;
-  font-weight: bold;
-  font-size: 1.5em;
-  box-shadow: 0px 1px 0px 0px #fff6af;
-  background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
-  background-color: #ffec64;
-  border-radius: $radius;
-  border: 1px solid #ffaa22;
-  display: inline-block;
-  cursor: pointer;
-  color: #333333;
-  padding: 6px 24px;
-  text-decoration: none;
-  text-shadow: 0px 1px 0px #ffee66;
-}
-.fancy:hover {
-  background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
-  background-color: #ffab23;
 }
 
 footer {
