@@ -179,10 +179,10 @@ class GameView(FormView):
     def get_routes(self):
         routes = []
         for route in self.screen.routes.all():
-            if route.only_enabled_if:
+            try:
                 if route.only_enabled_if.id in self.request.session['made_choices']:
                     routes.append(route)
-            else:
+            except:
                 routes.append(route)
         return routes
 
