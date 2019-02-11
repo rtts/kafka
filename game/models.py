@@ -31,6 +31,7 @@ class ScreenType(models.Model):
         (60, 'Video (grijs)'),
     ]
     type = models.PositiveIntegerField('soort', choices=TYPES, unique=True)
+    audio = models.FileField(blank=True)
     color = models.CharField('kleurcode (in de graaf)', max_length=16, blank=True)
     foreground_color = models.ForeignKey(Color, verbose_name='voorgrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
     background_color = models.ForeignKey(Color, verbose_name='achtergrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
@@ -47,7 +48,8 @@ class Screen(models.Model):
     title = models.CharField('titel', max_length=255)
     type = models.ForeignKey(ScreenType, on_delete=models.CASCADE, related_name='+', verbose_name='type')
     image = models.ImageField('afbeelding', blank=True)
-    video = EmbedVideoField('video', help_text='Plak hier een Vimeo of Youtube URL', blank=True)
+    video = models.FileField(blank=True)
+    audio = models.FileField(blank=True)
     button_text = models.CharField('tekst op de "Verder"-knop', max_length=255, blank=True)
     foreground_color = models.ForeignKey(Color, verbose_name='voorgrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
     background_color = models.ForeignKey(Color, verbose_name='achtergrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')

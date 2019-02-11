@@ -1,6 +1,5 @@
 {% extends 'game/base.html' %}
 {% load static %}
-{% load embed_video_tags %}
 
 {% block content %}
   {% if user.is_staff %}
@@ -67,9 +66,7 @@
 
         {% if screen.video %}
           <div class="video">
-            <div class="iframe">
-              {% video screen.video '800x600' %}
-            </div>
+            {{screen.video.url}}
           </div>
         {% endif %}
 
