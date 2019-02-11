@@ -15,6 +15,7 @@
     {% block extrahead %}{% endblock %}
   </head>
   <body class="{% block body_class %}{% endblock %}">
+    {{request.session.chosen_routes}}
 
     <main>
       <section class="type{{screen.type.type}}" id="scroll">

@@ -103,11 +103,14 @@ class GameView(FormView):
     template_name = 'game/game.html'
 
     def dispatch(self, request, *args, **kwargs):
+        if 'chosen_routes' not in request.session:
+            self.request.session['chosen_routes'] = []
         screen_id = request.session.get('screen_id')
         try:
             self.screen = Screen.objects.get(id=screen_id)
         except Screen.DoesNotExist:
             self.screen = Screen.objects.filter(type__type=5).first()
+            request.session['screen_id'] = self.screen.id
         return super().dispatch(request, *args, **kwargs)
 
     def get(self, request):
@@ -128,14 +131,11 @@ class GameView(FormView):
     def form_valid(self, form):
         chosen_route = form.cleaned_data['route']
         routes = self.get_routes()
-        try:
-            if chosen_route in routes:
-                self.request.session['screen_id'] = chosen_route.target.id
-                self.request.session['made_choices'] += [chosen_route.id]
-            elif self.screen.type.type != 10:
-                self.request.session['screen_id'] = random.choice(routes).target.id
-        except:
-            pass
+        if chosen_route in routes:
+            self.request.session['screen_id'] = chosen_route.target.id
+            self.request.session['chosen_routes'] += [chosen_route.id]
+        elif self.screen.type.type != 10:
+            self.request.session['screen_id'] = random.choice(routes).target.id
         return redirect('game')
 
     def get_context_data(self, **kwargs):
@@ -180,10 +180,15 @@ class GameView(FormView):
     def get_routes(self):
         routes = []
         for route in self.screen.routes.all():
-            try:
-                if route.only_enabled_if.id in self.request.session['made_choices']:
+            if route.conditions.exists():
+                enabled = True
+                for route_id in route.conditions.all():
+                    if not route_id in self.request.session['chosen_routes']:
+                        enabled = False
+                        break
+                if enabled:
                     routes.append(route)
-            except:
+            else:
                 routes.append(route)
         return routes
 
