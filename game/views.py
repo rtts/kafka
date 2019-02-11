@@ -167,6 +167,16 @@ class GameView(FormView):
         else:
             background_image = 'none'
 
+        if screen.audio:
+            audio = screen.audio.url
+            loop = screen.loop
+        elif screen.type and screen.type.audio:
+            audio = screen.type.audio.url
+            loop = screen.type.audio.loop
+        else:
+            audio = False
+            loop = False
+
         context.update({
             'screen': screen,
             'routes': routes,
@@ -174,6 +184,8 @@ class GameView(FormView):
             'foreground_color': foreground_color,
             'text_color': text_color,
             'background_image': background_image,
+            'audio': audio,
+            'loop': loop,
         })
         return context
 

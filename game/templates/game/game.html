@@ -80,6 +80,10 @@
 {% endblock %}
 
 {% block extrabody %}
+  {% if audio %}
+    <audio src="{{audio}}" autoplay {% if loop %}loop{% endif %}/>
+  {% endif %}
+
   <script type="module">
     document.addEventListener('DOMContentLoaded', () => {
         document.body.style.background = '{{background_color}}';
