@@ -29,6 +29,7 @@ class ScreenType(models.Model):
         (40, 'Mededeling (rood)'),
         (50, 'Gesprek (oranje)'),
         (60, 'Video (grijs)'),
+        (70, 'Level (bruin)'),
     ]
     type = models.PositiveIntegerField('soort', choices=TYPES, unique=True)
     audio = models.FileField(blank=True)
@@ -48,7 +49,8 @@ class ScreenType(models.Model):
 class Screen(models.Model):
     title = models.CharField('titel', max_length=255)
     type = models.ForeignKey(ScreenType, on_delete=models.CASCADE, related_name='+', verbose_name='type')
-    image = models.ImageField('afbeelding', blank=True)
+    image = models.ImageField('afbeelding mobiel', blank=True)
+    image_desktop = models.ImageField('afbeelding desktop', blank=True)
     video = models.FileField(blank=True)
     audio = models.FileField(blank=True)
     loop = models.BooleanField(default=True)
