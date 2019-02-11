@@ -24,17 +24,19 @@ class ColorAdmin(admin.ModelAdmin):
 class ScreenTypeAdmin(admin.ModelAdmin):
     pass
 
-class InlineRouteAdmin(admin.StackedInline):
-    model = Route
+class InlineConditionAdmin(admin.StackedInline):
+    model = Condition
     extra = 0
-    fk_name = 'source'
-    formfield_overrides = {
-        models.ManyToManyField: {'widget': CheckboxSelectMultiple},
-    }
+    fk_name = 'route'
+
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == "only_enabled_if":
             kwargs["queryset"] = Route.objects.exclude(name='')
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
+
+@admin.register(Route)
+class RouteAdmin(FunkySaveMixin, admin.ModelAdmin):
+    inlines = [InlineConditionAdmin]
 
 class InlineMessageAdmin(admin.StackedInline):
     model = Message
@@ -43,5 +45,5 @@ class InlineMessageAdmin(admin.StackedInline):
 @admin.register(Screen)
 class ScreenAdmin(FunkySaveMixin, admin.ModelAdmin):
     save_on_top = True
-    inlines = [InlineMessageAdmin, InlineRouteAdmin]
+    inlines = [InlineMessageAdmin]
     list_filter = ['type']

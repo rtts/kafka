@@ -51,14 +51,15 @@ def graph(request):
 
     for route in Route.objects.all():
         color = 'black'
-        label = route.name
+        label = str(route) if route.name else ''
         penwidth = '2'
-        if route.only_enabled_if:
-            label = 'Alleen voor spelers die de keuze hebben gemaakt voor: "{}"'.format(route.only_enabled_if.name)
+        if route.conditions.exists():
+            only_enabled_if = ', '.join([str(c.only_enabled_if) for c in route.conditions.all()])
+            label = 'Condities: {}'.format(only_enabled_if)
             penwidth = '5'
             color = 'red'
 
-        url = reverse('add_route', args=[route.target.id])
+        url = reverse('admin:game_route_change', args=[route.id])
         g.edge(str(route.source.id), str(route.target.id), label=label, color=color, fontcolor=color, href=url, penwidth=penwidth)
 
     return HttpResponse(g.pipe().decode('utf-8'))

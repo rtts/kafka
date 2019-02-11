@@ -67,16 +67,30 @@ class Route(models.Model):
     image = models.ImageField('afbeelding', blank=True)
     source = models.ForeignKey(Screen, on_delete=models.CASCADE, related_name='routes', verbose_name='van')
     target = models.ForeignKey(Screen, on_delete=models.CASCADE, related_name='+', verbose_name='naar')
-    only_enabled_if = models.ForeignKey('self', on_delete=models.PROTECT, related_name='+', verbose_name='Als de speler deze keuze ooit heeft gemaakt', blank=True, null=True)
     disabled = models.BooleanField('niet mogelijk om aan te klikken', default=False)
 
     def __str__(self):
-        return self.name
+        if self.name:
+            return '{}. {}'.format(self.id, self.name)
+        else:
+            return '{}. [naamloos]'.format(self.id, self.name)
 
     class Meta:
         verbose_name = 'route'
         verbose_name_plural = 'routes'
         ordering = ['id']
+
+class Condition(models.Model):
+    route = models.ForeignKey(Route, on_delete=models.CASCADE, related_name='conditions')
+    only_enabled_if = models.ForeignKey(Route, on_delete=models.CASCADE, related_name='+', verbose_name='Als de speler deze keuze ooit heeft gemaakt')
+
+    def __str__(self):
+        return self.only_enabled_if.name
+
+    class Meta:
+        ordering = ['pk']
+        verbose_name = 'conditie'
+        verbose_name_plural = 'condities'
 
 class Message(NumberedModel):
     position = models.PositiveIntegerField('positie', blank=True, null=True)
