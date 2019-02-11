@@ -32,6 +32,7 @@ class ScreenType(models.Model):
     ]
     type = models.PositiveIntegerField('soort', choices=TYPES, unique=True)
     audio = models.FileField(blank=True)
+    loop = models.BooleanField(default=True)
     color = models.CharField('kleurcode (in de graaf)', max_length=16, blank=True)
     foreground_color = models.ForeignKey(Color, verbose_name='voorgrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
     background_color = models.ForeignKey(Color, verbose_name='achtergrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
@@ -50,6 +51,7 @@ class Screen(models.Model):
     image = models.ImageField('afbeelding', blank=True)
     video = models.FileField(blank=True)
     audio = models.FileField(blank=True)
+    loop = models.BooleanField(default=True)
     button_text = models.CharField('tekst op de "Verder"-knop', max_length=255, blank=True)
     foreground_color = models.ForeignKey(Color, verbose_name='voorgrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
     background_color = models.ForeignKey(Color, verbose_name='achtergrondkleur', blank=True, null=True, on_delete=models.PROTECT, related_name='+')
