@@ -17,7 +17,12 @@
             </p>
           </div>
         {% else %}
-          <img src="{{background_image}}">
+          <img src="{{background_image}}" class="mobile">
+          {% if background_image_desktop %}
+            <img src="{{background_image_desktop}}" class="desktop">
+          {% else %}
+            <img src="{% static 'placeholder.png' %}" class="desktop">
+          {% endif %}
         {% endif %}
 
         <div class="choices">
@@ -40,7 +45,12 @@
             </h1>
           </div>
         {% else %}
-          <img src="{{background_image}}">
+          <img src="{{background_image}}" class="mobile">
+          {% if background_image_desktop %}
+            <img src="{{background_image_desktop}}" class="desktop">
+          {% else %}
+            <img src="{% static 'placeholder.png' %}" class="desktop">
+          {% endif %}
         {% endif %}
         <div class="messages">
           {% for message in screen.messages.all %}
@@ -61,7 +71,12 @@
             {{screen.title}}
           </div>
         {% else %}
-          <img src="{{background_image}}">
+          <img src="{{background_image}}" class="mobile">
+          {% if background_image_desktop %}
+            <img src="{{background_image_desktop}}" class="desktop">
+          {% else %}
+            <img src="{% static 'placeholder.png' %}" class="desktop">
+          {% endif %}
         {% endif %}
 
         {% if screen.video %}
@@ -87,6 +102,7 @@
   <script type="module">
     document.addEventListener('DOMContentLoaded', () => {
         document.body.style.background = '{{background_color}}';
+        document.documentElement.style.background = '{{background_color}}';
     });
   </script>
 {% endblock %}

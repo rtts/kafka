@@ -8,15 +8,13 @@
     <title>{% block title %}{% endblock %}</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-    <link rel="stylesheet" type="text/css" href="{% sass_src 'game/main14.scss' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% sass_src 'game/main15.scss' %}"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     {% block extrahead %}{% endblock %}
   </head>
   <body class="{% block body_class %}{% endblock %}">
-    {{request.session.chosen_routes}}
-
     <main>
       <section class="type{{screen.type.type}}" id="scroll">
         {% block content %}

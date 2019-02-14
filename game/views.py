@@ -167,6 +167,11 @@ class GameView(FormView):
         else:
             background_image = 'none'
 
+        if screen.image_desktop:
+            background_image_desktop = screen.image_desktop.url
+        else:
+            background_image_desktop = None
+
         if screen.audio:
             audio = screen.audio.url
             loop = screen.loop
@@ -184,6 +189,7 @@ class GameView(FormView):
             'foreground_color': foreground_color,
             'text_color': text_color,
             'background_image': background_image,
+            'background_image_desktop': background_image_desktop,
             'audio': audio,
             'loop': loop,
         })
