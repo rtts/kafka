@@ -8,8 +8,8 @@
 
   <form method="post" id="form">
     {% csrf_token %}
-    {% if screen.type.type == 10 %} <!-- Keuze -->
-      <div class="screen choice">
+    {% if screen.type.type == 10 or screen.type.type == 70 %} <!-- Keuze, Level -->
+      <div class="screen choice" style="background-color: {{background_color}}">
         {% if background_image == 'none' %}
           <div class="choices">
             <p>
@@ -30,7 +30,7 @@
             {% if route.image %}
               <button class="image {% if route.disabled %}disabled{% endif %}" type="submit" value="{{route.id}}" name="route"{% if route.disabled %} onclick="return false"{% endif %}><img src="{{route.image.url}}" alt="{{route.name}}"></button>
             {% else %}
-              <button class="fancy {% if route.disabled %}disabled{% endif %}" type="submit" value="{{route.id}}" name="route" style="background-color: {{foreground_color}}" {% if route.disabled %} onclick="return false"{% endif %}>{{route.name}}</button>
+              <button class="fancy {% if route.disabled %}disabled{% endif %}" type="submit" value="{{route.id}}" name="route" style="background-color: {{foreground_color}}" {% if route.disabled %} onclick="return false"{% endif %}>{{route.name|default:'Start'}}</button>
             {% endif %}
           {% endfor %}
         </div>
@@ -66,7 +66,11 @@
 
     {% else %} <!-- Intro, Actie, Locatie, Mededeling, Video -->
       <div class="screen" style="background-color: {{background_color}}">
-        {% if background_image == 'none' %}
+        {% if screen.video %}
+          <div class="video">
+            <video src="{{screen.video.url}}" autoplay controls>
+          </div>
+        {% elif background_image == 'none' %}
           <div class="alert" style="background-color: {{foreground_color}}; color: {{text_color}}">
             {{screen.title}}
           </div>
@@ -77,12 +81,6 @@
           {% else %}
             <img src="{% static 'placeholder.png' %}" class="desktop">
           {% endif %}
-        {% endif %}
-
-        {% if screen.video %}
-          <div class="video">
-            {{screen.video.url}}
-          </div>
         {% endif %}
 
         <div class="next">
