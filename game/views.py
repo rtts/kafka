@@ -203,15 +203,16 @@ class GameView(FormView):
         routes = []
         for route in self.screen.routes.all():
             if route.conditions.exists():
-                enabled = True
-                for route_id in route.conditions.all():
-                    if not route_id in self.request.session['chosen_routes']:
-                        enabled = False
+                enabled = False
+                for condition in route.conditions.all():
+                    if condition.only_enabled_if.id in self.request.session['chosen_routes']:
+                        enabled = True
                         break
                 if enabled:
                     routes.append(route)
             else:
                 routes.append(route)
+        print(routes)
         return routes
 
 class GameScreenView(TemplateView):
