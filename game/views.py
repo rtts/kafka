@@ -203,11 +203,22 @@ class GameView(FormView):
         routes = []
         for route in self.screen.routes.all():
             if route.conditions.exists():
-                enabled = False
+                enabled = True
                 for condition in route.conditions.all():
-                    if condition.only_enabled_if.id in self.request.session['chosen_routes']:
-                        enabled = True
+                    condition1 = condition.only_enabled_if.id in self.request.session['chosen_routes']
+                    inverse1 = condition.inverse
+                    if condition.only_enabled_if2:
+                        condition2 = condition.only_enabled_if2.id in self.request.session['chosen_routes']
+                        inverse2 = condition.inverse2
+                    else:
+                        condition2 = False
+                        inverse2 = False
+
+                    # If this routes' conditions are NOT met
+                    if not ((condition1 and (not inverse1)) or (condition2 and (not inverse2))):
+                        enable = False
                         break
+
                 if enabled:
                     routes.append(route)
             else:

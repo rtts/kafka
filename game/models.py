@@ -88,10 +88,20 @@ class Route(models.Model):
 
 class Condition(models.Model):
     route = models.ForeignKey(Route, on_delete=models.CASCADE, related_name='conditions')
-    only_enabled_if = models.ForeignKey(Route, on_delete=models.CASCADE, related_name='+', verbose_name='Als de speler deze keuze ooit heeft gemaakt')
+    only_enabled_if = models.ForeignKey(Route, on_delete=models.CASCADE, related_name='+', verbose_name='Als de speler ooit deze keuze heeft gemaakt')
+    inverse = models.BooleanField('Als de speler de bovenstaande keuze juist NIET heeft gemaakt', default=False)
+    only_enabled_if2 = models.ForeignKey(Route, on_delete=models.CASCADE, related_name='+', null=True, blank=True, verbose_name='OF als de speler ooit deze keuze heeft gemaakt')
+    inverse2 = models.BooleanField('Als de speler de bovenstaande keuze juist NIET heeft gemaakt', default=False)
 
     def __str__(self):
-        return self.only_enabled_if.name
+        a = 'NIET' if self.inverse else 'WEL'
+        if1 = self.only_enabled_if.name
+        if self.only_enabled_if2:
+            b = 'NIET' if self.inverse2 else 'WEL'
+            if2 = self.only_enabled_if2.name
+            return '{} {} OF {} {}'.format(a, if1, b, if2)
+        else:
+            return '{} {}'.format(a, if1)
 
     class Meta:
         ordering = ['pk']
