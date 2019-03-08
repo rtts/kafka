@@ -131,6 +131,10 @@ class GameView(FormView):
     def form_valid(self, form):
         chosen_route = form.cleaned_data['route']
         routes = self.get_routes()
+
+        if not routes:
+            return redirect('game')
+
         if chosen_route in routes:
             self.request.session['screen_id'] = chosen_route.target.id
             self.request.session['chosen_routes'] += [chosen_route.id]
