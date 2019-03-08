@@ -212,7 +212,6 @@ class GameView(FormView):
                     routes.append(route)
             else:
                 routes.append(route)
-        print(routes)
         return routes
 
 class GameScreenView(TemplateView):
