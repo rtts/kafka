@@ -184,6 +184,7 @@ section {
       }
 
       div.messages {
+        @media(min-width: $medium) { margin: 0 15.5% }
         padding: 25px;
         padding-bottom: 0;
       }
@@ -198,6 +199,7 @@ section {
         padding: 15px;
         @media(min-width: $medium) { padding: 25px }
         margin-bottom: 20px;
+        @media(min-width: $medium) { margin-bottom: 45px }
         box-shadow: 3px 3px 12px rgba(0,0,0,0.25);
         background: $yellow;
 
