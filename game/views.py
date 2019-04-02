@@ -239,5 +239,6 @@ class GameScreenView(TemplateView):
 
 class ResetView(TemplateView):
     def get(self, request):
+        del request.session['chosen_routes']
         del request.session['screen_id']
         return redirect('game')
