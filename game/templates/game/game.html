@@ -29,11 +29,9 @@
     {% if screen.type.type == 10 or screen.type.type == 70 %} <!-- Keuze, Level -->
       <div class="screen choice" style="background-color: {{background_color}}">
         {% if background_image == 'none' %}
-          <div class="choices">
-            <p>
-              {{screen.title}}
-            </p>
-          </div>
+          <p>
+            {{screen.title}}
+          </p>
         {% else %}
           <img src="{{background_image}}" class="mobile">
           {% if background_image_desktop %}
