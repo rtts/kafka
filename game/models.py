@@ -52,6 +52,7 @@ class Screen(models.Model):
     image = models.ImageField('afbeelding mobiel', blank=True)
     image_desktop = models.ImageField('afbeelding desktop', blank=True)
     video = models.FileField(blank=True)
+    video_desktop = models.FileField(blank=True)
     audio = models.FileField(blank=True)
     loop = models.BooleanField(default=True)
     button_text = models.CharField('tekst op de "Verder"-knop', max_length=255, blank=True)

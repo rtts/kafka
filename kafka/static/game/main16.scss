@@ -114,6 +114,12 @@ section {
         video {
           width: 100%;
         }
+        &.mobile {
+          @media(min-width: $medium) { display: none }
+        }
+        &.desktop {
+          @media(max-width: $medium) { display: none }
+        }
       }
 
 

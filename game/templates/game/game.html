@@ -85,8 +85,12 @@
     {% else %} <!-- Intro, Actie, Locatie, Mededeling, Video -->
       <div class="screen" style="background-color: {{background_color}}">
         {% if screen.video %}
-          <div class="video">
+          <div class="video mobile">
             <video src="{{screen.video.url}}" autoplay controls>
+          </div>
+        {% elif screen.video_desktop %}
+          <div class="video desktop">
+            <video src="{{screen.video_desktop.url}}" autoplay controls>
           </div>
         {% elif background_image == 'none' %}
           <div class="alert" style="background-color: {{foreground_color}}; color: {{text_color}}">
