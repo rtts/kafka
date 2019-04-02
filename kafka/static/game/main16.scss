@@ -307,11 +307,13 @@ div.choices {
 }
 
 button.image {
-  width: 50%;
-  display: inline-block;
+  width: 75%;
+  display: block;
+  margin: auto;
 
   @media(min-width: $medium) {
     width: 25%;
+    display: inline-block;
   }
 }
 
