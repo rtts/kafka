@@ -54,7 +54,7 @@ def graph(request):
         label = str(route) if route.name else ''
         penwidth = '2'
         if route.conditions.exists():
-            only_enabled_if = ', '.join([str(c.only_enabled_if) for c in route.conditions.all()])
+            only_enabled_if = ', '.join([str(c) for c in route.conditions.all()])
             label = 'Condities: {}'.format(only_enabled_if)
             penwidth = '5'
             color = 'red'
