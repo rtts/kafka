@@ -114,7 +114,9 @@ class GameView(FormView):
         return super().dispatch(request, *args, **kwargs)
 
     def get(self, request):
-        if self.screen.type.type == 11:
+        if request.user.is_staff:
+            return super().get(request)
+        elif self.screen.type.type == 11:
             try:
                 routes = self.get_routes()
                 route = random.choice(routes)
@@ -222,7 +224,7 @@ class GameView(FormView):
 
                     # If this routes' conditions are NOT met
                     if not ((condition1 and (not inverse1)) or (condition2 and (not inverse2))):
-                        enable = False
+                        enabled = False
                         break
 
                 if enabled:
