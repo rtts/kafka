@@ -306,7 +306,7 @@ div.screen.choice p {
   margin-bottom: .75em;
   @media(min-width: $medium) {
     margin-bottom: 2em;
-    font-size: 2em;
+    font-size: 1.75em;
   }
 }
 
@@ -335,7 +335,7 @@ button.fancy, a.fancy {
   @media(min-width:$medium) { margin: 1em auto }
   @media(min-width:$medium) { width: 60% }
   @media(min-width:$medium) { font-size: 32px }
-  @media(min-width:$medium) { padding: 48px }
+  @media(min-width:$medium) { padding: 56px }
   box-sizing: border-box;
   border: none;
   border-radius: $radius;
