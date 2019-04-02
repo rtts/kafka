@@ -27,7 +27,7 @@
   <form method="post" id="form">
     {% csrf_token %}
     {% if screen.type.type == 10 or screen.type.type == 70 %} <!-- Keuze, Level -->
-      <div class="screen choice" style="background-color: {{background_color}}">
+      <div class="screen choice type{{screen.type.type}}" style="background-color: {{background_color}}">
         {% if background_image == 'none' %}
           <p>
             {{screen.title}}

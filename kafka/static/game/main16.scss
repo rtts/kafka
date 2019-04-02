@@ -345,7 +345,6 @@ button.fancy, a.fancy {
   font-size: 24px;
   font-family: Agipo, sans-serif;
   text-transform: uppercase;
-  text-shadow: -1px -1px 0 #ff9703;
   color: black;
   display: block;
   margin: .6em 0;
@@ -355,6 +354,10 @@ button.fancy, a.fancy {
   border-radius: $radius;
   text-transform: uppercase;
   line-height: 1;
+}
+
+div.screen.type70 button.fancy {
+  text-shadow: -1px -1px 0 #ff9703;
 }
 
 div.menu {
