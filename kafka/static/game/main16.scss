@@ -304,6 +304,10 @@ button {
 
 div.screen.choice p {
   margin-bottom: .75em;
+  @media(min-width: $medium) {
+    margin-bottom: 1.5em;
+    font-size: 2em;
+  }
 }
 
 div.choices {
@@ -328,6 +332,9 @@ button.fancy, a.fancy {
   //background: $grey;
 
   width: 100%;
+  @media(min-width:$medium) { margin: 2em auto }
+  @media(min-width:$medium) { width: 60% }
+  @media(min-width:$medium) { font-size: 32px }
   box-sizing: border-box;
   border: none;
   border-radius: $radius;
