@@ -57,8 +57,15 @@ div.title_screen {
     letter-spacing: 1px;
     text-transform: uppercase;
     word-wrap: break-word; }
+    @media (min-width: 800px) {
+      div.title_screen h1 {
+        font-size: 3em; } }
   div.title_screen p {
-    margin: 0.25em; }
+    margin: 0.25em auto;
+    max-width: 800px; }
+    @media (min-width: 800px) {
+      div.title_screen p {
+        font-size: 1.5em; } }
 
 section {
   position: relative;
@@ -221,7 +228,7 @@ div.next {
         margin-right: 75px; } }
     @media (min-width: 800px) {
       div.next a, div.next button {
-        font-size: 30px; } }
+        font-size: 25px; } }
     div.next a:hover, div.next button:hover {
       background: #ffda00 !important; }
 
@@ -270,7 +277,7 @@ button.fancy, a.fancy {
   font-size: 24px;
   font-family: Agipo, sans-serif;
   text-transform: uppercase;
-  text-shadow: -1px -1px 0 white;
+  text-shadow: -1px -1px 0 #ff9703;
   color: black;
   display: block;
   margin: .6em 0;
@@ -309,6 +316,18 @@ div.menu {
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
     border-radius: 6px;
     text-transform: uppercase; }
+    @media (min-width: 800px) {
+      div.menu a {
+        margin: 1em auto; } }
+    @media (min-width: 800px) {
+      div.menu a {
+        width: 60%; } }
+    @media (min-width: 800px) {
+      div.menu a {
+        font-size: 32px; } }
+    @media (min-width: 800px) {
+      div.menu a {
+        padding: 56px; } }
 
 footer {
   margin: 25px;
@@ -330,76 +349,76 @@ div.vertical {
   animation: leftright linear infinite alternate; }
 
 div.v1 {
-  animation-delay: -10060ms;
-  animation-duration: 13526ms; }
+  animation-delay: -12470ms;
+  animation-duration: 12286ms; }
 
 div.v2 {
-  animation-delay: -18066ms;
-  animation-duration: 25321ms; }
+  animation-delay: -24551ms;
+  animation-duration: 11736ms; }
 
 div.v3 {
-  animation-delay: -10883ms;
-  animation-duration: 29897ms; }
+  animation-delay: -19649ms;
+  animation-duration: 20119ms; }
 
 div.v4 {
-  animation-delay: -12018ms;
-  animation-duration: 27195ms; }
+  animation-delay: -25786ms;
+  animation-duration: 25308ms; }
 
 div.v5 {
-  animation-delay: -13909ms;
-  animation-duration: 20503ms; }
+  animation-delay: -21306ms;
+  animation-duration: 23270ms; }
 
 div.v6 {
-  animation-delay: -16417ms;
-  animation-duration: 20364ms; }
+  animation-delay: -21637ms;
+  animation-duration: 17513ms; }
 
 div.v7 {
-  animation-delay: -21102ms;
-  animation-duration: 23542ms; }
+  animation-delay: -18275ms;
+  animation-duration: 17703ms; }
 
 div.v8 {
-  animation-delay: -13809ms;
-  animation-duration: 21363ms; }
+  animation-delay: -12598ms;
+  animation-duration: 25702ms; }
 
 div.v9 {
-  animation-delay: -16432ms;
-  animation-duration: 28416ms; }
+  animation-delay: -16098ms;
+  animation-duration: 26632ms; }
 
 div.h1 {
-  animation-delay: -24258ms;
-  animation-duration: 13774ms; }
+  animation-delay: -21430ms;
+  animation-duration: 12093ms; }
 
 div.h2 {
-  animation-delay: -29575ms;
-  animation-duration: 27718ms; }
+  animation-delay: -24899ms;
+  animation-duration: 23089ms; }
 
 div.h3 {
-  animation-delay: -27482ms;
-  animation-duration: 19373ms; }
+  animation-delay: -21429ms;
+  animation-duration: 16596ms; }
 
 div.h4 {
-  animation-delay: -25907ms;
-  animation-duration: 25333ms; }
+  animation-delay: -26315ms;
+  animation-duration: 26145ms; }
 
 div.h5 {
-  animation-delay: -17856ms;
-  animation-duration: 19095ms; }
+  animation-delay: -22568ms;
+  animation-duration: 27660ms; }
 
 div.h6 {
-  animation-delay: -28970ms;
-  animation-duration: 19252ms; }
+  animation-delay: -28294ms;
+  animation-duration: 10582ms; }
 
 div.h7 {
-  animation-delay: -15805ms;
-  animation-duration: 21752ms; }
+  animation-delay: -29096ms;
+  animation-duration: 27005ms; }
 
 div.h8 {
-  animation-delay: -18948ms;
-  animation-duration: 27405ms; }
+  animation-delay: -10882ms;
+  animation-duration: 12020ms; }
 
 div.h9 {
-  animation-delay: -13610ms;
-  animation-duration: 25496ms; }
+  animation-delay: -28298ms;
+  animation-duration: 21646ms; }
 
 @keyframes topbottom {
   to {

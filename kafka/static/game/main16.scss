@@ -74,9 +74,12 @@ div.title_screen {
     letter-spacing: 1px;
     text-transform: uppercase;
     word-wrap: break-word;
+    @media(min-width: $medium) { font-size: 3em }
   }
   p {
-    margin: 0.25em;
+    margin: 0.25em auto;
+    max-width: 800px;
+    @media(min-width: $medium) { font-size: 1.5em }
   }
 }
 
@@ -329,8 +332,6 @@ button.fancy, a.fancy {
   display: block;
   text-align: center;
   cursor: pointer;
-  //background: $grey;
-
   width: 100%;
   @media(min-width:$medium) { margin: 1em auto }
   @media(min-width:$medium) { width: 60% }
@@ -344,18 +345,16 @@ button.fancy, a.fancy {
   font-size: 24px;
   font-family: Agipo, sans-serif;
   text-transform: uppercase;
-
-    text-shadow: -1px -1px 0 white;
-    color: black;
-    display: block;
-    margin: .6em 0;
-    text-decoration: none;
-    padding: 32px 48px;
-    box-shadow: 3px 3px 3px rgba(0,0,0,0.25);
-    border-radius: $radius;
-    text-transform: uppercase;
-    line-height: 1;
-
+  text-shadow: -1px -1px 0 #ff9703;
+  color: black;
+  display: block;
+  margin: .6em 0;
+  text-decoration: none;
+  padding: 32px 48px;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.25);
+  border-radius: $radius;
+  text-transform: uppercase;
+  line-height: 1;
 }
 
 div.menu {
@@ -365,6 +364,10 @@ div.menu {
   margin-top: 45px;
 
   a {
+    @media(min-width:$medium) { margin: 1em auto }
+    @media(min-width:$medium) { width: 60% }
+    @media(min-width:$medium) { font-size: 32px }
+    @media(min-width:$medium) { padding: 56px }
     text-shadow: -1px -1px 0 white;
     color: black;
     display: block;
