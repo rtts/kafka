@@ -14,6 +14,7 @@ div.debug {
   font-size: 12px;
   z-index: 1000;
   padding: 2px;
+  display: none;
 }
 
 @font-face {
@@ -184,7 +185,7 @@ section {
       }
 
       div.messages {
-        @media(min-width: $medium) { margin: 0 15.5% }
+        @media(min-width: $medium) { margin: 0 16% 0 14% }
         padding: 25px;
         padding-bottom: 0;
       }
