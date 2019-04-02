@@ -6,6 +6,24 @@
     <a class="edit" href="{% url 'admin:game_screen_change' screen.pk %}">bewerk dit scherm</a>
   {% endif %}
 
+  <div class="debug">
+    U heeft de volgende keuzes gemaakt:
+    <ul>
+      {% for r in chosen_routes %}
+        <li>{{r}}</li>
+      {% empty %}
+        <li>[nog geen]</li>
+      {% endfor %}
+    </ul>
+
+    Dit leidt tot de volgende mogelijke routes:
+    <ul>
+      {% for r in routes %}
+        <li>{{r}}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
   <form method="post" id="form">
     {% csrf_token %}
     {% if screen.type.type == 10 or screen.type.type == 70 %} <!-- Keuze, Level -->

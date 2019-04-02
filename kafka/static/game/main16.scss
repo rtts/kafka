@@ -5,6 +5,17 @@ $radius: 6px;
 
 $medium: 800px;
 
+div.debug {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background: #6006;
+  color: white;
+  font-size: 12px;
+  z-index: 1000;
+  padding: 2px;
+}
+
 @font-face {
   font-family: 'Entrails BB';
   src: url('../EntrailsBB.otf') format('opentype'),

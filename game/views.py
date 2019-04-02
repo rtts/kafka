@@ -186,8 +186,14 @@ class GameView(FormView):
             audio = False
             loop = False
 
+        try:
+            chosen_routes = Route.objects.filter(id__in=self.request.session['chosen_routes'])
+        except:
+            chosen_routes = []
+
         context.update({
             'screen': screen,
+            'chosen_routes': chosen_routes,
             'routes': routes,
             'background_color': background_color,
             'foreground_color': foreground_color,
