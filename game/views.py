@@ -114,9 +114,7 @@ class GameView(FormView):
         return super().dispatch(request, *args, **kwargs)
 
     def get(self, request):
-        if request.user.is_staff:
-            return super().get(request)
-        elif self.screen.type.type == 11:
+        if self.screen.type.type == 11:
             try:
                 routes = self.get_routes()
                 route = random.choice(routes)
