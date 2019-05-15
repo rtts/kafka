@@ -4,25 +4,11 @@
 {% block content %}
   {% if user.is_staff %}
     <a class="edit" href="{% url 'admin:game_screen_change' screen.pk %}">bewerk dit scherm</a>
-
-    <div class="debug">
-      U heeft de volgende keuzes gemaakt:
-      <ul>
-        {% for r in chosen_routes %}
-          <li>{{r}}</li>
-        {% empty %}
-          <li>[nog geen]</li>
-        {% endfor %}
-      </ul>
-
-      Dit leidt tot de volgende mogelijke schermen:
-      <ul>
-        {% for r in routes %}
-          <li>{{r.target}}</li>
-        {% endfor %}
-      </ul>
-    </div>
   {% endif %}
+
+  <div class="debug">
+    {{screen.pk}}
+  </div>
 
   <form method="post" id="form">
     {% csrf_token %}
