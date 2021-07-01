@@ -14,6 +14,7 @@ ADMINS = [('JJ Vens', 'jj@rtts.eu')]
 ALLOWED_HOSTS = ['*']
 ROOT_URLCONF = 'project.urls'
 WSGI_APPLICATION = 'project.wsgi.application'
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 LANGUAGE_CODE = 'nl'
 TIME_ZONE = 'Europe/Amsterdam'
