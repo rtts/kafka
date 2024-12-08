@@ -1,0 +1,181 @@
+@font-face {
+  font-family: 'Entrails BB';
+  src: url("EntrailsBB.otf") format("opentype"), url("entrailsbb-webfont.woff2") format("woff2"), url("entrailsbb-webfont.woff") format("woff"), url("entrailsbb-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+body {
+  background: #ffda00;
+  font-family: Arial, sans-serif;
+  margin: 3em;
+  line-height: 1.35; }
+  @media (max-width: 600px) {
+    body {
+      margin: 10px; } }
+h1 {
+  letter-spacing: 2px;
+  font-size: 1.5em;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-style: italic; }
+
+h2 {
+  font-size: 1em; }
+
+a {
+  color: inherit; }
+
+time {
+  font-style: italic; }
+
+img {
+  border: none; }
+
+blockquote {
+  font-style: italic;
+  margin: 0;
+  padding: 0; }
+
+header {
+  padding: 20px 0;
+  text-align: center;
+  font-family: "Entrails BB";
+  font-size: 10em;
+  letter-spacing: 5px;
+  transform: scaleX(0.9);
+  line-height: 1; }
+  header a {
+    text-decoration: none; }
+  @media (max-width: 600px) {
+    header {
+      font-size: 25vw; } }
+nav {
+  position: absolute;
+  top: 5px;
+  right: 10px; }
+
+main {
+  display: flex;
+  margin: -3em;
+  margin-bottom: 0;
+  overflow: hidden; }
+  main > section {
+    margin: 3em;
+    flex: 1 1 0; }
+  @media (max-width: 600px) {
+    main {
+      display: block;
+      margin: 0; }
+      main section {
+        margin: 0; } }
+section.left p {
+  font-size: 1.25em; }
+
+section.session {
+  margin-bottom: 2em; }
+
+footer {
+  opacity: .5; }
+
+div.horizontal, div.vertical {
+  position: fixed;
+  top: -5px;
+  left: 0; }
+  div.horizontal img, div.vertical img {
+    width: 80px;
+    transform: scale(1.5); }
+    @media (max-width: 600px) {
+      div.horizontal img, div.vertical img {
+        transform: scale(1); } }
+div.horizontal {
+  animation: topbottom linear infinite alternate; }
+
+div.vertical {
+  animation: leftright linear infinite alternate; }
+
+@media (max-width: 600px) {
+  div.h4, div.h5, div.h6, div.h7, div.h8, div.h9 {
+    display: none; } }
+
+div.v1 {
+  animation-delay: -14654ms;
+  animation-duration: 12285ms; }
+
+div.v2 {
+  animation-delay: -25920ms;
+  animation-duration: 25135ms; }
+
+div.v3 {
+  animation-delay: -26149ms;
+  animation-duration: 27252ms; }
+
+div.v4 {
+  animation-delay: -23141ms;
+  animation-duration: 26075ms; }
+
+div.v5 {
+  animation-delay: -29339ms;
+  animation-duration: 13600ms; }
+
+div.v6 {
+  animation-delay: -23000ms;
+  animation-duration: 22302ms; }
+
+div.v7 {
+  animation-delay: -25648ms;
+  animation-duration: 26195ms; }
+
+div.v8 {
+  animation-delay: -11998ms;
+  animation-duration: 14678ms; }
+
+div.v9 {
+  animation-delay: -23687ms;
+  animation-duration: 25781ms; }
+
+div.h1 {
+  animation-delay: -21383ms;
+  animation-duration: 11716ms; }
+
+div.h2 {
+  animation-delay: -22573ms;
+  animation-duration: 16061ms; }
+
+div.h3 {
+  animation-delay: -23697ms;
+  animation-duration: 11087ms; }
+
+div.h4 {
+  animation-delay: -24078ms;
+  animation-duration: 23790ms; }
+
+div.h5 {
+  animation-delay: -23754ms;
+  animation-duration: 13637ms; }
+
+div.h6 {
+  animation-delay: -12560ms;
+  animation-duration: 15481ms; }
+
+div.h7 {
+  animation-delay: -27406ms;
+  animation-duration: 18843ms; }
+
+div.h8 {
+  animation-delay: -25417ms;
+  animation-duration: 17552ms; }
+
+div.h9 {
+  animation-delay: -22028ms;
+  animation-duration: 12937ms; }
+
+@keyframes topbottom {
+  to {
+    transform: translateY(calc(100vh - 80px)); } }
+
+@keyframes leftright {
+  to {
+    transform: translateX(calc(100vw - 80px)); } }
+
+/*# sourceMappingURL=main5.css.map */

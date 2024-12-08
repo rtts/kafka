@@ -1,22 +1,27 @@
-Camping Kafka Game Engine
-=========================
+# Camping Kafka
 
-This repository contains the game engine used by the online adventure
-game [Camping Kafka](https://www.campingkafka.nl/game/). The `game`
-module contains the Django models, views and templates, as well as a
-nice visual graph editor based on [Graphviz](https://www.graphviz.org/).
+This repository contains the website and game engine of the online
+adventure game [Camping Kafka](https://kafka.created.today/). The game
+draws attention to the often hopeless position of those at the bottom
+of society who are forced to live in the proverbial Camping Kafka.
 
-To get up and running, install Python 3 and run the following commands:
+The `kafka` module contains the website and the `game` module contains
+the game engine as well as a visual graph editor based on
+[Graphviz](https://www.graphviz.org/):
 
-     python -m venv ~/.virtualenvs/kafka
-     . ~/.virtualenvs/kafka/bin/activate
+![Game graph](kafka.png)
+
+## Installation
+
+Install Python and run the following commands:
+
      pip install -r requirements.txt
      ./manage.py migrate
      ./manage.py createsuperuser
      ./manage.py runserver
 
-Then point your webbrowser to http://localhost:8000/admin/ and add
-some content! The visual graph editor can be found at
-http://localhost:8000/game/graph/
+## Usage
 
-Have fun :)
+Point your webbrowser to http://localhost:8000/admin/ to add game
+content. The visual graph editor can be found at
+http://localhost:8000/game/graph/

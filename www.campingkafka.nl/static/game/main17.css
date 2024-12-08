@@ -1,0 +1,432 @@
+div.debug {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: #6006;
+  color: white;
+  font-size: 12px;
+  z-index: 1000;
+  padding: 2px; }
+
+@font-face {
+  font-family: 'Entrails BB';
+  src: url("../EntrailsBB.otf") format("opentype"), url("../entrailsbb-webfont.woff2") format("woff2"), url("../entrailsbb-webfont.woff") format("woff"), url("../entrailsbb-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Agipo';
+  src: url("agipo_regular_italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal; }
+
+body, html {
+  background: #ffda00;
+  font-family: Agipo, sans-serif;
+  font-size: 20px;
+  margin: 0;
+  padding: 0; }
+
+body.grey {
+  background: #d4d4d3; }
+
+main {
+  max-width: 800px;
+  margin: auto; }
+  @media (min-width: 800px) {
+    main {
+      max-width: none;
+      margin: 50px; } }
+
+div.title_screen {
+  height: 100vh;
+  background-color: #ffda00;
+  text-align: center;
+  padding: 10px 30px; }
+  div.title_screen h1 {
+    margin: 0 -30px;
+    padding: 20px 0;
+    font-family: 'Entrails BB';
+    font-size: 2.5em;
+    line-height: 1.1;
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    word-wrap: break-word; }
+    @media (min-width: 800px) {
+      div.title_screen h1 {
+        font-size: 3em; } }
+  div.title_screen p {
+    margin: 0.25em auto;
+    max-width: 800px; }
+    @media (min-width: 800px) {
+      div.title_screen p {
+        font-size: 1.5em; } }
+
+section {
+  position: relative;
+  min-height: 100vh; }
+  section a.edit {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    color: red;
+    text-decoration: none;
+    font-size: 12px;
+    z-index: 1000; }
+  section form div.screen {
+    min-height: 100vh;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #d4d4d3; }
+    section form div.screen div.video video {
+      width: 100%; }
+    @media (min-width: 800px) {
+      section form div.screen div.video.mobile {
+        display: none; } }
+    @media (max-width: 800px) {
+      section form div.screen div.video.desktop {
+        display: none; } }
+    section form div.screen div.choices {
+      padding: 0 25px; }
+    section form div.screen img {
+      display: block;
+      width: 100%; }
+    section form div.screen img.mobile {
+      display: none; }
+      @media (max-width: 800px) {
+        section form div.screen img.mobile {
+          display: block; } }
+    section form div.screen img.desktop {
+      display: none; }
+      @media (min-width: 800px) {
+        section form div.screen img.desktop {
+          display: block; } }
+    section form div.screen div.title {
+      padding: 25px; }
+      section form div.screen div.title h1 {
+        margin: 0;
+        padding: 10px;
+        font-family: 'Entrails BB';
+        font-weight: normal;
+        font-size: 30px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+        box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.25);
+        text-align: center;
+        font-weight: normal;
+        border-radius: 6px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        word-wrap: break-word;
+        line-height: 1.1;
+        background: #ffda00; }
+    section form div.screen p {
+      line-height: 1.2;
+      margin-top: 1.4em;
+      margin-bottom: 1.9em;
+      font-size: 26px; }
+    section form div.screen div.alert {
+      font-size: 3em;
+      line-height: 0.9;
+      letter-spacing: -2px;
+      margin: 30px;
+      padding: 30px 0;
+      text-align: center;
+      box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.25);
+      text-shadow: -2px -2px 0 #9b67e6;
+      border-radius: 6px; }
+    section form div.screen div.messages {
+      padding: 25px;
+      padding-bottom: 0; }
+      @media (min-width: 800px) {
+        section form div.screen div.messages {
+          margin: 0 16% 0 14%; } }
+    section form div.screen div.message {
+      text-align: left;
+      margin-left: 15%;
+      box-sizing: border-box;
+      position: relative;
+      border-radius: 6px;
+      width: 85%;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.25);
+      background: #ffda00; }
+      @media (min-width: 800px) {
+        section form div.screen div.message {
+          padding: 25px; } }
+      @media (min-width: 800px) {
+        section form div.screen div.message {
+          margin-bottom: 45px; } }
+      section form div.screen div.message p {
+        font-size: 17px;
+        margin: 0;
+        hyphens: manual;
+        hyphens: auto; }
+        @media (min-width: 800px) {
+          section form div.screen div.message p {
+            font-size: 25px; } }
+      section form div.screen div.message:after {
+        content: '';
+        position: absolute;
+        right: -20px;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        margin-top: -15px;
+        margin-left: -30px;
+        border: 30px solid transparent;
+        border-right: 0;
+        border-bottom: 0;
+        border-left-color: #ffda00; }
+    section form div.screen div.message.received {
+      background: white;
+      margin-left: 0; }
+      section form div.screen div.message.received:after {
+        right: auto;
+        left: 10px;
+        border: 30px solid transparent;
+        border-right-color: white;
+        border-left: 0;
+        border-bottom: 0; }
+    section form div.screen div.characters img {
+      width: 100%; }
+    section form div.screen div.characters button {
+      float: left;
+      width: 50%;
+      box-shadow: none; }
+
+div.next {
+  width: 100%;
+  text-align: right; }
+  div.next a, div.next button {
+    background: rgba(255, 255, 255, 0.3) !important;
+    display: inline-block;
+    padding: 8px 16px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: auto;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    font-size: 17px;
+    font-family: Agipo, sans-serif;
+    color: black;
+    text-decoration: none;
+    transition: .2s; }
+    @media (min-width: 800px) {
+      div.next a, div.next button {
+        margin-right: 75px; } }
+    @media (min-width: 800px) {
+      div.next a, div.next button {
+        font-size: 25px; } }
+    div.next a:hover, div.next button:hover {
+      background: #ffda00 !important; }
+
+button.disabled {
+  opacity: 0.25;
+  cursor: default !important; }
+
+button {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+  background: none;
+  cursor: pointer;
+  outline: none; }
+
+div.screen.choice p {
+  margin-bottom: .75em; }
+  @media (min-width: 800px) {
+    div.screen.choice p {
+      margin-bottom: 2em;
+      font-size: 1.75em; } }
+
+div.choices {
+  font-size: 0; }
+
+button.image {
+  width: 75%;
+  display: block;
+  margin: auto; }
+  @media (min-width: 800px) {
+    button.image {
+      width: 25%;
+      display: inline-block; } }
+
+button.fancy, a.fancy {
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 6px;
+  text-shadow: -1px -1px 0 white;
+  box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.25);
+  font-size: 24px;
+  font-family: Agipo, sans-serif;
+  text-transform: uppercase;
+  color: black;
+  display: block;
+  margin: .6em 0;
+  text-decoration: none;
+  padding: 32px 48px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  text-transform: uppercase;
+  line-height: 1; }
+  @media (min-width: 800px) {
+    button.fancy, a.fancy {
+      margin: 1em auto; } }
+  @media (min-width: 800px) {
+    button.fancy, a.fancy {
+      width: 60%; } }
+  @media (min-width: 800px) {
+    button.fancy, a.fancy {
+      font-size: 32px; } }
+  @media (min-width: 800px) {
+    button.fancy, a.fancy {
+      padding: 56px; } }
+
+div.screen.type70 button.fancy {
+  text-shadow: -1px -1px 0 #ff9703; }
+
+div.menu {
+  font-size: 20px;
+  line-height: 1;
+  text-align: center;
+  margin-top: 45px; }
+  div.menu a {
+    text-shadow: -1px -1px 0 white;
+    color: black;
+    display: block;
+    margin: 1em 0;
+    background: #d4d4d3;
+    text-decoration: none;
+    padding: 18px 24px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    text-transform: uppercase; }
+    @media (min-width: 800px) {
+      div.menu a {
+        margin: 1em auto; } }
+    @media (min-width: 800px) {
+      div.menu a {
+        width: 60%; } }
+    @media (min-width: 800px) {
+      div.menu a {
+        font-size: 32px; } }
+    @media (min-width: 800px) {
+      div.menu a {
+        padding: 56px; } }
+
+footer {
+  margin: 25px;
+  font-size: 0.7em;
+  opacity: 0.5; }
+
+/* Flying Emoji */
+div.horizontal, div.vertical {
+  position: fixed;
+  top: -5px;
+  left: 0; }
+  div.horizontal img, div.vertical img {
+    width: 80px; }
+
+div.horizontal {
+  animation: topbottom linear infinite alternate; }
+
+div.vertical {
+  animation: leftright linear infinite alternate; }
+
+div.v1 {
+  animation-delay: -17376ms;
+  animation-duration: 10372ms; }
+
+div.v2 {
+  animation-delay: -18738ms;
+  animation-duration: 10505ms; }
+
+div.v3 {
+  animation-delay: -26372ms;
+  animation-duration: 15323ms; }
+
+div.v4 {
+  animation-delay: -26318ms;
+  animation-duration: 16792ms; }
+
+div.v5 {
+  animation-delay: -24641ms;
+  animation-duration: 12223ms; }
+
+div.v6 {
+  animation-delay: -27283ms;
+  animation-duration: 18393ms; }
+
+div.v7 {
+  animation-delay: -28557ms;
+  animation-duration: 25464ms; }
+
+div.v8 {
+  animation-delay: -28794ms;
+  animation-duration: 24266ms; }
+
+div.v9 {
+  animation-delay: -29534ms;
+  animation-duration: 21746ms; }
+
+div.h1 {
+  animation-delay: -11366ms;
+  animation-duration: 23015ms; }
+
+div.h2 {
+  animation-delay: -11211ms;
+  animation-duration: 15088ms; }
+
+div.h3 {
+  animation-delay: -25559ms;
+  animation-duration: 10762ms; }
+
+div.h4 {
+  animation-delay: -10469ms;
+  animation-duration: 19627ms; }
+
+div.h5 {
+  animation-delay: -26238ms;
+  animation-duration: 19883ms; }
+
+div.h6 {
+  animation-delay: -29841ms;
+  animation-duration: 24780ms; }
+
+div.h7 {
+  animation-delay: -17887ms;
+  animation-duration: 17234ms; }
+
+div.h8 {
+  animation-delay: -25877ms;
+  animation-duration: 21782ms; }
+
+div.h9 {
+  animation-delay: -21962ms;
+  animation-duration: 12261ms; }
+
+@keyframes topbottom {
+  to {
+    transform: translateY(calc(100vh - 80px)); } }
+
+@keyframes leftright {
+  to {
+    transform: translateX(calc(100vw - 80px)); } }
+
+/*# sourceMappingURL=main17.css.map */
